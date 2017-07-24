@@ -126,9 +126,9 @@ class NewsAPIController extends AppBaseController
             return $this->sendError('News not found');
         }
         if($news->picture){
-            $find =  Storage::disk('public')->exists('news/'.$news->picture);
+            $find =  Storage::disk('public')->exists($news->picture);
             if($find){
-                unlink('storage/app/public/news/'.$news->picture );
+                unlink('storage/app/public/'.$news->picture );
             }
         }
 

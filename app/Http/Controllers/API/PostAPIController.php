@@ -123,9 +123,9 @@ class PostAPIController extends AppBaseController
     {
         /** @var Post $post */
         $post = $this->postRepository->findWithoutFail($id);
-        $find =  Storage::disk('public')->exists('posts/'.$post->picture);
+        $find =  Storage::disk('public')->exists($post->picture);
             if($find){
-                unlink('storage/app/public/posts/'.$post->picture );
+                unlink('storage/app/public/'.$post->picture );
             }
         if (empty($post)) {
             return $this->sendError('Post not found');

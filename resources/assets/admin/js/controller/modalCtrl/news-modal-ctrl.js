@@ -6,9 +6,9 @@ app.controller('NewsModalController',[
 	'$rootScope',
 	'$uibModalInstance',
     'toastr',
-	// 'baseurl',
+	'baseurl',
 	// '$document',
-	function($scope,$state,Auth,$rootScope,$uibModalInstance,toastr ){
+	function($scope,$state,Auth,$rootScope,$uibModalInstance,toastr,baseurl ){
 	var getAccessToken = Auth.getAccessToken();
 	if(!getAccessToken && !$rootScope.token){
 		$state.go('login');
@@ -18,7 +18,7 @@ app.controller('NewsModalController',[
 	$scope.upload = function (dataUrl, name) {
         $scope.dis = true;
         Upload.upload({
-            url: 'http://newblog.com/api/uploadAvatar/1',
+            url: baseurl+'admin/uploadAvatar/1',
             data: {
                 avatar : Upload.dataUrltoBlob(dataUrl, name),
             },

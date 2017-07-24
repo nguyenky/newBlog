@@ -5,7 +5,8 @@ app.controller('LoginCtrl',[
     '$http',
     '$state',
     'Auth',
-    function($scope,$rootScope,$http,$state,Auth){
+    'baseurl',
+    function($scope,$rootScope,$http,$state,Auth,baseurl){
     $scope.isShowError = false;
 
 	$scope.login = function(user){
@@ -24,7 +25,7 @@ app.controller('LoginCtrl',[
 	}
     $scope.getAvatar = function(){
         $http({
-                url: 'http://newblog.com/api/getProfile/1',
+                url: baseurl+'getProfile/1',
                 method: 'GET',
             }).then(function(result){
                 if(result && result.data.success){

@@ -37,14 +37,14 @@ class NewsRepository extends BaseRepository
                 }))->get();
         foreach ($news as $key => $new) {
             if($new->picture){
-                $find =  Storage::disk('public')->exists('/news/'.$new->picture);
+                $find =  Storage::disk('public')->exists($new->picture);
                 if($find){
-                    $new['url'] = url('storage/app/public/news/'.$new->picture);
+                    $new['url'] = url('storage/app/public/'.$new->picture);
                 }else{
-                    $new['url'] = url('storage/app/public/default/default.jpg');
+                    $new['url'] = url('storage/app/public/default.jpg');
                 }
             }else{
-                $new['url'] = url('storage/app/public/default/default.jpg');
+                $new['url'] = url('storage/app/public/default.jpg');
             }
         }
         return $news;
@@ -54,11 +54,11 @@ class NewsRepository extends BaseRepository
            $ext        = $attributes['picture']->guessClientExtension();
             $reName     = time().'.'.$ext;
             $img = Image::make($attributes['picture'])->resize(340, 200);
-            $img->save('storage/app/public/news/'.$reName);
+            $img->save('storage/app/public/'.$reName);
             $attributes['picture'] = $reName;
-            $url = url('storage/app/public/news/'.$reName); 
+            $url = url('storage/app/public/'.$reName); 
         }else{
-            $url = url('storage/app/public/default/default.jpg');
+            $url = url('storage/app/public/default.jpg');
         }
 
         $new = News::create($attributes);
@@ -75,12 +75,15 @@ class NewsRepository extends BaseRepository
             $ext        = $attributes['file']->guessClientExtension();
             $reName     = time().'.'.$ext;
             $img = Image::make($attributes['file'])->resize(340, 200);
-            $img->save('storage/app/public/news/'.$reName);
+            $img->save('storage/app/public/'.$reName);
             $attributes['picture'] = $reName;
-            $url = url('storage/app/public/news/'.$reName);
-            unlink('storage/app/public/news/'.$news->picture ); 
+            $url = url('storage/app/public/'.$reName);
+            $find =  Storage::disk('public')->exists($news->picture);
+            if($find){
+                unlink('storage/app/public/'.$news->picture ); 
+            }
         }else{
-            $url = url('storage/app/public/news/'.$news->picture);
+            $url = url('storage/app/public/'.$news->picture);
         }
 
         $news->update($attributes);

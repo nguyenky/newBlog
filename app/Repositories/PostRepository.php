@@ -28,11 +28,11 @@ class PostRepository extends BaseRepository
     public function all($columns = ['*']){
         $posts = Post::orderBy('id','DESC')->paginate(20);
         foreach ($posts as $key => $post) {
-            $find =  Storage::disk('public')->exists('posts/'.$post->picture);
+            $find =  Storage::disk('public')->exists($post->picture);
             if($find){
-                $post['url'] = url('storage/app/public/posts/'.$post->picture);
+                $post['url'] = url('storage/app/public/'.$post->picture);
             }else{
-                $post['url'] = url('storage/app/public/default/default.jpg');
+                $post['url'] = url('storage/app/public/default.jpg');
             }
         }
         return $posts;
@@ -41,23 +41,23 @@ class PostRepository extends BaseRepository
         $ext        = $attributes['picture']->guessClientExtension();
         $reName     = time().'.'.$ext;
         $img = Image::make($attributes['picture'])->resize(680, 400);
-        $img->save('storage/app/public/posts/'.$reName);
+        $img->save('storage/app/public/'.$reName);
         $post = Post::create([
             'caption'=>$attributes['caption'],
             'picture'=>$reName
             ]);
-        $url = url('storage/app/public/posts/'.$reName);
+        $url = url('storage/app/public/'.$reName);
         $post['url'] = $url;
         return $post;
     }
     public function getPostPublic(){
         $posts = Post::orderBy('id','DESC')->limit(4)->get();
         foreach ($posts as $key => $post) {
-            $find =  Storage::disk('public')->exists('posts/'.$post->picture);
+            $find =  Storage::disk('public')->exists($post->picture);
             if($find){
-                $post['url'] = url('storage/app/public/posts/'.$post->picture);
+                $post['url'] = url('storage/app/public/'.$post->picture);
             }else{
-                $post['url'] = url('storage/app/public/default/default.jpg');
+                $post['url'] = url('storage/app/public/default.jpg');
             }
         }
         return $posts;
