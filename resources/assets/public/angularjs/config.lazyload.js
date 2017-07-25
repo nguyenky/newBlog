@@ -54,6 +54,12 @@ angular.module('app')
                         'node_modules/ngdropzone/dist/ng-dropzone.min.css',
                     ]
                 },
+                {
+                    name: 'summernote',
+                    files: [
+                        'bower_components/summernote/dist/summernote.min.js',
+                    ]
+                }
             ]
         });
     }]);

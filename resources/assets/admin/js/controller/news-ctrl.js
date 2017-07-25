@@ -4,6 +4,7 @@ app = angular.module('app',[
 	'ui.select',
 	'ngFileUpload',
 	'ngImgCrop',
+	'summernote',
 	]);
 app.controller('NewsController',[
 	'$scope',

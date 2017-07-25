@@ -115,6 +115,7 @@ app.config(['$stateProvider','$urlRouterProvider','$ocLazyLoadProvider',function
                                     'select',
                                     'cropimage',
                                     'dropzone',
+                                    'summernote',
                                     'resources/assets/admin/js/controller/modalCtrl/news-modal-ctrl.js',
                                 ], {
                                     insertBefore: '#lazyload_placeholder'
