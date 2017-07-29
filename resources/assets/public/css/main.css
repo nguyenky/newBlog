@@ -594,7 +594,6 @@ button[type="submit"]:hover{
     padding:20px;
 }
 .category-content .display-table{
-    border:1px solid #fff;
     text-align:center;
 }
 .category-content .display-table .display-table-cell{

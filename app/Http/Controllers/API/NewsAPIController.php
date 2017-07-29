@@ -154,4 +154,13 @@ class NewsAPIController extends AppBaseController
 
         return $this->sendResponse($news->toArray(), 'News saved successfully');
     }
+    /// -------------PUBLIC-------------
+    public function getNewsPublic(){
+        $news = $this->newsRepository->getNewsPublic();
+        if (empty($news)) {
+            return $this->sendError('News not found');
+        }
+        return $this->sendResponse($news, 'News retrieved successfully');
+
+    }
 }

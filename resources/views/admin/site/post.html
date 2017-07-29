@@ -16,7 +16,8 @@
 	<br />
 	<div class="body">
 		<div class="text-center caption">
-				<i><p ng-show="!showUpdateCaption && caption">" {{caption.caption}} " <a href="" ng-click="showInputCaption()"><i class="fa fa-refresh" aria-hidden="true"></i></a></p></i>
+				<p ng-show="!showUpdateCaption && caption" ng-bind-html="trustAsHtml((caption.caption))" style="display: inline; margin-right: 10px;"></p><a href="" ng-click="showInputCaption()" ng-show="!showUpdateCaption && caption" ><i class="fa fa-refresh" aria-hidden="true"></i></a>
+				<!-- <p  ng-show="!showUpdateCaption && caption"></p> -->
 				<div class="row" ng-show="showUpdateCaption">
 					<form>
 						<div class=" form-group col-md-10">

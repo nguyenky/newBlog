@@ -78,7 +78,7 @@
 					<span class="slogn">For Real LifeStyle</span>
 				</div>
 				<div class="text-center">
-					<p>{{postMain.caption}}</p>
+					<div ng-bind-html="trustAsHtml((postMain.caption))"></div>
 				</div>
 			</div>
 			<nav id="nav" class="navbar navbar-default">
@@ -147,7 +147,7 @@
 						<div class="tg-banner-poststyle">
 							<figure>
 								<a href="#">
-									<img ng-src="{{postMain.url}}" alt="image description">
+									<img ng-src="{{postMain.url ? postMain.url : 'storage/app/public/default.jpg'}}" alt="image description">
 								</a>
 							</figure>
 							<!-- <div class="post-content">
@@ -276,7 +276,7 @@
 						<div class="tg-category">
 							<figure>
 								<a href="#">
-									<img ng-src="{{postExtra1.url}}" alt="image description">
+									<img ng-src="{{postExtra1.url ? postExtra1.url : 'storage/app/public/default.jpg'}}" alt="image description">
 								</a>
 							</figure>
 							<div class="category-content">
@@ -284,16 +284,16 @@
 									<div class="display-table-cell">
 										<div class="post-meta">
 											<span><a href="#">LifeStyle</a></span>
-											<span>Sep, 17 2015</span>
+											<span>{{ postExtra1.created_at | amCalendar:referenceTime:formats}}</span>
 										</div>
-										<div class="description">
-											<p>At vero eos et accusamus et iusto odio dignissimos ducimus provident,</p>
+										<div class="description  post-meta">
+											<div ng-bind-html="trustAsHtml((postExtra1.caption))"></div>
 										</div>
 										<div class="post-meta no-padding">
 											<span>
 												<a href="#">
 													<i class="fa fa-user"></i>
-													<em>Jhone Smithon</em>
+													<em>Ng Ký Lê</em>
 												</a>
 											</span>
 											<span>
@@ -312,7 +312,7 @@
 						<div class="tg-category">
 							<figure>
 								<a href="#">
-									<img ng-src="{{postExtra2.url}}" alt="image description">
+									<img ng-src="{{postExtra2.url ? postExtra2.url : 'storage/app/public/default.jpg'}}" alt="image description">
 								</a>
 							</figure>
 							<div class="category-content">
@@ -320,16 +320,16 @@
 									<div class="display-table-cell">
 										<div class="post-meta">
 											<span><a href="#">LifeStyle</a></span>
-											<span>Sep, 17 2015</span>
+											<span>{{ postExtra2.created_at | amCalendar:referenceTime:formats}}</span>
 										</div>
-										<div class="description">
-											<p>At vero eos et accusamus et iusto odio dignissimos ducimus provident,</p>
+										<div class="description post-meta">
+											<div ng-bind-html="trustAsHtml((postExtra2.caption))"></div>
 										</div>
 										<div class="post-meta no-padding">
 											<span>
 												<a href="#">
 													<i class="fa fa-user"></i>
-													<em>Jhone Smithon</em>
+													<em>Ng Ký Lê</em>
 												</a>
 											</span>
 											<span>
@@ -348,7 +348,7 @@
 						<div class="tg-category">
 							<figure>
 								<a href="#">
-									<img ng-src="{{postExtra3.url}}" alt="image description">
+									<img ng-src="{{postExtra3.url ? postExtra3.url : 'storage/app/public/default.jpg'}}" alt="image description">
 								</a>
 							</figure>
 							<div class="category-content">
@@ -356,16 +356,16 @@
 									<div class="display-table-cell">
 										<div class="post-meta">
 											<span><a href="#">LifeStyle</a></span>
-											<span>Sep, 17 2015</span>
+											<span>{{ postExtra3.created_at | amCalendar:referenceTime:formats}}</span>
 										</div>
-										<div class="description">
-											<p>At vero eos et accusamus et iusto odio dignissimos ducimus provident,</p>
+										<div class="description post-meta">
+											<div ng-bind-html="trustAsHtml((postExtra3.caption))"></div>
 										</div>
 										<div class="post-meta no-padding">
 											<span>
 												<a href="#">
 													<i class="fa fa-user"></i>
-													<em>Jhone Smithon</em>
+													<em>Ng Ký Lê</em>
 												</a>
 											</span>
 											<span>
@@ -617,7 +617,7 @@
 			</div>
 			<div class="copyright">
 				<div class="container">
-					<p>Copyright &copy; 2015 - All Rights Reserved.</p>
+					<p>Copyright &copy; 2017 - Author : Ng Ký Lê</p>
 				</div>
 			</div>
 		</footer>
@@ -631,6 +631,11 @@
     <script src="node_modules/angular/angular.js"></script>
     <script src="node_modules/angular-ui-router/release/angular-ui-router.min.js"></script>
     <script src="node_modules/oclazyload/dist/ocLazyLoad.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/moment/moment.js"></script>
+    <script src="bower_components/angular-moment/angular-moment.min.js"></script>
+    <script src="resources/assets/admin/js/modules/underscore.js"></script>
+    <script src="node_modules/ngstorage/ngStorage.js"></script>
     <!-- End Angular  -->
 	<script src="resources/assets/public/angularjs/app.js"></script>
 	<script src="resources/assets/public/angularjs/config.lazyload.js"></script>

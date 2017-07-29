@@ -56,6 +56,7 @@
     <script src="resources/assets/admin/js/services/category.js"></script>
     <script src="resources/assets/admin/js/services/news.js"></script>
     <script src="resources/assets/admin/js/services/post.js"></script>
+    <script src="resources/assets/admin/js/services/playlist.js"></script>
      <!-- Modules -->
     <script src="node_modules/underscore/underscore-min.js"></script>
     <script src="resources/assets/admin/js/modules/underscore.js"></script>

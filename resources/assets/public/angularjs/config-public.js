@@ -10,9 +10,23 @@ app.config(['$stateProvider','$urlRouterProvider','$ocLazyLoadProvider',function
     $stateProvider
         .state('/home', {
             url: '',
-            templateUrl: 'resources/views/public/blocks/home.html'
+            templateUrl: 'resources/views/public/blocks/home.html',
+            controller :'HomeCtrl',
+            resolve: {
+                deps: ['$ocLazyLoad', function($ocLazyLoad) {
+                    return $ocLazyLoad.load([
+                        ], {
+                            insertBefore: '#lazyload_placeholder'
+                        })
+                        .then(function() {
+                            return $ocLazyLoad.load([
+                                'resources/assets/public/angularjs/controller/home-ctrl.js'
+                                
+                            ]);
+                        });
+                }]
+            }
         })
-        
         // ABOUT PAGE AND MULTIPLE NAMED VIEWS =================================
         .state('about', {
             url: '/about',

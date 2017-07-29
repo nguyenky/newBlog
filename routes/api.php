@@ -43,14 +43,22 @@ Route::group(['prefix'=>'admin','middleware'=>'api.auth'],function(){
 	Route::post('upLoadFile','ImageController@addImage');
 	// Posts
 	Route::resource('posts', 'PostAPIController');
+	// Musical
+	Route::resource('playlists', 'PlaylistAPIController');
 });
 // PUBLIC
 Route::group(['prefix'=>'public'],function(){
+	// Musical
+	
+	/// Posts
 	Route::get('getPostPublic','PostAPIController@getPostPublic');
+	Route::get('getNewsPublic','NewsAPIController@getNewsPublic');
 });
 
 Route::get('getProfile/{id}','ProfileAPIController@getProfile');
 Route::resource('pictures', 'PictureAPIController');
+
+
 
 
 

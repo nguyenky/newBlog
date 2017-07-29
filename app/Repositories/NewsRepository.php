@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use App\Models\News;
+use App\Models\Category;
 use InfyOm\Generator\Common\BaseRepository;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
@@ -53,7 +54,7 @@ class NewsRepository extends BaseRepository
         if($attributes['picture']){
            $ext        = $attributes['picture']->guessClientExtension();
             $reName     = time().'.'.$ext;
-            $img = Image::make($attributes['picture'])->resize(340, 200);
+            $img = Image::make($attributes['picture'])->resize(870, 500);
             $img->save('storage/app/public/'.$reName);
             $attributes['picture'] = $reName;
             $url = url('storage/app/public/'.$reName); 
@@ -74,7 +75,7 @@ class NewsRepository extends BaseRepository
         if($attributes['file']){
             $ext        = $attributes['file']->guessClientExtension();
             $reName     = time().'.'.$ext;
-            $img = Image::make($attributes['file'])->resize(340, 200);
+            $img = Image::make($attributes['file'])->resize(870, 500);
             $img->save('storage/app/public/'.$reName);
             $attributes['picture'] = $reName;
             $url = url('storage/app/public/'.$reName);
@@ -89,5 +90,19 @@ class NewsRepository extends BaseRepository
         $news->update($attributes);
         $news->url = $url;
         return $news;
+    }
+    // --------PUBLIC---------
+    public function getNewsPublic(){
+        $cats = Category::where('id','<=',6)->get();
+        $arrayNews = [];
+        foreach ($cats as $key => $cat) {
+            if($cat->getLatest()){
+                array_push($arrayNews,$cat->getLatest()->toArray());
+            }
+            
+        }
+        return $arrayNews;
+        // dd($array);
+        // dd($news->toArray());
     }
 }

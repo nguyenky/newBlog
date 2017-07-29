@@ -61,6 +61,12 @@ angular.module('app')
                         'bower_components/summernote/dist/summernote.min.js',
                         'bower_components/angular-summernote/dist/angular-summernote.min.js',
                     ]
+                },
+                {
+                    name: 'sanitize',
+                    files: [
+                        'bower_components/angular-sanitize/angular-sanitize.js',
+                    ]
                 }
             ]
         });

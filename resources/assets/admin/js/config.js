@@ -116,6 +116,7 @@ app.config(['$stateProvider','$urlRouterProvider','$ocLazyLoadProvider',function
                                     'cropimage',
                                     'dropzone',
                                     'summernote',
+                                    'sanitize',
                                     'resources/assets/admin/js/controller/modalCtrl/news-modal-ctrl.js',
                                 ], {
                                     insertBefore: '#lazyload_placeholder'
@@ -139,6 +140,7 @@ app.config(['$stateProvider','$urlRouterProvider','$ocLazyLoadProvider',function
                                     'uiboostrap',
                                     'cropimage',
                                     'toastr',
+                                    'sanitize',
                                     // 'resources/assets/admin/js/controller/modalCtrl/post-modal-ctrl.js',
                                 ], {
                                     insertBefore: '#lazyload_placeholder'
@@ -151,6 +153,30 @@ app.config(['$stateProvider','$urlRouterProvider','$ocLazyLoadProvider',function
                                 });
                         }]
                     }
+        })
+        .state('admin.playlists',{
+            url : '/playlists',
+            templateUrl :'resources/views/admin/site/playlists.html',
+            controller :'PlaylistCtrl',
+            resolve: {
+                deps: ['$ocLazyLoad', function($ocLazyLoad) {
+                    return $ocLazyLoad.load([
+                            'uiboostrap',
+                            'cropimage',
+                            'toastr',
+                            'sanitize',
+                            // 'resources/assets/admin/js/controller/modalCtrl/post-modal-ctrl.js',
+                        ], {
+                            insertBefore: '#lazyload_placeholder'
+                        })
+                        .then(function() {
+                            return $ocLazyLoad.load([
+                                'resources/assets/admin/js/controller/playlist-ctrl.js'
+                                
+                            ]);
+                        });
+                }]
+            }
         })
         .state('home', {
             url: '/home',

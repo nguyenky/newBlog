@@ -4,7 +4,8 @@ app.controller('MyAppCtrl',[
     '$rootScope',
     '$http',
     'PublicService',
-    function($scope,$rootScope,$http,PublicService){
+    '$sce',
+    function($scope,$rootScope,$http,PublicService,$sce){
 	$rootScope.name ="uchiha";
 	// $scope.logout = function(){
 	// 	Auth.logout();
@@ -28,6 +29,19 @@ app.controller('MyAppCtrl',[
         });
     }
     $scope.getPosts();
+    $scope.trustAsHtml = function(value) {
+        return $sce.trustAsHtml(value);
+    };
+    $scope.getInstagram = function(){
+        PublicService.getInstagram().then(function(result){
+            if(result){
+                console.log(result);
+            }
+        },function(errors){
+            console.log(errors);
+        })
+    }
+    $scope.getInstagram();
     
     
 }]);

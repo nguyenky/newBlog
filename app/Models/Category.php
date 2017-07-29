@@ -4,6 +4,9 @@ namespace App\Models;
 
 use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\Storage;
+
+
 
 /**
  * Class Category
@@ -52,6 +55,19 @@ class Category extends Model
     }
     public function hasParent(){
         return $this->belongsTo(\App\Models\Category::class,'category_id');
+    }
+    public function getLatest(){
+        $newLatest = News::where('category_id',$this->id)->latest()->first();
+        if($newLatest){
+            $find =  Storage::disk('public')->exists($newLatest->picture);
+            if($find){
+                $newLatest['url'] = url('storage/app/public/'.$newLatest->picture);
+            }else{
+                $newLatest['url'] = url('storage/app/public/default.jpg');
+            }
+        }
+        
+        return $newLatest;
     }
     
 }

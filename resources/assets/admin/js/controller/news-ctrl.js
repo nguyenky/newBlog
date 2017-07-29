@@ -5,6 +5,7 @@ app = angular.module('app',[
 	'ngFileUpload',
 	'ngImgCrop',
 	'summernote',
+	'ngSanitize',
 	]);
 app.controller('NewsController',[
 	'$scope',
@@ -170,8 +171,6 @@ function($scope,Auth,$uibModal,toastr,Category,News,_,$sce,$state,$localStorage,
         		var index = _.findIndex($scope.newsFilter,function(val){
         			return val.id == result.data.data.id;
         		});
-        		console.log(index);
-        		console.log($scope.newsFilter[index]);
         		$scope.newsFilter[index].url = result.data.data.url;
         		$scope.edit = false;
         		toastr.success('Update news successfully !!!','Success !!');

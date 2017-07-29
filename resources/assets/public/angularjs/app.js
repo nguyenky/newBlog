@@ -3,6 +3,8 @@
 angular.module('app', [
     'ui.router',
     'oc.lazyLoad',
-    // 'underscore',
-    // 'ngStorage',
+    'ngSanitize',
+    'angularMoment',
+    'underscore',
+    'ngStorage',
 ]);

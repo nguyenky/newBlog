@@ -7,7 +7,8 @@ app.controller('PostCtrl',[
 	'Category',
 	'$localStorage',
 	'Post',
-	function($scope,Auth,$uibModal,toastr,Category,$localStorage,Post){
+	'$sce',
+	function($scope,Auth,$uibModal,toastr,Category,$localStorage,Post,$sce){
 		if(!$localStorage.currentUser){
 	        $state.go('login');
 	    }
@@ -93,6 +94,9 @@ app.controller('PostCtrl',[
 				console.log(result);
 			})
 		}
+		$scope.trustAsHtml = function(value) {
+	        return $sce.trustAsHtml(value);
+	    };
 
 }]);
 app.controller('PostModalCtrl', [

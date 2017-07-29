@@ -39,8 +39,8 @@ class News extends Model
     protected $casts = [
         'name' => 'string',
         'picture' => 'string',
-        'preview' => 'string',
-        'detail' => 'string',
+        'preview' => 'text',
+        'detail' => 'text',
         'category_id' => 'integer',
         'likes' => 'integer',
         'display' => 'integer',

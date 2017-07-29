@@ -1,7 +1,7 @@
 <div id="content" class="col-lg-9 col-md-8 col-sm-12 col-xs-12">
 						<article class="tg-post">
 							<figure>
-								<img src="resources/assets/public/images/05-img.jpg" alt="image description">
+								<img src="{{life.url}}" alt="image description">
 								<div class="tg-img-hover">
 									<div class="holder">
 										<a href="#"><i class="fa fa-link"></i></a>
@@ -13,14 +13,44 @@
 								<div class="post-meta category-name">
 									<span><a href="#">LifeStyle</a></span>
 								</div>
-								<h3><a href="#">Lê Nguyên Ký Muốn đi chơi</a></h3>
+								<h3><a href="#">{{life.name}}</a></h3>
 								<div class="post-meta">
-									<span class="date">Sep, 17 2015</span>
+									<span class="date">{{life.created_at | amCalendar:referenceTime:formats}}</span>
 								</div>
 								<div class="description">
-									<p>  Tôi là Lê Nguyên Ký, và tôi muốn đi ị !! </p>		
-									<p>Sed quis sollicitudin eros, non lobortis purus. Ut enim lacus, efficitur non blandit ac, sollicitudin vel nibh. Aenean rhoncus pharetra ex. Sed facilisis interdum nunc, et tempus dolor gravida nec. Vivamus ultrices nisi dui, nec condimentum est ornare eu. Donec sed molestie arcu. Morbi eu suscipit felis, iaculis faucibus libero. Suspendisse eu augue ac nisi maximus posuere vitae finibus risus.</p>
-									<p>Aenean vestibulum diam sit amet leo tristique vehicula. Ut ullamcorper nulla eu magna tincidunt consectetur. Nulla elementum gravida suscipit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed euismod suscipit auctor. Suspendisse sapien sapien, porttitor vel posuere laoreet, vulputate non elit. Nunc feugiat, erat ut vehicula vehicula, tellus quam pulvinar augue, vel cursus massa erat</p>
+									<p>{{life.preview}}</p>		
+									<!-- <p>Sed quis sollicitudin eros, non lobortis purus. Ut enim lacus, efficitur non blandit ac, sollicitudin vel nibh. Aenean rhoncus pharetra ex. Sed facilisis interdum nunc, et tempus dolor gravida nec. Vivamus ultrices nisi dui, nec condimentum est ornare eu. Donec sed molestie arcu. Morbi eu suscipit felis, iaculis faucibus libero. Suspendisse eu augue ac nisi maximus posuere vitae finibus risus.</p>
+									<p>Aenean vestibulum diam sit amet leo tristique vehicula. Ut ullamcorper nulla eu magna tincidunt consectetur. Nulla elementum gravida suscipit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed euismod suscipit auctor. Suspendisse sapien sapien, porttitor vel posuere laoreet, vulputate non elit. Nunc feugiat, erat ut vehicula vehicula, tellus quam pulvinar augue, vel cursus massa erat</p> -->
+								</div>
+								<a href="#" class="tg-btn-countinuereading">countinue reading</a>
+								<div class="tg-post-foot">
+									<ul class="post-social-icons">
+										<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+										<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+										<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+										<li><a href="#"><i class="fa fa-tumblr"></i></a></li>
+										<li><a href="#"><i class="fa fa-envelope-o"></i></a></li>
+									</ul>
+									<div class="post-meta pull-right">
+										<span class="tg-post-author">Post By : <a href="#">Ng Ký Lê</a></span>
+									</div>
+								</div>
+							</div>
+						</article>
+						<article class="tg-post tg-video-post">
+							<div class="video">
+								<div ng-bind-html="trustAsHtml((video.preview))"></div>
+							</div>
+							<div class="tg-post-content">
+								<div class="post-meta category-name">
+									<span><a href="#">video</a></span>
+								</div>
+								<h3><a href="#">{{video.name}}</a></h3>
+								<div class="post-meta">
+									<span class="date">{{video.created_at | amCalendar:referenceTime:formats}}</span>
+								</div>
+								<div class="description">
+									{{video.detail}}
 								</div>
 								<a href="#" class="tg-btn-countinuereading">countinue reading</a>
 								<div class="tg-post-foot">
@@ -37,7 +67,7 @@
 								</div>
 							</div>
 						</article>
-						<article class="tg-post gallery-post">
+						<!-- <article class="tg-post gallery-post">
 							<div class="tg-gallery">
 								<figure class="small">
 									<img src="resources/assets/public/images/06-img.jpg" alt="image description">
@@ -102,8 +132,46 @@
 									</div>
 								</div>
 							</div>
+						</article> -->
+						<article class="tg-post">
+							<figure>
+								<img src="{{childood.url}}" alt="image description">
+								<div class="tg-img-hover">
+									<div class="holder">
+										<a href="#"><i class="fa fa-link"></i></a>
+										<a href="#"><i class="fa fa-search-plus"></i></a>
+									</div>
+								</div>
+							</figure>
+							<div class="tg-post-content">
+								<div class="post-meta category-name">
+									<span><a href="#">Chilhood</a></span>
+								</div>
+								<h3><a href="#">{{childood.name}}</a></h3>
+								<div class="post-meta">
+									<span class="date">{{childood.created_at | amCalendar:referenceTime:formats}}</span>
+								</div>
+								<div class="description">
+									<p>{{childood.preview}}</p>		
+									<!-- <p>Sed quis sollicitudin eros, non lobortis purus. Ut enim lacus, efficitur non blandit ac, sollicitudin vel nibh. Aenean rhoncus pharetra ex. Sed facilisis interdum nunc, et tempus dolor gravida nec. Vivamus ultrices nisi dui, nec condimentum est ornare eu. Donec sed molestie arcu. Morbi eu suscipit felis, iaculis faucibus libero. Suspendisse eu augue ac nisi maximus posuere vitae finibus risus.</p>
+									<p>Aenean vestibulum diam sit amet leo tristique vehicula. Ut ullamcorper nulla eu magna tincidunt consectetur. Nulla elementum gravida suscipit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed euismod suscipit auctor. Suspendisse sapien sapien, porttitor vel posuere laoreet, vulputate non elit. Nunc feugiat, erat ut vehicula vehicula, tellus quam pulvinar augue, vel cursus massa erat</p> -->
+								</div>
+								<a href="#" class="tg-btn-countinuereading">countinue reading</a>
+								<div class="tg-post-foot">
+									<ul class="post-social-icons">
+										<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+										<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+										<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+										<li><a href="#"><i class="fa fa-tumblr"></i></a></li>
+										<li><a href="#"><i class="fa fa-envelope-o"></i></a></li>
+									</ul>
+									<div class="post-meta pull-right">
+										<span class="tg-post-author">Post By : <a href="#">Ng Ký Lê</a></span>
+									</div>
+								</div>
+							</div>
 						</article>
-						<article class="tg-post tg-post-slider">
+						<!-- article class="tg-post tg-post-slider">
 							<div id="tg-post-slider" class="post-slider">
 								<div class="item"><figure><img src="resources/assets/public/images/10-img.jpg" alt="image description"></figure></div>
 								<div class="item"><figure><img src="resources/assets/public/images/11-img.jpg" alt="image description"></figure></div>
@@ -135,22 +203,29 @@
 									</div>
 								</div>
 							</div>
-						</article>
-						<article class="tg-post tg-video-post">
-							<div class="video">
-								<iframe src="https://player.vimeo.com/video/140085689?title=0&amp;byline=0"></iframe>
-							</div>
+						</article> -->
+						<article class="tg-post">
+							<figure>
+								<img src="{{trip.url}}" alt="image description">
+								<div class="tg-img-hover">
+									<div class="holder">
+										<a href="#"><i class="fa fa-link"></i></a>
+										<a href="#"><i class="fa fa-search-plus"></i></a>
+									</div>
+								</div>
+							</figure>
 							<div class="tg-post-content">
 								<div class="post-meta category-name">
-									<span><a href="#">video</a></span>
+									<span><a href="#">Trip</a></span>
 								</div>
-								<h3><a href="#">Adventure in panama</a></h3>
+								<h3><a href="#">{{trip.name}}</a></h3>
 								<div class="post-meta">
-									<span class="date">Sep, 17 2015</span>
+									<span class="date">{{trip.created_at | amCalendar:referenceTime:formats}}</span>
 								</div>
 								<div class="description">
-									<p>Sed quis sollicitudin eros, non lobortis purus. Ut enim lacus, efficitur non blandit ac, sollicitudin vel nibh. Aenean rhoncus pharetra ex. Sed facilisis interdum nunc, et tempus dolor gravida nec. Vivamus ultrices nisi dui, nec condimentum est ornare eu. Donec sed molestie arcu. Morbi eu suscipit felis, iaculis faucibus libero. Suspendisse eu augue ac nisi maximus posuere vitae finibus risus.</p>
-									<p>Aenean vestibulum diam sit amet leo tristique vehicula. Ut ullamcorper nulla eu magna tincidunt consectetur. Nulla elementum gravida suscipit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed euismod suscipit auctor. Suspendisse sapien sapien, porttitor vel posuere laoreet, vulputate non elit. Nunc feugiat, erat ut vehicula vehicula, tellus quam pulvinar augue, vel cursus massa erat</p>
+									<p>{{trip.preview}}</p>		
+									<!-- <p>Sed quis sollicitudin eros, non lobortis purus. Ut enim lacus, efficitur non blandit ac, sollicitudin vel nibh. Aenean rhoncus pharetra ex. Sed facilisis interdum nunc, et tempus dolor gravida nec. Vivamus ultrices nisi dui, nec condimentum est ornare eu. Donec sed molestie arcu. Morbi eu suscipit felis, iaculis faucibus libero. Suspendisse eu augue ac nisi maximus posuere vitae finibus risus.</p>
+									<p>Aenean vestibulum diam sit amet leo tristique vehicula. Ut ullamcorper nulla eu magna tincidunt consectetur. Nulla elementum gravida suscipit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed euismod suscipit auctor. Suspendisse sapien sapien, porttitor vel posuere laoreet, vulputate non elit. Nunc feugiat, erat ut vehicula vehicula, tellus quam pulvinar augue, vel cursus massa erat</p> -->
 								</div>
 								<a href="#" class="tg-btn-countinuereading">countinue reading</a>
 								<div class="tg-post-foot">
@@ -162,25 +237,27 @@
 										<li><a href="#"><i class="fa fa-envelope-o"></i></a></li>
 									</ul>
 									<div class="post-meta pull-right">
-										<span class="tg-post-author">Post By : <a href="#">Jhone Albert</a></span>
+										<span class="tg-post-author">Post By : <a href="#">Ng Ký Lê</a></span>
 									</div>
 								</div>
 							</div>
 						</article>
 						<article class="tg-post tg-audio-post">
 							<div class="audio">
-								<iframe src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/197106761&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"></iframe>
+								<!-- <iframe src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/197106761&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"></iframe> -->
+								
+								<div ng-bind-html="trustAsHtml((music.preview))"></div>
 							</div>
 							<div class="tg-post-content">
 								<div class="post-meta category-name">
 									<span><a href="#">audio</a></span>
 								</div>
-								<h3><a href="#">floting point melody</a></h3>
+								<h3><a href="#">{{music.name}}</a></h3>
 								<div class="post-meta">
-									<span class="date">Sep, 17 2015</span>
+									<span class="date">{{music.created_at | amCalendar:referenceTime:formats}}</span>
 								</div>
 								<div class="description">
-									<p>Sed quis sollicitudin eros, non lobortis purus. Ut enim lacus, efficitur non blandit ac, sollicitudin vel nibh. Aenean rhoncus pharetra ex. Sed facilisis interdum nunc, et tempus dolor gravida nec. Vivamus ultrices nisi dui, nec condimentum est ornare eu. Donec sed molestie arcu. Morbi eu suscipit felis, iaculis faucibus libero. Suspendisse eu augue ac nisi maximus posuere vitae finibus risus.</p>
+									{{music.detail}}
 								</div>
 								<a href="#" class="tg-btn-countinuereading">countinue reading</a>
 								<div class="tg-post-foot">
@@ -192,12 +269,50 @@
 										<li><a href="#"><i class="fa fa-envelope-o"></i></a></li>
 									</ul>
 									<div class="post-meta pull-right">
-										<span class="tg-post-author">Post By : <a href="#">Jhone Albert</a></span>
+										<span class="tg-post-author">Post By : <a href="#">Ng Ký Lê</a></span>
 									</div>
 								</div>
 							</div>
 						</article>
-						<article class="tg-post tg-blockpuote-post">
+						<article class="tg-post">
+							<figure>
+								<img src="{{history.url}}" alt="image description">
+								<div class="tg-img-hover">
+									<div class="holder">
+										<a href="#"><i class="fa fa-link"></i></a>
+										<a href="#"><i class="fa fa-search-plus"></i></a>
+									</div>
+								</div>
+							</figure>
+							<div class="tg-post-content">
+								<div class="post-meta category-name">
+									<span><a href="#">History</a></span>
+								</div>
+								<h3><a href="#">{{history.name}}</a></h3>
+								<div class="post-meta">
+									<span class="date">{{history.created_at | amCalendar:referenceTime:formats}}</span>
+								</div>
+								<div class="description">
+									<p>{{history.preview}}</p>		
+									<!-- <p>Sed quis sollicitudin eros, non lobortis purus. Ut enim lacus, efficitur non blandit ac, sollicitudin vel nibh. Aenean rhoncus pharetra ex. Sed facilisis interdum nunc, et tempus dolor gravida nec. Vivamus ultrices nisi dui, nec condimentum est ornare eu. Donec sed molestie arcu. Morbi eu suscipit felis, iaculis faucibus libero. Suspendisse eu augue ac nisi maximus posuere vitae finibus risus.</p>
+									<p>Aenean vestibulum diam sit amet leo tristique vehicula. Ut ullamcorper nulla eu magna tincidunt consectetur. Nulla elementum gravida suscipit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed euismod suscipit auctor. Suspendisse sapien sapien, porttitor vel posuere laoreet, vulputate non elit. Nunc feugiat, erat ut vehicula vehicula, tellus quam pulvinar augue, vel cursus massa erat</p> -->
+								</div>
+								<a href="#" class="tg-btn-countinuereading">countinue reading</a>
+								<div class="tg-post-foot">
+									<ul class="post-social-icons">
+										<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+										<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+										<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+										<li><a href="#"><i class="fa fa-tumblr"></i></a></li>
+										<li><a href="#"><i class="fa fa-envelope-o"></i></a></li>
+									</ul>
+									<div class="post-meta pull-right">
+										<span class="tg-post-author">Post By : <a href="#">Ng Ký Lê</a></span>
+									</div>
+								</div>
+							</div>
+						</article>
+						<!-- <article class="tg-post tg-blockpuote-post">
 							<figure>
 								<img src="resources/assets/public/images/13-img.jpg" alt="image description">
 								<div class="blockquote">
@@ -235,8 +350,8 @@
 									</div>
 								</div>
 							</div>
-						</article>
-						<article class="tg-post tg-blockpuote">
+						</article> -->
+						<!-- <article class="tg-post tg-blockpuote">
 							<figure>
 								<img src="resources/assets/public/images/14-img.jpg" alt="image description">
 								<div class="tg-img-hover">
@@ -305,7 +420,7 @@
 									</div>
 								</div>
 							</div>
-						</article>
+						</article> -->
 						<div class="next-previous">
 							<span class="older-post"><a href="#">older post</a></span>
 						</div>

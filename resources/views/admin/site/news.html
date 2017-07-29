@@ -84,7 +84,7 @@
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" ng-show="croppedDataUrl" >
                     <div class="text-center" >
-                        <img ng-src="{{croppedDataUrl}}" width="170px" height="100px" />
+                        <img ng-src="{{croppedDataUrl}}" width="174px" height="100px" />
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -93,8 +93,8 @@
                                     result-image="croppedDataUrl" 
                                     ng-init="croppedDataUrl=''"
                                     area-type="rectangle"
-                                    aspect-ratio="1.7"
-                                    result-image-size='[{w: 340,h: 200}]'
+                                    aspect-ratio="1.74"
+                                    result-image-size='[{w: 870,h: 500}]'
                         >
                         </img-crop>
                     </div>
@@ -172,15 +172,15 @@
             </div>
             <br />
             <div class="text-center" ng-show="croppedDataUrl" >
-                <img ng-src="{{croppedDataUrl}}"/>
+                <img ng-src="{{croppedDataUrl}}"  width="174px" height="100px" />
             </div>
             <div ng-show="isCropMain"  ngf-drop ng-model="post.picture" ngf-pattern="image/*" class="cropArea" required>
                 <img-crop   image="post.picture  | ngfDataUrl"                 
                             result-image="croppedDataUrl" 
                             ng-init="croppedDataUrl=''"
                             area-type="rectangle"
-                            aspect-ratio="1.7"
-                            result-image-size='[{w: 340,h: 200}]'
+                            aspect-ratio="1.74"
+                            result-image-size='[{w: 870,h: 500}]'
                 >
                 </img-crop>
             </div>
@@ -215,8 +215,3 @@
           <button type="button" class="btn btn-primary" ng-click="close()">Close</button>
         </div>
         
-      </div>
-    </form>
-    <!-- END CREATE  -->
-  </div>
-</div>
