@@ -1,0 +1,144 @@
+<div id="content" class="col-lg-9 col-md-8 col-sm-12 col-xs-12">
+	<article class="tg-post tg-blockpuote">
+		<figure>
+			<img ng-src="{{post.url}}" alt="image description">
+			<div class="tg-img-hover">
+				<div class="holder">
+					<a href="#"><i class="fa fa-link"></i></a>
+					<a href="#"><i class="fa fa-search-plus"></i></a>
+				</div>
+			</div>
+		</figure>
+		<div class="tg-post-content">
+			<div class="post-meta category-name">
+				<span><a href="#">block quote</a></span>
+			</div>
+			<h3><a href="#">{{post.name}}</a></h3>
+			<div class="post-meta">
+				<span class="date">{{post.created_at | amCalendar:referenceTime:formats}}</span>
+			</div>
+			<div class="description">
+				<div ng-bind-html="trustAsHtml((post.detail))"></div>
+			</div>
+			<ul class="tg-tags">
+				<li>Tags:</li>
+				<li><a href="#">Beautiful,</a></li>
+				<li><a href="#">Nature,</a></li>
+				<li><a href="#">Place,</a></li>
+				<li><a href="#">weather</a></li>
+			</ul>
+			<div class="tg-post-foot">
+				<ul class="post-social-icons">
+					<li><a href="" ng-click="like(post.id)"><i ng-class="likes ? 'fa fa-heart' : 'fa fa-heart-o'" aria-hidden="true"></i></a></li>
+					<li><a href="">{{post.likes}}</a></li>
+				</ul>
+				<div class="post-meta pull-right">
+					<span class="tg-post-author">Post By : <a href="#">Ng Ký Lê</a></span>
+				</div>
+			</div>
+		</div>
+	</article>
+	<div class="next-previous">
+		<span class="prev-post"><a href="#">privious post</a></span>
+		<span class="next-post"><a href="#">next post</a></span>
+	</div>
+	<div id="comment">
+		<h3>4 Comments</h3>
+		<ul>
+			<li>
+				<div class="author">
+					<div class="author-img">
+						<img src="images/author.jpg" alt="image description">
+					</div>
+					<div class="meta">
+						<span class="name">Julia Jacksh..</span>
+						<span class="date">Sep, 14 2015</span>
+					</div>
+				</div>
+				<div class="description">
+					<p>Donec blandit feugiat pretium. Pellentesque rhoncus sodales nunc vel porttitor. Bulum erat urna, efficitur dictum elementum vitae. Hendrerit a eleifend vel, tristique nec purus. Integer et est posuere ante maximus.</p>
+				</div>
+			</li>
+			<li>
+				<div class="author">
+					<div class="author-img">
+						<img src="images/author.jpg" alt="image description">
+					</div>
+					<div class="meta">
+						<span class="name">Julia Jacksh..</span>
+						<span class="date">Sep, 14 2015</span>
+					</div>
+				</div>
+				<div class="description">
+					<p>Donec blandit feugiat pretium. Pellentesque rhoncus sodales nunc vel porttitor. Bulum erat urna, efficitur dictum elementum vitae. Hendrerit a eleifend vel, tristique nec purus. Integer et est posuere ante maximus.</p>
+				</div>
+				<ul>
+					<li>
+						<div class="author">
+							<div class="author-img">
+								<img src="images/author.jpg" alt="image description">
+							</div>
+							<div class="meta">
+								<span class="name">Julia Jacksh..</span>
+								<span class="date">Sep, 14 2015</span>
+							</div>
+						</div>
+						<div class="description">
+							<p>Donec blandit feugiat pretium. Pellentesque rhoncus sodales nunc vel porttitor. Bulum erat urna, efficitur dictum elementum vitae. Hendrerit a eleifend vel, tristique nec purus. Integer et est posuere ante maximus.</p>
+						</div>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<div class="author">
+					<div class="author-img">
+						<img src="images/author.jpg" alt="image description">
+					</div>
+					<div class="meta">
+						<span class="name">Julia Jacksh..</span>
+						<span class="date">Sep, 14 2015</span>
+					</div>
+				</div>
+				<div class="description">
+					<p>Donec blandit feugiat pretium. Pellentesque rhoncus sodales nunc vel porttitor. Bulum erat urna, efficitur dictum elementum vitae. Hendrerit a eleifend vel, tristique nec purus. Integer et est posuere ante maximus.</p>
+				</div>
+			</li>
+		</ul>
+		<h2>Drop A Message</h2>
+		<p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium..</p>
+		<form class="reply-form">
+			<fieldset class="row">
+				<div class="col-sm-6">
+					<div class="form-group">
+						<input type="text" placeholder="First Name*" class="form-control">
+					</div>
+				</div>
+				<div class="col-sm-6">
+					<div class="form-group">
+						<input type="text" placeholder="Last Name*" class="form-control">
+					</div>
+				</div>
+				<div class="col-sm-6">
+					<div class="form-group">
+						<input type="email" placeholder="Email Address*" class="form-control">
+					</div>
+				</div>
+				<div class="col-sm-6">
+					<div class="form-group">
+						<input type="text" placeholder="Your Subject*" class="form-control">
+					</div>
+				</div>
+				<div class="col-sm-12">
+					<div class="form-group">
+						<textarea placeholder="Your Message Here..."></textarea>
+					</div>
+				</div>
+				<div class="col-sm-12">
+					<div class="form-group">
+						<button class="btn-send" type="submit">Send</button>
+					</div>
+				</div>
+			</fieldset>
+		</form>
+	</div>
+</div>

@@ -69,5 +69,11 @@ class Category extends Model
         
         return $newLatest;
     }
+    public function news(){
+        return $this->hasMany(\App\Models\News::class);
+    }
+    // public function countNews (){
+    //     $cat = Category::find($this->id)->with('news')-
+    // }
     
 }

@@ -27,11 +27,49 @@ app.config(['$stateProvider','$urlRouterProvider','$ocLazyLoadProvider',function
                 }]
             }
         })
+        .state('life', {
+            url: '/life-style',
+            templateUrl: 'resources/views/public/site/life.html',
+            controller :'LifeStyleCtrl',
+            resolve: {
+                deps: ['$ocLazyLoad', function($ocLazyLoad) {
+                    return $ocLazyLoad.load([
+                        ], {
+                            insertBefore: '#lazyload_placeholder'
+                        })
+                        .then(function() {
+                            return $ocLazyLoad.load([
+                                'resources/assets/public/angularjs/controller/lifestyle-ctrl.js'
+                                
+                            ]);
+                        });
+                }]
+            }
+        })
+        .state('detail', {
+            url: '/detail-post/:Name-:Id.angularjs',
+            templateUrl: 'resources/views/public/site/detail.html',
+            controller :'DetailCtrl',
+            resolve: {
+                deps: ['$ocLazyLoad', function($ocLazyLoad) {
+                    return $ocLazyLoad.load([
+                        ], {
+                            insertBefore: '#lazyload_placeholder'
+                        })
+                        .then(function() {
+                            return $ocLazyLoad.load([
+                                'resources/assets/public/angularjs/controller/detail-ctrl.js'
+                                
+                            ]);
+                        });
+                }]
+            }
+        })
         // ABOUT PAGE AND MULTIPLE NAMED VIEWS =================================
-        .state('about', {
-            url: '/about',
-            template: 'about',     
-        });
+        // .state('about', {
+        //     url: '/about',
+        //     template: 'about',     
+        // });
         // HOME STATES AND NESTED VIEWS ========================================
         // .state('admin',{
         //     url : '/admin',

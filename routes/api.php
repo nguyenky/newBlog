@@ -53,6 +53,11 @@ Route::group(['prefix'=>'public'],function(){
 	/// Posts
 	Route::get('getPostPublic','PostAPIController@getPostPublic');
 	Route::get('getNewsPublic','NewsAPIController@getNewsPublic');
+	Route::get('getNewDetail/{id}','NewsAPIController@show');
+	Route::get('like/{id}','NewsAPIController@like');
+	Route::get('unlike/{id}','NewsAPIController@unLike');
+	// Route::get('getProfile','ProfileAPIController@profiles');
+	Route::get('getCategory','CategoryAPIController@getCategory');
 });
 
 Route::get('getProfile/{id}','ProfileAPIController@getProfile');

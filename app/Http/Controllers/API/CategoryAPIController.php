@@ -136,4 +136,8 @@ class CategoryAPIController extends AppBaseController
 
         return $this->sendResponse($categories->toArray(), 'Categories retrieved successfully');
     }
+    public function getCategory(){
+        $categories = $this->categoryRepository->getCategory();
+        return $this->sendResponse($categories->toArray(), 'Categories retrieved successfully');
+    }
 }

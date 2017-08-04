@@ -71,13 +71,15 @@ class NewsAPIController extends AppBaseController
     public function show($id)
     {
         /** @var News $news */
-        $news = $this->newsRepository->findWithoutFail($id);
+        $new = $this->newsRepository->findWithoutFail($id);
 
-        if (empty($news)) {
+        $new['url'] = $new->getImage($new->picture);
+
+        if (empty($new)) {
             return $this->sendError('News not found');
         }
 
-        return $this->sendResponse($news->toArray(), 'News retrieved successfully');
+        return $this->sendResponse($new->toArray(), 'News retrieved successfully');
     }
 
     /**
@@ -162,5 +164,17 @@ class NewsAPIController extends AppBaseController
         }
         return $this->sendResponse($news, 'News retrieved successfully');
 
+    }
+    public function like($id){
+        $new = News::find($id);
+        $new->likes = $new->likes +1;
+        $new->save();
+        return $this->sendResponse([], 'News retrieved successfully');
+    }
+    public function unLike($id){
+        $new = News::find($id);
+        $new->likes = $new->likes -1 ;
+        $new->save();
+        return $this->sendResponse([], 'News retrieved successfully');
     }
 }

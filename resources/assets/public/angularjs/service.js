@@ -58,9 +58,99 @@ angular.module('app')
                 });
                 return deferred.promise;
             }
+            function getNew (id){
+                var deferred = $q.defer();
+                $http({
+                    url: baseurl+'public/getNewDetail/'+id,
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                }).then(function(result){
+                    if(result && result.data.success){
+                        deferred.resolve(result.data);
+                    }
+                },function(error){
+                    console.log(error);
+                });
+                return deferred.promise;
+            }
+            function like (id){
+                var deferred = $q.defer();
+                $http({
+                    url: baseurl+'public/like/'+id,
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                }).then(function(result){
+                    if(result && result.data.success){
+                        deferred.resolve(result.data);
+                    }
+                },function(error){
+                    console.log(error);
+                });
+                return deferred.promise;
+            }
+            function unLike (id){
+                var deferred = $q.defer();
+                $http({
+                    url: baseurl+'public/unlike/'+id,
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                }).then(function(result){
+                    if(result && result.data.success){
+                        deferred.resolve(result.data);
+                    }
+                },function(error){
+                    console.log(error);
+                });
+                return deferred.promise;
+            }
+            function getProfile (){
+                var deferred = $q.defer();
+                $http({
+                    url: baseurl+'getProfile/1',
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                }).then(function(result){
+                    if(result && result.data.success){
+                        deferred.resolve(result.data);
+                    }
+                },function(error){
+                    console.log(error);
+                });
+                return deferred.promise;
+            }
+            function countCategory (){
+                var deferred = $q.defer();
+                $http({
+                    url: baseurl+'public/getCategory',
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                }).then(function(result){
+                    if(result && result.data.success){
+                        deferred.resolve(result.data);
+                    }
+                },function(error){
+                    console.log(error);
+                });
+                return deferred.promise;
+            }
 	return {
         getPosts:getPosts,
         getNews:getNews,
-        getInstagram:getInstagram
+        getInstagram:getInstagram,
+        getNew:getNew,
+        like:like,
+        unLike:unLike,
+        getProfile:getProfile,
+        countCategory:countCategory
 	};
 }])

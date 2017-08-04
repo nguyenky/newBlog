@@ -22,7 +22,7 @@
 /* =============================================
                         Theme Reset Style
 ============================================= */
-@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700|Merriweather:300,400);
+@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700|Merriweather:300,400|Noto+Sans:300,400,500,600,700);
 * {
     margin: 0px;
     padding: 0px;
@@ -34,7 +34,7 @@ html{
 body {
     background: #fff;
     color: #424242;
-    font:normal 14px/24px 'Raleway', Arial, Helvetica, sans-serif;
+    font:normal 14px/24px 'Noto Sans', Arial, Helvetica, sans-serif;
 }
 body h1,
 body h2,

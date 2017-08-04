@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\Storage;
 
 /**
  * Class News
@@ -64,6 +65,15 @@ class News extends Model
     }
     public function images(){
         return $this->hasMany(\App\Models\Picture::class);
+    }
+    public function getImage($picture){
+        $find =  Storage::disk('public')->exists($picture);
+        if($find){
+            $url= url('storage/app/public/'.$picture);
+        }else{
+            $url = url('storage/app/public/default.jpg');
+        }
+        return $url;
     }
     
 }

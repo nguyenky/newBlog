@@ -20,15 +20,19 @@ app.controller('HomeCtrl',[
                         switch (value.category_id) {
                             case 1:
                                 $scope.life = value;
+                                $rootScope.latest.push(value);
                                 break;
                             case 2:
                                 $scope.childood = value;
+                                $rootScope.latest.push(value);
                                 break;
                             case 3:
                                 $scope.trip = value;
+                                $rootScope.latest.push(value);
                                 break;
                             case 4:
                                 $scope.history = value;
+                                $rootScope.latest.push(value);
                                 break;
                             case 5:
                                 $scope.video = value;

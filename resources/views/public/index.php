@@ -42,16 +42,19 @@
 			<div class="topbar haslayout">
 				<div class="container">
 					<div class="new-slides pull-left col-lg-4 col-md-5 col-sm-6 col-xs-6">
-						<div id="news-slider">
-							<div class="item" ng-repeat="d in demo">
-								<p>asdsad</p>
-							</div>
-							<!-- <div class="item">
-								<p>The Latest New For Your New Post</p>
+						<div id="news-slider" ng-show="latest.length">
+							<div class="item">
+								<p>{{latest[0].name}}</p>
 							</div>
 							<div class="item">
-								<p>The Latest New For Your New Post</p>
-							</div> -->
+								<p>{{latest[1].name}}</p>
+							</div>
+							<div class="item">
+								<p>{{latest[2].name}}</p>
+							</div>
+							<div class="item">
+								<p>{{latest[3].name}}</p>
+							</div>
 						</div>
 					</div>
 					<div class="search-social pull-right">
@@ -63,7 +66,7 @@
 							<li><a href="#"><i class="fa fa-dribbble"></i></a></li>
 							<li><a href="#"><i class="fa fa-tumblr"></i></a></li>
 						</ul>
-						<a href="#" class="btn-search fa fa-search show_hide"></a>
+						<!-- <a href="#" class="btn-search fa fa-search show_hide"></a> -->
 					</div>
 				</div>
 			</div>
@@ -72,10 +75,10 @@
 				<div class="logo-box haslayout">
 					<strong class="logo">
 						<a href="#">
-							<img src="resources/assets/public/images/logo.png" alt="The Success BLOG for Real LifeStyle">
+							<img src="resources/assets/public/images/yesforme.png" alt="The Success BLOG for Real LifeStyle">
 						</a>
 					</strong>
-					<span class="slogn">For Real LifeStyle</span>
+					<!-- <span class="slogn">For Real LifeStyle</span> -->
 				</div>
 				<div class="text-center">
 					<div ng-bind-html="trustAsHtml((postMain.caption))"></div>
@@ -105,7 +108,7 @@
 								</ul>
 							</li>
 							<li><a href="aboutus.html">about us</a></li>
-							<li><a href="contactus.html">Contact</a></li>
+							<li><a href="contactus.html">Có gì khác khộng nề</a></li>
 							<li>
 								<a href="#">Post Type</a>
 								<ul class="dropdown-menu">
@@ -119,7 +122,7 @@
 									<li><a href="text-post.html">text post</a></li>
 								</ul>
 							</li>
-							<li><a href="#">LifeStyle</a></li>
+							<li><a ui-sref="life">LifeStyle</a></li>
 							<li><a href="#">Style &amp; Beauty</a></li>
 							<li><a href="#">Home &amp; Living</a></li>
 							<li><a href="#">everyday life &amp; inspirations</a></li>
@@ -394,7 +397,7 @@
 									<h4><span>about me</span></h4>
 									<div class="about-widget">
 										<div class="author-img">
-											<img src="resources/assets/public/images/author.jpg" alt="image description">
+											<img ng-src="{{profile.url}}" alt="image description">
 										</div>
 										<div class="description">
 											<p>Tonx cray is a commodo, exercitation you probaly a is haven’t heard of them beard cred. Base  Selfies Kickstarter.</p>
@@ -495,13 +498,13 @@
 								<div class="tg-widget tg-category">
 									<h4><span>Blog Catagories</span></h4>
 									<ul class="blog-category">
-										<li>
-											<a href="#">
-												<em>Awesome Travelling</em>
-												<i>(598)</i>
+										<li ng-repeat="cat in categories" ng-show="cat.count!=0 ">
+											<a href="">
+												<em>{{cat.name}}</em>
+												<i>({{cat.count}})</i>
 											</a>
 										</li>
-										<li>
+										<!-- <li>
 											<a href="#">
 												<em>Daily Life Routeen</em>
 												<i>(1058)</i>
@@ -536,7 +539,7 @@
 												<em>Miscellenious</em>
 												<i>(9852)</i>
 											</a>
-										</li>
+										</li> -->
 									</ul>
 								</div>
 							</div>
@@ -621,6 +624,7 @@
 				</div>
 			</div>
 		</footer>
+		<!-- <p id="demo">Click the button to get your position.</p> -->
 	</div>
 
 	<script src="resources/assets/admin/js/bootstrap/jquery.js"></script>
@@ -656,6 +660,24 @@
 	<!-- <script src="http://maps.google.com/maps/api/js?sensor=false"></script> -->
 	<!-- <script src="js/gmap3.min.js"></script> -->
 	<script src="resources/assets/public/js/main.js"></script>
+	<!-- <script>
+		var x = document.getElementById(“demo”);
+		console.log(x);
+		function getLocation() {
+		    if (navigator.geolocation) {
+		        navigator.geolocation.getCurrentPosition(showPosition);
+		        co
+
+		    } else {
+		        x.innerHTML = “Geolocation is not supported by this browser.”;
+		    }
+		}
+		function showPosition(position) {
+		    x.innerHTML = “Latitude: ” + position.coords.latitude + 
+		    “
+		Longitude: ” + position.coords.longitude; 
+		}
+	</script> -->
 	<!-- ------------End defaulf---------- -->
 </body>
 </html>
