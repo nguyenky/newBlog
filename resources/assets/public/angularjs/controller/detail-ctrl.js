@@ -11,7 +11,9 @@ app.controller('DetailCtrl',[
     // if($localStorage.currentUser){
     //     $rootScope.avatar = $localStorage.currentUser.avatar;
     // }
-    console.log($stateParams);
+    $rootScope.showPosts = false;
+
+    // console.log($stateParams);
     $scope.likes = false;
     $scope.getPost = function(id){
         PublicService.getNew(id).then(function(result){

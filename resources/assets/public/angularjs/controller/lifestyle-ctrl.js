@@ -11,8 +11,11 @@ app.controller('LifeStyleCtrl',[
     // if($localStorage.currentUser){
     //     $rootScope.avatar = $localStorage.currentUser.avatar;
     // }
+    $rootScope.showPosts = false;
+    console.log($rootScope.showPosts);
+
     $scope.getPosts = function(){
-        PublicService.getNews().then(function(result){
+        PublicService.getNewsSite(1).then(function(result){
             if(result &&result.success){
                 $scope.posts = result.data;
                 console.log(result.data);

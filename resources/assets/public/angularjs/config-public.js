@@ -1,7 +1,7 @@
 var app = angular.module('app');
 
-app.config(['$stateProvider','$urlRouterProvider','$ocLazyLoadProvider',function($stateProvider, $urlRouterProvider,$ocLazyLoadProvider) {
-    
+app.config(['$stateProvider','$urlRouterProvider','$ocLazyLoadProvider','FacebookProvider',function($stateProvider, $urlRouterProvider,$ocLazyLoadProvider,FacebookProvider) {
+    FacebookProvider.init('622404337952796');
     // $urlRouterProvider.otherwise('/home');
     $urlRouterProvider
     // .when("/home", "/about")
@@ -47,7 +47,7 @@ app.config(['$stateProvider','$urlRouterProvider','$ocLazyLoadProvider',function
             }
         })
         .state('detail', {
-            url: '/detail-post/:Name-:Id.angularjs',
+            url: '/:Name-:Id.angularjs',
             templateUrl: 'resources/views/public/site/detail.html',
             controller :'DetailCtrl',
             resolve: {

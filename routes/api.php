@@ -56,8 +56,9 @@ Route::group(['prefix'=>'public'],function(){
 	Route::get('getNewDetail/{id}','NewsAPIController@show');
 	Route::get('like/{id}','NewsAPIController@like');
 	Route::get('unlike/{id}','NewsAPIController@unLike');
-	// Route::get('getProfile','ProfileAPIController@profiles');
+	Route::get('getInstagram','ProfileAPIController@getInstagram');
 	Route::get('getCategory','CategoryAPIController@getCategory');
+	Route::get('getNewsSite/{id}','NewsAPIController@getNewsSite');
 });
 
 Route::get('getProfile/{id}','ProfileAPIController@getProfile');

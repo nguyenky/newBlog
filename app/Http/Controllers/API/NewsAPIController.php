@@ -177,4 +177,21 @@ class NewsAPIController extends AppBaseController
         $new->save();
         return $this->sendResponse([], 'News retrieved successfully');
     }
+    public function getNewsSite($id){
+        $news = News::where('category_id',$id)->get();
+        foreach ($news as $key => $new) {
+            if($new->picture){
+                $find =  Storage::disk('public')->exists($new->picture);
+                if($find){
+                    $new['url'] = url('storage/app/public/'.$new->picture);
+                }else{
+                    $new['url'] = url('storage/app/public/default.jpg');
+                }
+            }else{
+                $new['url'] = url('storage/app/public/default-new.png');
+            }
+        }
+        return $this->sendResponse($news, 'News retrieved successfully');
+
+    }
 }

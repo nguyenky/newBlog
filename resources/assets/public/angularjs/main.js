@@ -5,11 +5,58 @@ app.controller('MyAppCtrl',[
     '$http',
     'PublicService',
     '$sce',
-    function($scope,$rootScope,$http,PublicService,$sce){
+    'Facebook',
+    '$localStorage',
+    function($scope,$rootScope,$http,PublicService,$sce,Facebook,$localStorage){
 	$rootScope.name ="uchiha";
-    // if($localStorage.currentUser){
-    //     $rootScope.avatar = $localStorage.currentUser.avatar;
-    // }
+    if($localStorage.userLogin){
+        $rootScope.userLogin = $localStorage.userLogin;
+        $scope.loginStatus = true;
+        console.log($localStorage.userLogin);
+    }else{
+        $rootScope.userLogin = {
+            id:null,
+            name:null,
+            avatar:null
+        }
+        $scope.loginStatus = false;
+
+    }
+    $scope.logout = function(){
+        $rootScope.userLogin = {
+            id:null,
+            name:null,
+            avatar:null
+        };
+        $rootScope.userLogin = null;
+        $scope.loginStatus = false;
+    }
+    $scope.login = function() {
+      // From now on you can use the Facebook service just as Facebook api says
+      Facebook.login(function(response) {
+        $scope.me();
+      });
+    };
+    $scope.me = function() {
+      Facebook.api('/me', function(response) {
+        if(!response.error){
+            $rootScope.userLogin = response;
+            $localStorage.userLogin = response;
+            $scope.loginStatus = true;
+            console.log(response);
+        }
+        
+      });
+      Facebook.api('/me/picture', function(response) {
+        if(!response.error){
+            $rootScope.userLogin.avatar = response.data.url;
+            $localStorage.userLogin.avatar = response.data.url
+            console.log(response);
+        }
+        
+      });
+      
+    };
     $rootScope.latest = [];
     $scope.getPosts = function(){
         PublicService.getPosts().then(function(result){
@@ -51,16 +98,17 @@ app.controller('MyAppCtrl',[
     $scope.trustAsHtml = function(value) {
         return $sce.trustAsHtml(value);
     };
-    // $scope.getInstagram = function(){
-    //     PublicService.getInstagram().then(function(result){
-    //         if(result){
-    //             console.log(result);
-    //         }
-    //     },function(errors){
-    //         console.log(errors);
-    //     })
-    // }
-    // $scope.getInstagram();
+    $scope.getInstagram = function(){
+        PublicService.getInstagram().then(function(result){
+            if(result && result.success){
+                // console.log(result);
+                $rootScope.instagrams = result.data;
+            }
+        },function(errors){
+            console.log(errors);
+        })
+    }
+    $scope.getInstagram();
 
     // $scope.getLocation = function() {
     //     if (navigator.geolocation) {
@@ -77,4 +125,4 @@ app.controller('MyAppCtrl',[
     
     
 }]);
-app.constant('baseurl', 'http://newblog.dev/api/')
+app.constant('baseurl', 'http://localhost/newBlog/api/')

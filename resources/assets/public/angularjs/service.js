@@ -43,7 +43,7 @@ angular.module('app')
             function getInstagram (){
                 var deferred = $q.defer();
                 $http({
-                    url: 'https://api.instagram.com/v1/users/2293866932/media/recent/?access_token=2293866932.1677ed0.5fb0088e7ad44161a69a2de237d04fa7',
+                    url: baseurl+'public/getInstagram',
                     method: 'GET',
                     headers: {
                         // 'Access-Control-Allow-Origin': '*'
@@ -143,6 +143,23 @@ angular.module('app')
                 });
                 return deferred.promise;
             }
+            function getNewsSite (id){
+                var deferred = $q.defer();
+                $http({
+                    url: baseurl+'public/getNewsSite/' +id,
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                }).then(function(result){
+                    if(result && result.data.success){
+                        deferred.resolve(result.data);
+                    }
+                },function(error){
+                    console.log(error);
+                });
+                return deferred.promise;
+            }
 	return {
         getPosts:getPosts,
         getNews:getNews,
@@ -151,6 +168,7 @@ angular.module('app')
         like:like,
         unLike:unLike,
         getProfile:getProfile,
-        countCategory:countCategory
+        countCategory:countCategory,
+        getNewsSite:getNewsSite
 	};
 }])
