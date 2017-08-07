@@ -39,78 +39,37 @@
 		</div>
 	</article>
 	<div class="next-previous">
-		<span class="prev-post"><a href="#">privious post</a></span>
-		<span class="next-post"><a href="#">next post</a></span>
+		<!-- <span class="prev-post"><a href="#">privious post</a></span>
+		<span class="next-post"><a href="#">next post</a></span> -->
 	</div>
 	<div id="comment">
-		<h3>4 Comments</h3>
-		<ul>
-			<li>
+		<h3>{{post.comments.length}} Comments 
+			<a href="" ng-click="showComment = true" ng-show="!showComment"><i class="fa fa-angle-down" aria-hidden="true"></i></a> 
+			<a href="" ng-click="showComment = false" ng-show="showComment"><i class="fa fa-angle-up" aria-hidden="true"></i></a>
+		</h3>
+		<ul ng-show="showComment" class="show-slow">
+			<li ng-repeat="comment in post.comments">
 				<div class="author">
 					<div class="author-img">
-						<img src="images/author.jpg" alt="image description">
+						<img src="{{comment.avatar}}" alt="image description">
 					</div>
 					<div class="meta">
-						<span class="name">Julia Jacksh..</span>
-						<span class="date">Sep, 14 2015</span>
+						<span class="name">{{comment.name}}</span>
+						<span class="date">{{comment.created_at |  amDateFormat:'MMMM Do'}}</span>
 					</div>
 				</div>
 				<div class="description">
-					<p>Donec blandit feugiat pretium. Pellentesque rhoncus sodales nunc vel porttitor. Bulum erat urna, efficitur dictum elementum vitae. Hendrerit a eleifend vel, tristique nec purus. Integer et est posuere ante maximus.</p>
-				</div>
-			</li>
-			<li>
-				<div class="author">
-					<div class="author-img">
-						<img src="images/author.jpg" alt="image description">
-					</div>
-					<div class="meta">
-						<span class="name">Julia Jacksh..</span>
-						<span class="date">Sep, 14 2015</span>
-					</div>
-				</div>
-				<div class="description">
-					<p>Donec blandit feugiat pretium. Pellentesque rhoncus sodales nunc vel porttitor. Bulum erat urna, efficitur dictum elementum vitae. Hendrerit a eleifend vel, tristique nec purus. Integer et est posuere ante maximus.</p>
-				</div>
-				<ul>
-					<li>
-						<div class="author">
-							<div class="author-img">
-								<img src="images/author.jpg" alt="image description">
-							</div>
-							<div class="meta">
-								<span class="name">Julia Jacksh..</span>
-								<span class="date">Sep, 14 2015</span>
-							</div>
-						</div>
-						<div class="description">
-							<p>Donec blandit feugiat pretium. Pellentesque rhoncus sodales nunc vel porttitor. Bulum erat urna, efficitur dictum elementum vitae. Hendrerit a eleifend vel, tristique nec purus. Integer et est posuere ante maximus.</p>
-						</div>
-					</li>
-				</ul>
-			</li>
-			<li>
-				<div class="author">
-					<div class="author-img">
-						<img src="images/author.jpg" alt="image description">
-					</div>
-					<div class="meta">
-						<span class="name">Julia Jacksh..</span>
-						<span class="date">Sep, 14 2015</span>
-					</div>
-				</div>
-				<div class="description">
-					<p>Donec blandit feugiat pretium. Pellentesque rhoncus sodales nunc vel porttitor. Bulum erat urna, efficitur dictum elementum vitae. Hendrerit a eleifend vel, tristique nec purus. Integer et est posuere ante maximus.</p>
+					{{comment.content}}
 				</div>
 			</li>
 		</ul>
 		<h2>Drop A Message</h2>
-		<p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium..</p>
+		<p>There are two ways to comment! Please click the "Facebook" icon in the right side of the page to log in with facebook, this is completely confidential !  Or not, please enter "Name" and "Content" in the fields below, the avatar is default !!! </p>
 		<form class="reply-form">
 			<fieldset class="row">
 				<div class="col-sm-6">
 					<div class="form-group">
-						<input type="text" placeholder="First Name*" class="form-control">
+						<input type="text" placeholder="First Name*" class="form-control" ng-model="comment.name">
 					</div>
 				</div>
 				<div class="col-sm-6">
@@ -130,12 +89,12 @@
 				</div>
 				<div class="col-sm-12">
 					<div class="form-group">
-						<textarea placeholder="Your Message Here..."></textarea>
+						<textarea placeholder="Your Message Here..." ng-model="comment.content"></textarea>
 					</div>
 				</div>
 				<div class="col-sm-12">
 					<div class="form-group">
-						<button class="btn-send" type="submit">Send</button>
+						<button class="btn-send" type="submit" ng-click="pushComment()">Send</button>
 					</div>
 				</div>
 			</fieldset>

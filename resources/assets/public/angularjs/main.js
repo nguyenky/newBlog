@@ -22,6 +22,9 @@ app.controller('MyAppCtrl',[
         $scope.loginStatus = false;
 
     }
+    $scope.searchWord = null;
+    $scope.showSearch = false;
+    $scope.loadingSearch = false;
     $scope.logout = function(){
         $rootScope.userLogin = {
             id:null,
@@ -109,7 +112,43 @@ app.controller('MyAppCtrl',[
         })
     }
     $scope.getInstagram();
+    $scope.search = function(page){
+        $scope.searchNews =[];
+        $scope.loadingSearch = true;
+        if($scope.searchWord){
+            $scope.showSearch = true;
+            PublicService.search($scope.searchWord,page).then(function(result){
+                if(result && result.success){
+                    $scope.currentPageSearch = result.data.current_page;
+                    $scope.lastPageSearch = result.data.last_page;
+                    if(result.data.current_page < result.data.last_page){
+                        $scope.hasLoadMoreSearch = true;
+                    }else{
+                        $scope.hasLoadMoreSearch = false;
+                    }
+                    if(result.data.current_page > 1){
+                        $scope.hasPrevius = true;
+                    }else{
+                        $scope.hasPrevius = false;
+                    }
+                    angular.forEach(result.data.data, function(value, key) {
+                        $scope.searchNews.push(value);
+                    });
+                    $scope.loadingSearch = false;
+                }
+            },function(errors){
+                console.log(errors);
+                $scope.loadingSearch = false;
+            })
+        }
+    }
+    $scope.loadMore = function(){
 
+        $scope.search($scope.currentPageSearch+1);
+    }
+    $scope.previus = function(){
+        $scope.search($scope.currentPageSearch-1);
+    }
     // $scope.getLocation = function() {
     //     if (navigator.geolocation) {
     //         navigator.geolocation.getCurrentPosition(function (position){
@@ -125,4 +164,4 @@ app.controller('MyAppCtrl',[
     
     
 }]);
-app.constant('baseurl', 'http://localhost/newBlog/api/')
+app.constant('baseurl', 'http://newblog.dev/api/')

@@ -75,5 +75,8 @@ class News extends Model
         }
         return $url;
     }
+    public function comments(){
+        return $this->hasMany(\App\Models\Comment::class,'news_id');
+    }
     
 }

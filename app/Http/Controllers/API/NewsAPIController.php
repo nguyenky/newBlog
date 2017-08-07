@@ -74,7 +74,7 @@ class NewsAPIController extends AppBaseController
         $new = $this->newsRepository->findWithoutFail($id);
 
         $new['url'] = $new->getImage($new->picture);
-
+        $new['comments'] = $new->comments()->select('id','name','avatar','admin','content','created_at')->get();
         if (empty($new)) {
             return $this->sendError('News not found');
         }
@@ -180,6 +180,7 @@ class NewsAPIController extends AppBaseController
     public function getNewsSite($id){
         $news = News::where('category_id',$id)->get();
         foreach ($news as $key => $new) {
+            $new['comments'] = $new->comments()->select('id')->count();
             if($new->picture){
                 $find =  Storage::disk('public')->exists($new->picture);
                 if($find){
@@ -192,6 +193,9 @@ class NewsAPIController extends AppBaseController
             }
         }
         return $this->sendResponse($news, 'News retrieved successfully');
-
+    }
+    public function search($search){
+        $news = News::orderBy('id','DESC')->where('name','LIKE','%'.$search.'%')->paginate(10);
+        return $this->sendResponse($news, 'News retrieved successfully');
     }
 }

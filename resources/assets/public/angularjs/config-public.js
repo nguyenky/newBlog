@@ -9,7 +9,7 @@ app.config(['$stateProvider','$urlRouterProvider','$ocLazyLoadProvider','Faceboo
     
     $stateProvider
         .state('/home', {
-            url: '',
+            url: '/home',
             templateUrl: 'resources/views/public/blocks/home.html',
             controller :'HomeCtrl',
             resolve: {

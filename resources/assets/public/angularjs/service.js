@@ -160,6 +160,41 @@ angular.module('app')
                 });
                 return deferred.promise;
             }
+            function createComment (comment){
+                var deferred = $q.defer();
+                $http({
+                    url: baseurl+'public/comments',
+                    method: 'POST',
+                    data:comment,
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                }).then(function(result){
+                    if(result && result.data.success){
+                        deferred.resolve(result.data);
+                    }
+                },function(error){
+                    console.log(error);
+                });
+                return deferred.promise;
+            }
+            function search (search,page){
+                var deferred = $q.defer();
+                $http({
+                    url: baseurl+'public/search/' +search + '?page=' + page,
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                }).then(function(result){
+                    if(result && result.data.success){
+                        deferred.resolve(result.data);
+                    }
+                },function(error){
+                    console.log(error);
+                });
+                return deferred.promise;
+            }
 	return {
         getPosts:getPosts,
         getNews:getNews,
@@ -169,6 +204,8 @@ angular.module('app')
         unLike:unLike,
         getProfile:getProfile,
         countCategory:countCategory,
-        getNewsSite:getNewsSite
+        getNewsSite:getNewsSite,
+        createComment:createComment,
+        search:search
 	};
 }])

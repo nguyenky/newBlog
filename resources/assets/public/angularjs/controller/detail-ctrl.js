@@ -6,7 +6,8 @@ app.controller('DetailCtrl',[
     'PublicService',
     '$sce',
     '$stateParams',
-    function($scope,$rootScope,$http,PublicService,$sce,$stateParams){
+    'baseurl',
+    function($scope,$rootScope,$http,PublicService,$sce,$stateParams,baseurl){
 	$rootScope.name ="uchiha";
     // if($localStorage.currentUser){
     //     $rootScope.avatar = $localStorage.currentUser.avatar;
@@ -15,6 +16,7 @@ app.controller('DetailCtrl',[
 
     // console.log($stateParams);
     $scope.likes = false;
+    $scope.comment = null;
     $scope.getPost = function(id){
         PublicService.getNew(id).then(function(result){
             if(result &&result.success){
@@ -26,6 +28,7 @@ app.controller('DetailCtrl',[
         });
     }
     $scope.getPost($stateParams.Id);
+    
     $scope.like = function(id){
         // $scope.like = true;
         if($scope.likes){
@@ -37,6 +40,21 @@ app.controller('DetailCtrl',[
             PublicService.like(id);
             $scope.likes = true;
         }
+        
+    }
+    $scope.pushComment = function(){
+        // console.log($scope.comment);
+        $scope.comment.news_id = $scope.post.id;
+
+        PublicService.createComment($scope.comment).then(function(result){
+            if(result && result.success){
+                $scope.post.comments.push($scope.comment);
+                $scope.comment = null;
+            }
+        },function(errors){
+            console.log(errors);
+            $scope.comment = null;
+        })
         
     }
     $scope.trustAsHtml = function(value) {

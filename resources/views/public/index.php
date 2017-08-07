@@ -440,8 +440,8 @@
 								<div class="tg-widget tg-search">
 									<form class="tg-search-form">
 										<fieldset>
-											<input type="search" name="search" class="form-control" placeholder="Search Here...">
-											<button type="submit"><i class="fa fa-search"></i></button>
+											<input type="search" name="search" class="form-control" placeholder="Search Here..." ng-model='searchWord'>
+											<button type="submit" ng-click="search(1)"><i class="fa fa-search"></i></button>
 										</fieldset>
 									</form>
 								</div>
@@ -457,6 +457,29 @@
 											</a>
 										</li>
 									</ul>
+								</div>
+							</div>
+							<div class="col-lg-12 col-md-12 col-sm-6  col-xs-6 widget-width" ng-show="showSearch">
+								<div class="tg-widget tg-category">
+									<h4><span>Posts Search</span></h4>
+
+									<ul class="blog-category" ng-show="searchNews.length && !loadingSearch">
+										<li ng-repeat="news in searchNews">
+											<div class="pull-left">
+												<img ng-src="{{profile.url}}" alt="image description" width="20%">
+											</div>
+											<a href="" class="pull-left">
+												<em>{{news.name}}</em>
+											</a>
+										</li>
+									</ul>
+									<div class="text-center" ng-show="!searchNews.length && !loadingSearch"> Can not find any posts with name like "{{searchWord}}" !!!</div>
+									<div class="text-center" ng-show="loadingSearch"><i class="fa fa-spinner fa-spin" aria-hidden="true"></i></div>
+									<div style="border-top: 1px solid;"  ng-show="searchNews.length ">
+
+										<a class="pull-left" href="" ng-click="previus()" ng-show="hasPrevius">Previus</a> 
+										<a class="pull-right" href="" ng-click="loadMore()" ng-show="hasLoadMoreSearch">Load more posts</a> 
+									</div>
 								</div>
 							</div>
 							

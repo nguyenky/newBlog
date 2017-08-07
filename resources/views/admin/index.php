@@ -36,7 +36,7 @@
     <!-- /#wrapper -->
 
     <!-- jQuery -->
-    <script src="resources/assets/admin/js/bootstrap/jquery.js"></script>
+    <script src="resources/assets/storage/bootstrap/jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
     <script src="resources/assets/admin/js/bootstrap/bootstrap.min.js"></script>
@@ -60,7 +60,7 @@
      <!-- Modules -->
     <script src="node_modules/underscore/underscore-min.js"></script>
     <script src="resources/assets/admin/js/modules/underscore.js"></script>
-    <script src="node_modules/ngstorage/ngStorage.js"></script>
+    <script src="resources/assets/storage/localstorage/ngStorage.js"></script>
     <script src="https://rawgit.com/enyo/dropzone/d8ef7a82e6ab5447c1f2d9512c8e1bfd4de5ac9e/dist/dropzone.js"></script>
 
 

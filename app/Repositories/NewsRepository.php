@@ -97,7 +97,10 @@ class NewsRepository extends BaseRepository
         $arrayNews = [];
         foreach ($cats as $key => $cat) {
             if($cat->getLatest()){
-                array_push($arrayNews,$cat->getLatest()->toArray());
+                $new = $cat->getLatest();
+                $new['comments'] = $new->comments()->select('id')->count();
+                $arrayCat = $new->toArray();
+                array_push($arrayNews,$arrayCat);
             }
             
         }

@@ -45,6 +45,8 @@ Route::group(['prefix'=>'admin','middleware'=>'api.auth'],function(){
 	Route::resource('posts', 'PostAPIController');
 	// Musical
 	Route::resource('playlists', 'PlaylistAPIController');
+
+	
 });
 // PUBLIC
 Route::group(['prefix'=>'public'],function(){
@@ -59,12 +61,10 @@ Route::group(['prefix'=>'public'],function(){
 	Route::get('getInstagram','ProfileAPIController@getInstagram');
 	Route::get('getCategory','CategoryAPIController@getCategory');
 	Route::get('getNewsSite/{id}','NewsAPIController@getNewsSite');
+	Route::resource('comments', 'CommentAPIController');
+	Route::get('search/{search}','NewsAPIController@search'); 
+
 });
 
 Route::get('getProfile/{id}','ProfileAPIController@getProfile');
 Route::resource('pictures', 'PictureAPIController');
-
-
-
-
-
