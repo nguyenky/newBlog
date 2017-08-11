@@ -75,6 +75,7 @@ class NewsAPIController extends AppBaseController
 
         $new['url'] = $new->getImage($new->picture);
         $new['comments'] = $new->comments()->select('id','name','avatar','admin','content','created_at')->get();
+        $new['category'] = $new->category()->select('id','name')->first();
         if (empty($new)) {
             return $this->sendError('News not found');
         }

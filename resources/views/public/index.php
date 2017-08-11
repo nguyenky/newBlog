@@ -1,9 +1,6 @@
 
 <!doctype html>
-<!--[if lt IE 7]>		<html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
-<!--[if IE 7]>			<html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
-<!--[if IE 8]>			<html class="no-js lt-ie9" lang=""> <![endif]-->
-<!--[if gt IE 8]><!-->	<html class="no-js" lang=""> <!--<![endif]-->
+<html class="no-js" lang="">
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,7 +10,6 @@
 	<link rel="apple-touch-icon" href="apple-touch-icon.png">
 	<!-- ------------Defaulf-------------- -->
 	<link rel="stylesheet" href="resources/assets/public/css/bootstrap.min.css">
-	<!-- <link rel="stylesheet" href="resources/assets/public/css/font-awesome.min.css"> -->
 	<link href="resources/assets/font-awesome/css/font-awesome.css" rel="stylesheet">
 	<link rel="stylesheet" href="resources/assets/public/css/owl.carousel.css">
 	<link rel="stylesheet" href="resources/assets/public/css/owl.theme.css">
@@ -24,9 +20,6 @@
 	<!-- --------Defaulf------------ -->
 </head>
 <body data-ng-app="app" ng-controller="MyAppCtrl">
-	<!--[if lt IE 8]>
-		<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-	<![endif]-->
 	<div id="sliding" class="sliding">
 		<div class="container">
 			<a href="#" class="show_hide fa fa-close pull-right"></a>
@@ -44,16 +37,16 @@
 					<div class="new-slides pull-left col-lg-6 col-md-7 col-sm-8 col-xs-8">
 						<div id="news-slider">
 							<div class="item">
-								<p>{{latest[0].name | limitTo:50}}</p>
+								<a href="" ng-click="redirec(latest[0])"><p>{{latest[0].name | limitTo:50}}</p></a>
 							</div>
 							<div class="item">
-								<p>{{latest[1].name | limitTo:50}}</p>
+								<a href="" ng-click="redirec(latest[1])"><p>{{latest[1].name | limitTo:50}}</p></a>
 							</div>
 							<div class="item">
-								<p>{{latest[2].name | limitTo:50}}</p>
+								<a href="" ng-click="redirec(latest[2])"><p>{{latest[2].name | limitTo:50}}</p></a>
 							</div>
 							<div class="item">
-								<p>{{latest[3].name | limitTo:50}}</p>
+								<a href="" ng-click="redirec(latest[3])"><p>{{latest[3].name | limitTo:50}}</p></a>
 							</div>
 						</div>
 					</div>
@@ -417,7 +410,7 @@
 										<ul>
 											<li ng-repeat="instagram in instagrams| limitTo:4" ng-show="$index >0">
 												<div class="post-thumb">
-													<a href="#">
+													<a href="{{instagram.link}}" target="_blank">
 														<img ng-src="{{instagram.images.standard_resolution.url}}" alt="image description">
 													</a>
 												</div>
@@ -431,7 +424,7 @@
 									<h4><span>Instagram</span></h4>
 									<ul class="instagram-plugin">
 										<li ng-repeat="instagram in instagrams  | limitTo:13" ng-show="$index >3">
-											<a href="#"><img ng-src="{{instagram.images.standard_resolution.url}}" alt="image description"></a>
+											<a href="{{instagram.link}}" target="_blank"><img ng-src="{{instagram.images.standard_resolution.url}}" alt="image description"></a>
 										</li>
 									</ul>
 								</div>
@@ -465,10 +458,7 @@
 
 									<ul class="blog-category" ng-show="searchNews.length && !loadingSearch">
 										<li ng-repeat="news in searchNews">
-											<div class="pull-left">
-												<img ng-src="{{profile.url}}" alt="image description" width="20%">
-											</div>
-											<a href="" class="pull-left">
+											<a href="" ng-click="redirec(news)" class="pull-left">
 												<em>{{news.name}}</em>
 											</a>
 										</li>
@@ -494,7 +484,7 @@
 					<div class="row">
 						<h4> Media On Instagram</h4>
 						<div id="instagram-gallery" class="instagram-gallery">
-							<div class="item" ng-repeat="instagram in instagrams  | limitTo:20" ng-show="$index >12"><a href="#"><img ng-src="{{instagram.images.standard_resolution.url}}"></a></div>
+							<div class="item" ng-repeat="instagram in instagrams  | limitTo:20" ng-show="$index >12"><a href="{{instagram.link}}" target="_blank"><img ng-src="{{instagram.images.standard_resolution.url}}"></a></div>
 						</div>
 					</div>
 				</div>

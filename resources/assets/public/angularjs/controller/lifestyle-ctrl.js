@@ -41,6 +41,9 @@ app.controller('LifeStyleCtrl',[
         str = str.replace(/ /g, "-");
         return str;
     }
+    $scope.insertNoti = function(data){
+        PublicService.insertNoti(data);
+    }
     $scope.trustAsHtml = function(value) {
         return $sce.trustAsHtml(value);
     };

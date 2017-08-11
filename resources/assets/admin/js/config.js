@@ -40,6 +40,8 @@ app.config(['$stateProvider','$urlRouterProvider','$ocLazyLoadProvider',function
             resolve: {
                         deps: ['$ocLazyLoad', function($ocLazyLoad) {
                             return $ocLazyLoad.load([
+                                    'paginate',
+                                    'toastr',
                                     'node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js'
                                 ], {
                                     insertBefore: '#lazyload_placeholder'

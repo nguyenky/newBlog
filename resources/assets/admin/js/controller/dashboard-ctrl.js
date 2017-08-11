@@ -1,4 +1,7 @@
-app = angular.module('app',['ui.bootstrap']);
+app = angular.module('app',[
+	'angularUtils.directives.dirPagination',
+	'ui.bootstrap'
+	]);
 app.controller('DashboardCtrl',[
 	'$scope',
 	'$state',
@@ -6,44 +9,64 @@ app.controller('DashboardCtrl',[
 	'$rootScope',
 	'$uibModal',
 	'$localStorage',
-	function($scope,$state,Auth,$rootScope,$uibModal,$localStorage){
+	'Notification',
+	'toastr',
+	function($scope,$state,Auth,$rootScope,$uibModal,$localStorage,Notification,toastr){
 		if(!$localStorage.currentUser){
 			$state.go('login');
 		}
 		var user = $localStorage.currentUser;
-		$scope.title = "asdsd";
-		$scope.openAnimalModal = function (){
-		// alert(34324);
-			// var oldAnimal = angular.copy(animal);
-			// var parentElem = angular.element($document[0].querySelector('.page-container'));
-		    var modalInstance = $uibModal.open({
-			    // animation: true,
-			    // ariaLabelledBy: 'modal-title',
-			    // ariaDescribedBy: 'modal-body',
-			    templateUrl: 'resources/views/admin/modal/demo-modal.html',
-			    // controller: 'AnimalModalCtrl',
-			    // size: size,
-			    // appendTo: parentElem,
-			    // resolve: {
-			    //     animal: oldAnimal
-			    // }
-		    });
+		$scope.getNoti = function(){
+			Notification.getNewNotification().then(function(result){
+				if(result && result.success){
+					// console.log(result.data);
+					$scope.notifications = result.data;
+					$rootScope.countNoti = result.data.length;
+				}
+			},function(errors){
+				console.log(errors);
+			})
+		}
+		$scope.getNoti();
+		$scope.check = function(){
+			Notification.checkAll().then(function(result){
+				if(result && result.success){
+					$scope.notifications = null;
+					$rootScope.countNoti = 0;
+				}	
+			});
+		}
+		$scope.getAllNotification = function(){
+			Notification.getAllNotification().then(function(result){
+				if(result && result.success){
+					$scope.fullNotification = result.data;
+				}
+			},function(errors){
+				console.log(errors);
+			})
+		}
+		$scope.deleteNoti = function(id){
+			Notification.deleteNoti(id).then(function(result){
+				if(result && result.success){
+					var index = _.findIndex($scope.fullNotification,function(val){
+						return val.id === id
+					})
+					if(index >-1){
+						$scope.fullNotification.splice(index, 1);
+					}
+					toastr.success('Delete notification successfully !!!','Success !!');
+				}	
+			})
+		}
+		$scope.clear =function(result){
+			Notification.clear().then(function(result){
+				if(result && result.success){
+					$scope.fullNotification= null;
+				}
+			});
+		}
+		$scope.getComments = function(){
+			
+		}
 
-		   //  modalInstance.result.then(function (animal) {
-		   //  	if(animal){
-		   //  		var indexAnimal = _.findIndex($scope.animals, function (val) {
-					// 	return val.id == animal.id;
-					// });
-					// if(indexAnimal > -1){
-					// 	$scope.animals[indexAnimal] = animal;
-			  //   		toastr.success('Update animal success!', 'Success!');
-					// }else{
-			  //   		$scope.animals.push(animal);
-			  //   		toastr.success('Create animal success!', 'Success!');
-					// }
-		   //  	}
-		   //  }, function () {
-		   //  	console.log('Modal dismissed at: ' + new Date());
-		   //  });
-		};
 }]);

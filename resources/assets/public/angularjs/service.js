@@ -195,6 +195,24 @@ angular.module('app')
                 });
                 return deferred.promise;
             }
+            function insertNoti (data){
+                var deferred = $q.defer();
+                $http({
+                    url: baseurl+'public/insertNoti',
+                    method: 'POST',
+                    data:data,
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                }).then(function(result){
+                    if(result && result.data.success){
+                        deferred.resolve(result.data);
+                    }
+                },function(error){
+                    console.log(error);
+                });
+                return deferred.promise;
+            }
 	return {
         getPosts:getPosts,
         getNews:getNews,
@@ -206,6 +224,7 @@ angular.module('app')
         countCategory:countCategory,
         getNewsSite:getNewsSite,
         createComment:createComment,
-        search:search
+        search:search,
+        insertNoti:insertNoti
 	};
 }])

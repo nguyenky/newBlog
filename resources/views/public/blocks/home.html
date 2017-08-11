@@ -4,26 +4,33 @@
 								<img src="{{life.url}}" alt="image description">
 								<div class="tg-img-hover">
 									<div class="holder">
-										<a href="#"><i class="fa fa-heart" aria-hidden="true" style="color: #f3eeee;" >&nbsp&nbsp{{life.likes ? life.likes : '1'}}&nbsp&nbsp</i></a>&nbsp&nbsp
-										<a href="#"><i class="fa fa-comment" aria-hidden="true" style="color:#f3eeee; margin-left: 20px;">&nbsp&nbsp12&nbsp&nbsp</i></a>
+										<a href=""><i class="fa fa-heart" aria-hidden="true" style="color: #f3eeee;" >&nbsp&nbsp{{life.likes ? life.likes : '1'}}&nbsp&nbsp</i></a>&nbsp&nbsp
+										<a href=""><i class="fa fa-comment" aria-hidden="true" style="color:#f3eeee; margin-left: 20px;">&nbsp&nbsp{{life.comments}}&nbsp&nbsp</i></a>
 									</div>
 								</div>
 							</figure>
 							<div class="tg-post-content">
 								<div class="post-meta category-name">
-									<span><a href="#">LifeStyle</a></span>
+									<span><a href="">LifeStyle</a></span>
 								</div>
-								<h3><a href="#">{{life.name}}</a></h3>
+								<h3><a href="" ng-click="redirec(life)">{{life.name}}</a></h3>
 								<div class="post-meta">
 									<span class="date">{{life.created_at | amCalendar:referenceTime:formats}}</span>
 								</div>
 								<div class="description">
 									<p>{{life.preview}}</p>			
 								</div>
-								<a href="#" class="tg-btn-countinuereading" ng-click="redirec(life)">countinue reading</a>
+								<a href="" class="tg-btn-countinuereading" ng-click="redirec(life)">countinue reading</a>
 								<div class="tg-post-foot">
+									<ul class="post-social-icons">
+										<li><a href=""><i class="fa fa-facebook"></i></a></li>
+										<li><a href=""><i class="fa fa-twitter"></i></a></li>
+										<li><a href=""><i class="fa fa-linkedin"></i></a></li>
+										<li><a href=""><i class="fa fa-tumblr"></i></a></li>
+										<li><a href=""><i class="fa fa-envelope-o"></i></a></li>
+									</ul>
 									<div class="post-meta pull-right">
-										<span class="tg-post-author">Post By : <a href="#">Ng Ký Lê</a></span>
+										<span class="tg-post-author">Post By : <a href="">Ng Ký Lê</a></span>
 									</div>
 								</div>
 							</div>
@@ -34,26 +41,25 @@
 							</div>
 							<div class="tg-post-content">
 								<div class="post-meta category-name">
-									<span><a href="#">video</a></span>
+									<span><a href="">video</a></span>
 								</div>
-								<h3><a href="#">{{video.name}}</a></h3>
+								<h3><a href="">{{video.name}}</a></h3>
 								<div class="post-meta">
 									<span class="date">{{video.created_at | amCalendar:referenceTime:formats}}</span>
 								</div>
 								<div class="description">
 									{{video.detail}}
 								</div>
-								<!-- <a href="#" class="tg-btn-countinuereading">countinue reading</a> -->
 								<div class="tg-post-foot">
-									<!-- <ul class="post-social-icons">
-										<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-										<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-										<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-										<li><a href="#"><i class="fa fa-tumblr"></i></a></li>
-										<li><a href="#"><i class="fa fa-envelope-o"></i></a></li>
-									</ul> -->
+									<ul class="post-social-icons">
+										<li><a href=""><i class="fa fa-facebook"></i></a></li>
+										<li><a href=""><i class="fa fa-twitter"></i></a></li>
+										<li><a href=""><i class="fa fa-linkedin"></i></a></li>
+										<li><a href=""><i class="fa fa-tumblr"></i></a></li>
+										<li><a href=""><i class="fa fa-envelope-o"></i></a></li>
+									</ul>
 									<div class="post-meta pull-right">
-										<span class="tg-post-author">Post By : <a href="#">Jhone Albert</a></span>
+										<span class="tg-post-author">Post By : <a href="">Ng Ký Lê</a></span>
 									</div>
 								</div>
 							</div>
@@ -63,33 +69,33 @@
 								<img src="{{chilhood.url}}" alt="image description">
 								<div class="tg-img-hover">
 									<div class="holder">
-										<a href="#"><i class="fa fa-heart" aria-hidden="true" style="color: #f3eeee;" >&nbsp&nbsp{{chilhood.likes ? chilhood.likes : '1'}}&nbsp&nbsp</i></a>&nbsp&nbsp
-										<a href="#"><i class="fa fa-comment" aria-hidden="true" style="color:#f3eeee; margin-left: 20px;">&nbsp&nbsp12&nbsp&nbsp</i></a>
+										<a href="" ><i class="fa fa-heart" aria-hidden="true" style="color: #f3eeee;" >&nbsp&nbsp{{chilhood.likes ? chilhood.likes : '1'}}&nbsp&nbsp</i></a>&nbsp&nbsp
+										<a href=""><i class="fa fa-comment" aria-hidden="true" style="color:#f3eeee; margin-left: 20px;">&nbsp&nbsp{{chilhood.comments}}&nbsp&nbsp</i></a>
 									</div>
 								</div>
 							</figure>
 							<div class="tg-post-content">
 								<div class="post-meta category-name">
-									<span><a href="#">Chilhood</a></span>
+									<span><a href="">Chilhood</a></span>
 								</div>
-								<h3><a href="#">{{chilhood.name}}</a></h3>
+								<h3><a href="" ng-click="redirec(chilhood)">{{chilhood.name}}</a></h3>
 								<div class="post-meta">
 									<span class="date">{{chilhood.created_at | amCalendar:referenceTime:formats}}</span>
 								</div>
 								<div class="description">
 									<p>{{chilhood.preview}}</p>		
 								</div>
-								<a href="#" class="tg-btn-countinuereading" ng-click="redirec(chilhood)">countinue reading</a>
+								<a href="" class="tg-btn-countinuereading" ng-click="redirec(chilhood)">countinue reading</a>
 								<div class="tg-post-foot">
 									<ul class="post-social-icons">
-										<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-										<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-										<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-										<li><a href="#"><i class="fa fa-tumblr"></i></a></li>
-										<li><a href="#"><i class="fa fa-envelope-o"></i></a></li>
+										<li><a href=""><i class="fa fa-facebook"></i></a></li>
+										<li><a href=""><i class="fa fa-twitter"></i></a></li>
+										<li><a href=""><i class="fa fa-linkedin"></i></a></li>
+										<li><a href=""><i class="fa fa-tumblr"></i></a></li>
+										<li><a href=""><i class="fa fa-envelope-o"></i></a></li>
 									</ul>
 									<div class="post-meta pull-right">
-										<span class="tg-post-author">Post By : <a href="#">Ng Ký Lê</a></span>
+										<span class="tg-post-author">Post By : <a href="">Ng Ký Lê</a></span>
 									</div>
 								</div>
 							</div>
@@ -99,33 +105,33 @@
 								<img src="{{trip.url}}" alt="image description">
 								<div class="tg-img-hover">
 									<div class="holder">
-										<a href="#"><i class="fa fa-heart" aria-hidden="true" style="color: #f3eeee;" >&nbsp&nbsp{{trip.likes ? trip.likes : '1'}}&nbsp&nbsp</i></a>&nbsp&nbsp
-										<a href="#"><i class="fa fa-comment" aria-hidden="true" style="color:#f3eeee; margin-left: 20px;">&nbsp&nbsp12&nbsp&nbsp</i></a>
+										<a href=""><i class="fa fa-heart" aria-hidden="true" style="color: #f3eeee;" >&nbsp&nbsp{{trip.likes ? trip.likes : '1'}}&nbsp&nbsp</i></a>&nbsp&nbsp
+										<a href=""><i class="fa fa-comment" aria-hidden="true" style="color:#f3eeee; margin-left: 20px;">&nbsp&nbsp{{trip.comments}}&nbsp&nbsp</i></a>
 									</div>
 								</div>
 							</figure>
 							<div class="tg-post-content">
 								<div class="post-meta category-name">
-									<span><a href="#">Trip</a></span>
+									<span><a href="">Trip</a></span>
 								</div>
-								<h3><a href="#">{{trip.name}}</a></h3>
+								<h3><a href="" ng-click="redirec(trip)">{{trip.name}}</a></h3>
 								<div class="post-meta">
 									<span class="date">{{trip.created_at | amCalendar:referenceTime:formats}}</span>
 								</div>
 								<div class="description">
 									<p>{{trip.preview}}</p>		
 								</div>
-								<a href="#" class="tg-btn-countinuereading" ng-click="redirec(trip)">countinue reading</a>
+								<a href="" class="tg-btn-countinuereading" ng-click="redirec(trip)">countinue reading</a>
 								<div class="tg-post-foot">
 									<ul class="post-social-icons">
-										<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-										<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-										<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-										<li><a href="#"><i class="fa fa-tumblr"></i></a></li>
-										<li><a href="#"><i class="fa fa-envelope-o"></i></a></li>
+										<li><a href=""><i class="fa fa-facebook"></i></a></li>
+										<li><a href=""><i class="fa fa-twitter"></i></a></li>
+										<li><a href=""><i class="fa fa-linkedin"></i></a></li>
+										<li><a href=""><i class="fa fa-tumblr"></i></a></li>
+										<li><a href=""><i class="fa fa-envelope-o"></i></a></li>
 									</ul>
 									<div class="post-meta pull-right">
-										<span class="tg-post-author">Post By : <a href="#">Ng Ký Lê</a></span>
+										<span class="tg-post-author">Post By : <a href="">Ng Ký Lê</a></span>
 									</div>
 								</div>
 							</div>
@@ -136,9 +142,9 @@
 							</div>
 							<div class="tg-post-content">
 								<div class="post-meta category-name">
-									<span><a href="#">audio</a></span>
+									<span><a href="">audio</a></span>
 								</div>
-								<h3><a href="#">{{music.name}}</a></h3>
+								<h3><a href="">{{music.name}}</a></h3>
 								<div class="post-meta">
 									<span class="date">{{music.created_at | amCalendar:referenceTime:formats}}</span>
 								</div>
@@ -147,15 +153,15 @@
 								</div>
 								<!-- <a href="#" class="tg-btn-countinuereading">countinue reading</a> -->
 								<div class="tg-post-foot">
-									<!-- <ul class="post-social-icons">
-										<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-										<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-										<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-										<li><a href="#"><i class="fa fa-tumblr"></i></a></li>
-										<li><a href="#"><i class="fa fa-envelope-o"></i></a></li>
-									</ul> -->
+									<ul class="post-social-icons">
+										<li><a href=""><i class="fa fa-facebook"></i></a></li>
+										<li><a href=""><i class="fa fa-twitter"></i></a></li>
+										<li><a href=""><i class="fa fa-linkedin"></i></a></li>
+										<li><a href=""><i class="fa fa-tumblr"></i></a></li>
+										<li><a href=""><i class="fa fa-envelope-o"></i></a></li>
+									</ul>
 									<div class="post-meta pull-right">
-										<span class="tg-post-author">Post By : <a href="#">Ng Ký Lê</a></span>
+										<span class="tg-post-author">Post By : <a href="">Ng Ký Lê</a></span>
 									</div>
 								</div>
 							</div>
@@ -165,38 +171,38 @@
 								<img src="{{history.url}}" alt="image description">
 								<div class="tg-img-hover">
 									<div class="holder">
-										<a href="#"><i class="fa fa-heart" aria-hidden="true" style="color: #f3eeee;" >&nbsp&nbsp{{history.likes ? history : '1'}}&nbsp&nbsp</i></a>&nbsp&nbsp
-										<a href="#"><i class="fa fa-comment" aria-hidden="true" style="color:#f3eeee; margin-left: 20px;">&nbsp&nbsp12&nbsp&nbsp</i></a>
+										<a href=""><i class="fa fa-heart" aria-hidden="true" style="color: #f3eeee;" >&nbsp&nbsp{{history.likes ? history.likes : '1'}}&nbsp&nbsp</i></a>&nbsp&nbsp
+										<a href=""><i class="fa fa-comment" aria-hidden="true" style="color:#f3eeee; margin-left: 20px;">&nbsp&nbsp{{history.comments}}&nbsp&nbsp</i></a>
 									</div>
 								</div>
 							</figure>
 							<div class="tg-post-content">
 								<div class="post-meta category-name">
-									<span><a href="#">History</a></span>
+									<span><a href="">History</a></span>
 								</div>
-								<h3><a href="#">{{history.name}}</a></h3>
+								<h3><a href="" ng-click="redirec(history)">{{history.name}}</a></h3>
 								<div class="post-meta">
 									<span class="date">{{history.created_at | amCalendar:referenceTime:formats}}</span>
 								</div>
 								<div class="description">
 									<p>{{history.preview}}</p>		
 								</div>
-								<a href="#" class="tg-btn-countinuereading" ng-click="redirec(history)">countinue reading</a>
+								<a href="" class="tg-btn-countinuereading" ng-click="redirec(history)">countinue reading</a>
 								<div class="tg-post-foot">
 									<ul class="post-social-icons">
-										<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-										<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-										<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-										<li><a href="#"><i class="fa fa-tumblr"></i></a></li>
-										<li><a href="#"><i class="fa fa-envelope-o"></i></a></li>
+										<li><a href=""><i class="fa fa-facebook"></i></a></li>
+										<li><a href=""><i class="fa fa-twitter"></i></a></li>
+										<li><a href=""><i class="fa fa-linkedin"></i></a></li>
+										<li><a href=""><i class="fa fa-tumblr"></i></a></li>
+										<li><a href=""><i class="fa fa-envelope-o"></i></a></li>
 									</ul>
 									<div class="post-meta pull-right">
-										<span class="tg-post-author">Post By : <a href="#">Ng Ký Lê</a></span>
+										<span class="tg-post-author">Post By : <a href="">Ng Ký Lê</a></span>
 									</div>
 								</div>
 							</div>
 						</article>
-						<div class="next-previous">
-							<span class="older-post"><a href="#">older post</a></span>
-						</div>
+						<!-- <div class="next-previous">
+							<span class="older-post"><a href="">older post</a></span>
+						</div> -->
 					</div>

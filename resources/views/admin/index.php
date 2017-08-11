@@ -57,11 +57,14 @@
     <script src="resources/assets/admin/js/services/news.js"></script>
     <script src="resources/assets/admin/js/services/post.js"></script>
     <script src="resources/assets/admin/js/services/playlist.js"></script>
+    <script src="resources/assets/admin/js/services/notification.js"></script>
      <!-- Modules -->
     <script src="node_modules/underscore/underscore-min.js"></script>
     <script src="resources/assets/admin/js/modules/underscore.js"></script>
     <script src="resources/assets/storage/localstorage/ngStorage.js"></script>
     <script src="https://rawgit.com/enyo/dropzone/d8ef7a82e6ab5447c1f2d9512c8e1bfd4de5ac9e/dist/dropzone.js"></script>
+    <script src="bower_components/moment/moment.js"></script>
+    <script src="bower_components/angular-moment/angular-moment.min.js"></script>
 
 
     

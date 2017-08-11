@@ -5,4 +5,5 @@ angular.module('app', [
     'oc.lazyLoad',
     'underscore',
     'ngStorage',
+    'angularMoment'
 ]);

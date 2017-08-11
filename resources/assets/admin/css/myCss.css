@@ -223,3 +223,12 @@ form .progress {
 .caption{
 	margin-bottom: 20px;
 }
+.notification-count{
+	font-size: 10px;
+    margin-left: -5px;
+    background: #e49c07;
+    padding: 2px;
+    color: black;
+    font-weight: bold;
+    border-radius: 2px;
+}

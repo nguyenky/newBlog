@@ -4,16 +4,17 @@
 			<img ng-src="{{post.url}}" alt="image description">
 			<div class="tg-img-hover">
 				<div class="holder">
-					<a href="#"><i class="fa fa-link"></i></a>
-					<a href="#"><i class="fa fa-search-plus"></i></a>
+					<a href=""><i class="fa fa-heart" aria-hidden="true" style="color: #f3eeee;" >&nbsp&nbsp{{post.likes ? post.likes : '1'}}&nbsp&nbsp</i></a>&nbsp&nbsp
+					<a href=""><i class="fa fa-comment" aria-hidden="true" style="color:#f3eeee; margin-left: 20px;">&nbsp&nbsp{{post.comments.length}}&nbsp&nbsp</i></a>
 				</div>
+
 			</div>
 		</figure>
 		<div class="tg-post-content">
 			<div class="post-meta category-name">
-				<span><a href="#">block quote</a></span>
+				<span><a href="">{{post.category.name}}</a></span>
 			</div>
-			<h3><a href="#">{{post.name}}</a></h3>
+			<h3><a href="">{{post.name}}</a></h3>
 			<div class="post-meta">
 				<span class="date">{{post.created_at | amCalendar:referenceTime:formats}}</span>
 			</div>
@@ -22,10 +23,7 @@
 			</div>
 			<ul class="tg-tags">
 				<li>Tags:</li>
-				<li><a href="#">Beautiful,</a></li>
-				<li><a href="#">Nature,</a></li>
-				<li><a href="#">Place,</a></li>
-				<li><a href="#">weather</a></li>
+				<li><a href="">{{post.category.name}}</a></li>
 			</ul>
 			<div class="tg-post-foot">
 				<ul class="post-social-icons">
@@ -33,7 +31,7 @@
 					<li><a href="">{{post.likes}}</a></li>
 				</ul>
 				<div class="post-meta pull-right">
-					<span class="tg-post-author">Post By : <a href="#">Ng Ký Lê</a></span>
+					<span class="tg-post-author">Post By : <a href="">Ng Ký Lê</a></span>
 				</div>
 			</div>
 		</div>
@@ -51,11 +49,12 @@
 			<li ng-repeat="comment in post.comments">
 				<div class="author">
 					<div class="author-img">
-						<img src="{{comment.avatar}}" alt="image description">
+						<img src="{{comment.avatar ? comment.avatar: 'resources/assets/public/images/avatar.png'}}" alt="image description">
 					</div>
 					<div class="meta">
 						<span class="name">{{comment.name}}</span>
-						<span class="date">{{comment.created_at |  amDateFormat:'MMMM Do'}}</span>
+						<span class="date" ng-show="comment.created_at">{{comment.created_at |  amDateFormat:'MMMM Do'}}</span>
+						<span class="date" ng-show="!comment.created_at">Just now</span>
 					</div>
 				</div>
 				<div class="description">
@@ -65,26 +64,16 @@
 		</ul>
 		<h2>Drop A Message</h2>
 		<p>There are two ways to comment! Please click the "Facebook" icon in the right side of the page to log in with facebook, this is completely confidential !  Or not, please enter "Name" and "Content" in the fields below, the avatar is default !!! </p>
-		<form class="reply-form">
+		<form class="reply-form" name="comment">
 			<fieldset class="row">
-				<div class="col-sm-6">
+				<div class="col-sm-6" ng-show="!loginStatus">
 					<div class="form-group">
-						<input type="text" placeholder="First Name*" class="form-control" ng-model="comment.name">
+						<input type="text" placeholder=" Name*" class="form-control" ng-model="comment.name" required ng-disabled="loginStatus">
 					</div>
 				</div>
-				<div class="col-sm-6">
+				<div class="col-sm-6" ng-show="!loginStatus">
 					<div class="form-group">
-						<input type="text" placeholder="Last Name*" class="form-control">
-					</div>
-				</div>
-				<div class="col-sm-6">
-					<div class="form-group">
-						<input type="email" placeholder="Email Address*" class="form-control">
-					</div>
-				</div>
-				<div class="col-sm-6">
-					<div class="form-group">
-						<input type="text" placeholder="Your Subject*" class="form-control">
+						<input type="email" placeholder="Email Address" class="form-control">
 					</div>
 				</div>
 				<div class="col-sm-12">

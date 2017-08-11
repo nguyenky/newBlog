@@ -4,8 +4,10 @@
             <li><a href="#menu-toggle" id="menu-toggle"><i class="fa fa-bars fa-3x" aria-hidden="true"></i></a></li>
         </ul>
         <div class="navbar-header right dropdown pull-right">
-            <a class="navbar-brand notification" href="javascript:void(0);"><i class="fa fa-heart fa-lg " aria-hidden="true"></i></a>
-            <a class="navbar-brand notification" href="javascript:void(0);"><i class="fa fa-comment-o fa-lg" aria-hidden="true"></i></a>
+            <a class="navbar-brand notification" href="javascript:void(0);" ><i class="fa fa-globe fa-lg " aria-hidden="true"></i><span class="notification-count" ng-show="countNoti">{{countNoti}}</span></a>
+
+            <!-- <a class="navbar-brand notification" href="javascript:void(0);"><i class="fa fa-comment-o fa-lg" aria-hidden="true"></i></a> -->
+
             <a class="navbar-brand" href="javascript:void(0);" data-toggle="dropdown" ><img width="45px" height="45px" ng-src="{{avatar}}"></a>
             <ul class="dropdown-menu right">
               <li><a ui-sref="admin.profile"><i class="fa fa-cog" aria-hidden="true"></i> Profiles</a></li>
