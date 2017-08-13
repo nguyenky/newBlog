@@ -22,7 +22,7 @@
         <thead>
           <tr>
             <th ng-show="!edit">ID</th>
-            <th>Name</th>
+            <th width="30%">Name</th>
             <th ng-show="!edit">Picture</th>
             <th ng-show="!edit">Category</th>
             <th ng-show="!edit">Like</th>
@@ -112,7 +112,40 @@
                     </div>
                 </div>
             </div>
+            <!-- <div 
+              id="dropzone2" 
+              class="dropzone sm" 
+              options="dzOptions" 
+              methods="dzMethods" 
+              callbacks="dzCallbacks" 
+              ng-dropzone>
+              
+            </div> -->
+             <!-- <div  ng-style="disableUpload">
+                <div style="text-align:center;" id="startUpload" ng-show="showBtns">
+                    <button ng-click="dzMethods.processQueue();">Start Uploading</button>
+                    <button ng-click="dzMethods.removeAllFiles();">Remove All Files</button>
+                    <button ng-click="dzMethods.removeFile(lastFile);">Remove Last File</button>
+                    <button ng-click="getDropzone();">Get getDropzone instance</button>
+                    <button ng-click="getFiles();">Get total files</button>
+                </div>
+
+                <div 
+                id="dropzone2" 
+                class="dropzone" 
+                options="dzOptions" 
+                methods="dzMethods" 
+                callbacks="dzCallbacks" 
+                ng-dropzone
+                > </div>
+            </div> -->
+          <!-- <input type="checkbox" name="" ng-model="showMulti" ng-change='openModal()'> -->
+          <div class="row">
+            <button style="float: right;" type="button" class="btn " ng-click="openModal()">Images</button>
+          </div>
+          <br />
           
+                  
           <div class="row">
             <button type="button" class="btn btn-primary" ng-click='updateNews(croppedDataUrl)'>Update Post</button>
             <button type="button" class="btn btn-primary" ng-click="close()">Close</button>
@@ -214,4 +247,3 @@
           <button type="button" class="btn btn-primary" ng-click='save(croppedDataUrl,picFile.name,post)' ng-disabled="">Create Post</button>
           <button type="button" class="btn btn-primary" ng-click="close()">Close</button>
         </div>
-        

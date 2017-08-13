@@ -19,7 +19,7 @@ angular.module('app')
                     url: baseurl+'admin/getNewNotification',
                     method: 'GET',
                     headers: {
-                        'Authorization': user.remember_token,
+                        'Authorization': $localStorage.currentUser.remember_token,
                         'Content-Type': 'application/json'
                     }
                 }).then(function(result){
@@ -103,13 +103,71 @@ angular.module('app')
                 });
                 return deferred.promise;
             }
+            function getComments (){
+                var deferred = $q.defer();
+                $http({
+                    url: baseurl+'admin/getComments',
+                    method: 'GET',
+                    headers: {
+                        'Authorization': user.remember_token,
+                        'Content-Type': 'application/json'
+                    }
+                }).then(function(result){
+                    if(result && result.data.success){
+                        deferred.resolve(result.data);
+                    }
+                },function(error){
+                    console.log(error);
+                });
+                return deferred.promise;
+            }
+            function updateComment (data){
+                var deferred = $q.defer();
+                $http({
+                    url: baseurl+'admin/updateComment/' +data.id,
+                    method: 'PUT',
+                    data:data,
+                    headers: {
+                        'Authorization': user.remember_token,
+                        'Content-Type': 'application/json'
+                    }
+                }).then(function(result){
+                    if(result && result.data.success){
+                        deferred.resolve(result.data);
+                    }
+                },function(error){
+                    console.log(error);
+                });
+                return deferred.promise;
+            }
+            function deleteComment (id){
+                var deferred = $q.defer();
+                $http({
+                    url: baseurl+'admin/deleteComment/' +id,
+                    method: 'DELETE',
+                    headers: {
+                        'Authorization': user.remember_token,
+                        'Content-Type': 'application/json'
+                    }
+                }).then(function(result){
+                    if(result && result.data.success){
+                        deferred.resolve(result.data);
+                    }
+                },function(error){
+                    console.log(error);
+                });
+                return deferred.promise;
+            }
                 
 	return {
         getNewNotification:getNewNotification,
         checkAll:checkAll,
         getAllNotification:getAllNotification,
         deleteNoti:deleteNoti,
-        clear:clear
+        clear:clear,
+        getComments:getComments,
+        updateComment:updateComment,
+        deleteComment:deleteComment
 
 	};
 }])

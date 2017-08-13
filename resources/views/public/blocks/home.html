@@ -202,6 +202,42 @@
 								</div>
 							</div>
 						</article>
+						<article class="tg-post">
+							<figure>
+								<img src="{{historyCollected.url}}" alt="image description">
+								<div class="tg-img-hover">
+									<div class="holder">
+										<a href=""><i class="fa fa-heart" aria-hidden="true" style="color: #f3eeee;" >&nbsp&nbsp{{historyCollected.likes ? historyCollected.likes : '1'}}&nbsp&nbsp</i></a>&nbsp&nbsp
+										<a href=""><i class="fa fa-comment" aria-hidden="true" style="color:#f3eeee; margin-left: 20px;">&nbsp&nbsp{{historyCollected.comments}}&nbsp&nbsp</i></a>
+									</div>
+								</div>
+							</figure>
+							<div class="tg-post-content">
+								<div class="post-meta category-name">
+									<span><a href="">History Collected</a></span>
+								</div>
+								<h3><a href="#content" ng-click="redirec(historyCollected)">{{historyCollected.name}}</a></h3>
+								<div class="post-meta">
+									<span class="date">{{historyCollected.created_at | amCalendar:referenceTime:formats}}</span>
+								</div>
+								<div class="description">
+									<p>{{historyCollected.preview}}</p>		
+								</div>
+								<a href="#content" class="tg-btn-countinuereading" ng-click="redirec(historyCollected)">countinue reading</a>
+								<div class="tg-post-foot">
+									<ul class="post-social-icons">
+										<li><a href=""><i class="fa fa-facebook"></i></a></li>
+										<li><a href=""><i class="fa fa-twitter"></i></a></li>
+										<li><a href=""><i class="fa fa-linkedin"></i></a></li>
+										<li><a href=""><i class="fa fa-tumblr"></i></a></li>
+										<li><a href=""><i class="fa fa-envelope-o"></i></a></li>
+									</ul>
+									<div class="post-meta pull-right">
+										<span class="tg-post-author">Post By : <a href="">Ng Ký Lê</a></span>
+									</div>
+								</div>
+							</div>
+						</article>
 						<!-- <div class="next-previous">
 							<span class="older-post"><a href="">older post</a></span>
 						</div> -->

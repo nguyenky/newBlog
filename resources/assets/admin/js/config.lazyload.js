@@ -50,8 +50,11 @@ angular.module('app')
                 {
                     name: 'dropzone',
                     files: [
-                        'node_modules/ngdropzone/dist/ng-dropzone.min.js',
+                        // 'resources/assets/dropzone/dropzone.css',
+                        'node_modules/ngdropzone/dist/ng-dropzone.js',
                         'node_modules/ngdropzone/dist/ng-dropzone.min.css',
+
+
                     ]
                 },
                 {

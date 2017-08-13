@@ -45,6 +45,9 @@ class Comment extends Model
         'content' => 'required',
         'news_id' => 'required'
     ];
+    public function news(){
+        return $this->belongsTo(\App\Models\News::class,'news_id');
+    }
 
     
 }

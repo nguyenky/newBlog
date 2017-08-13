@@ -75,7 +75,7 @@
 			            	}}
 			            </td>
 			            <td >{{notification.created_at}}</td>
-			            <td ><a href="" ng-click="deleteNoti(notification.id)"> Xoá </a></td>
+			            <td ><a href="" ng-click="deleteNoti(notification.id)"> Delete </a></td>
 			          </tr>
 			        </tbody>
 			      </table>
@@ -95,41 +95,45 @@
 	    </uib-tab>
 	    <uib-tab index="1" heading="Comments" ng-click="getComments()">
 	    	<h3>Comments</h3>
-	    	<div class="pull-right"> <a href="" ng-click="clear()">Clear all</a></div>
 	    	<hr>
+	    		<div class="form-group col-md-12" ng-show="comment">
+		    		<div class="col-md-10">
+		    			<input type="text" class="form-control" ng-model="comment.content" name="" required >
+		    		</div>
+		    		<div class="col-md-1"><button type="button" class="btn btn-primary btn-block" ng-click="updateComment()" >Update</button></div>
+		    		<div class="col-md-1"><button type="button" class="btn btn-primary btn-block" ng-click="close()" >Close</button></div>
+	    		</div>
+	    	<hr ng-show="comment">
 			<div class="my-table">
 				<table class="table table-hover">
 			        <thead>
 			          <tr>
-			            <th >ID</th>
+			            <th >Name</th>
+			            <th >Avatar</th>
 			            <th >Content</th>
-			            <th >Status</th>
-			            <th ><a href="" ng-click="order = '-type'">Type</a></th>
-			            <th ><a href="" ng-click="order = 'created_at'">Time</a>
-			            </th>
-			            <th> Action </th>
+			            <th >News</th>
+			            <th >Time</th>
+			            <th >Action</th>
 			          </tr>
 			        </thead>
 			        <tbody>
-			          <tr dir-paginate="notification in fullNotification | itemsPerPage: 10 | orderBy:order">
-			            <td  >{{notification.id}}</td>
-			            <td >{{notification.content}}</td>
-			            <td>{{notification.status ? 'Seen' : 'Not Seen'}}</td>
-			            <td >{{
-				            	notification.type == 1 ? 'Access' : 
-				            	notification.type == 2 ? 'Login' : 
-				            	notification.type == 3 ? ' Comment' : 
-				            	'Like' 
-			            	}}
+			          <tr dir-paginate="comment in comments | itemsPerPage: 10" pagination-id="comments">
+			            <td  >{{comment.name}}</td>
+			            <td >
+			            	<img src="{{comment.avatar}}">
 			            </td>
-			            <td >{{notification.created_at}}</td>
-			            <td ><a href="" ng-click="deleteNoti(notification.id)"> Xoá </a></td>
+			            <td>{{comment.content}}</td>
+			            <td>{{comment.news.name}}</td>
+			            <td >{{comment.created_at}}</td>
+			            <td ><a href="" ng-click="editComment(comment)"> Edit</a> -- <a href="" ng-click="deleteComment(comment.id)">Delete</a></td>
+
 			          </tr>
 			        </tbody>
 			      </table>
 			      <div class="text-center">
 			      <dir-pagination-controls
 			        max-size="4"
+			        pagination-id="comments"
 			        [direction-links=""]
 			        [boundary-links=""]
 			        [on-page-change=""]
@@ -141,23 +145,3 @@
   			</div></uib-tab>
 	  </uib-tabset>
 </div>
-<!-- <table class="table table-hover">
-			        <thead>
-			          <tr>
-			            <th >ID</th>
-			            <th >Content</th>
-			            <th >Status</th>
-			            <th >Type</th>
-			            <th >Time</th>
-			          </tr>
-			        </thead>
-			        <tbody>
-			          <tr dir-paginate="notification in notifications | itemsPerPage: 10" ng-click="showEdit(new)" >
-			            <td  >{{notification.id}}</td>
-			            <td >{{notification.content}}</td>
-			            <td>{{notification.status}}</td>
-			            <td >{{notification.type}}</td>
-			            <td >{{notification.created_at}}</td>
-			          </tr>
-			        </tbody>
-			      </table> -->

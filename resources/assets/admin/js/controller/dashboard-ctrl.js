@@ -19,7 +19,6 @@ app.controller('DashboardCtrl',[
 		$scope.getNoti = function(){
 			Notification.getNewNotification().then(function(result){
 				if(result && result.success){
-					// console.log(result.data);
 					$scope.notifications = result.data;
 					$rootScope.countNoti = result.data.length;
 				}
@@ -66,7 +65,54 @@ app.controller('DashboardCtrl',[
 			});
 		}
 		$scope.getComments = function(){
+			Notification.getComments().then(function(result){
+				if(result && result.success){
+					$scope.comments = result.data;
+					console.log(result.data);
+				}
+			},function(errors){
+				console.log(errors);
+			})
+		}
+		$scope.comment = null;
+		$scope.editComment = function(comment){
+			$scope.comment = comment;
+		}
+		$scope.updateComment = function(){
+			if(!$scope.comment.content){
+				toastr.warning('Content not null !!!','Warning !!');
+			}else{
+				Notification.updateComment(_.omit($scope.comment,'news')).then(function(result){
+					if(result && result.success){
+						var index = _.findIndex($scope.comments,function(val){
+							return val.id === result.data.id;
+						})
+						if(index > -1){
+							$scope.comments[index] = $scope.comment;
+						}
+						$scope.comment = null;
+						toastr.success('Update comment successfully !!!','Success !!');
+
+					}
+				});
+			}
 			
+		}
+		$scope.close = function(){
+			$scope.comment = null;
+		}
+		$scope.deleteComment = function(id){
+			Notification.deleteComment(id).then(function(result){
+				if (result && result.success) {
+					var index = _.findIndex($scope.comments,function(val){
+						return val.id == result.data
+					})
+					if(index >-1){
+						$scope.comments.splice(index, 1);
+					}
+					toastr.success('Delete comment successfully !!!','Success !!');
+				}
+			});
 		}
 
 }]);

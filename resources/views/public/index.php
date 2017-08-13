@@ -9,7 +9,9 @@
 	<title>Yes ! For me !!!</title>
 	<link rel="apple-touch-icon" href="apple-touch-icon.png">
 	<!-- ------------Defaulf-------------- -->
-	<link rel="stylesheet" href="resources/assets/public/css/bootstrap.min.css">
+	<!-- <link rel="stylesheet" href="resources/assets/public/css/bootstrap.min.css"> -->
+	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+	
 	<link href="resources/assets/font-awesome/css/font-awesome.css" rel="stylesheet">
 	<link rel="stylesheet" href="resources/assets/public/css/owl.carousel.css">
 	<link rel="stylesheet" href="resources/assets/public/css/owl.theme.css">
@@ -381,7 +383,13 @@
 		<main id="main" class="haslayout">
 			<div id="twocolumns" class="container">
 				<div class="row">
-					<div data-ui-view=""></div>
+					<div data-ui-view="">
+						<div id="content" class="col-lg-9 col-md-8 col-sm-12 col-xs-12">
+							<div class="text-center">
+								<i class="fa fa-spinner fa-spin" aria-hidden="true"></i>
+							</div>
+						</div>
+					</div>
 					<aside id="sidebar" class="col-lg-3 col-md-4 col-sm-12 col-xs-12">
 						<div class="row">
 							<div class="col-lg-12 col-md-12 col-sm-6  col-xs-6 widget-width">
@@ -579,14 +587,10 @@
     <!-- main -->
     <!-- End main -->
 	<!---------- Defaulf ---------->
-	<!-- <script src="resources/assets/public/js/vendor/jquery-1.11.3.min.js"></script> -->
-	<!-- <script src="resources/assets/public/js/vendor/bootstrap.min.js"></script> -->
 	<script src="resources/assets/public/js/owl.carousel.js"></script>
 	<script src="resources/assets/public/js/isotope.pkgd.min.js"></script>
 	<script src="resources/assets/public/js/isotop.js"></script>
 	<script src="resources/assets/public/js/theia-sticky-sidebar.js"></script>
-	<!-- <script src="http://maps.google.com/maps/api/js?sensor=false"></script> -->
-	<!-- <script src="js/gmap3.min.js"></script> -->
 	<script src="resources/assets/public/js/main.js"></script>
 	<!-- ------------End defaulf---------- -->
 </body>

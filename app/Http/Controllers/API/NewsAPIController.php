@@ -72,7 +72,17 @@ class NewsAPIController extends AppBaseController
     {
         /** @var News $news */
         $new = $this->newsRepository->findWithoutFail($id);
-
+        $images = $new->images;
+        if($images){
+            foreach ($images as $key => $image) {
+                $find =  Storage::disk('public')->exists($image->name);
+                if($find){
+                    $image['url'] = url('storage/app/public/'.$image->name);
+                }else{
+                    $image['url'] = url('storage/app/public/default.jpg');
+                }
+            }
+        }
         $new['url'] = $new->getImage($new->picture);
         $new['comments'] = $new->comments()->select('id','name','avatar','admin','content','created_at')->get();
         $new['category'] = $new->category()->select('id','name')->first();
@@ -198,5 +208,13 @@ class NewsAPIController extends AppBaseController
     public function search($search){
         $news = News::orderBy('id','DESC')->where('name','LIKE','%'.$search.'%')->paginate(10);
         return $this->sendResponse($news, 'News retrieved successfully');
+    }
+    public function uploadImage($id){
+        $isPicture = $request->hasFile('image');
+        if($isPicture){
+            dd('yes');
+        }else{
+            dd('no');
+        }
     }
 }

@@ -117,9 +117,12 @@ app.controller('CategoryController',[
 					if(index > -1){
 						$scope.categories.splice(index,1);
 					}
+				}else{
+					toastr.danger('Category cant delete!!!','Danger !!');
 				}
 			},function(error){
 				console.log(error);
+				toastr.danger('Category cant delete!!!','Danger !!');
 			})
 		}
 

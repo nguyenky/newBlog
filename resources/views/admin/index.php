@@ -20,6 +20,8 @@
     <link href="resources/assets/admin/css/reset.css" rel="stylesheet">
     <link href="resources/assets/font-awesome/css/font-awesome.css" rel="stylesheet">
     <link rel="stylesheet" href="https://rawgit.com/enyo/dropzone/d8ef7a82e6ab5447c1f2d9512c8e1bfd4de5ac9e/dist/dropzone.css">
+    <!-- <link rel="stylesheet" href="resources/assets/dropzone/dropzone.css"> -->
+
     <!-- <link href="node_modules/ng-toast/dist/ngToast.css" rel="stylesheet"> -->
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -65,7 +67,7 @@
     <script src="https://rawgit.com/enyo/dropzone/d8ef7a82e6ab5447c1f2d9512c8e1bfd4de5ac9e/dist/dropzone.js"></script>
     <script src="bower_components/moment/moment.js"></script>
     <script src="bower_components/angular-moment/angular-moment.min.js"></script>
-
+    <script src="bower_components/angular-moment/angular-moment.min.js"></script>
 
     
 

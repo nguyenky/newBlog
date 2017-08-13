@@ -36,6 +36,9 @@ app.controller('HomeCtrl',[
                             case 6:
                                 $scope.music = value;
                                 break;
+                            case 7:
+                                $scope.historyCollected = value;
+                                break;
                             default:
                         }
                 });

@@ -6,6 +6,7 @@ app = angular.module('app',[
 	'ngImgCrop',
 	'summernote',
 	'ngSanitize',
+	'thatisuday.dropzone',
 	]);
 app.controller('NewsController',[
 	'$scope',
@@ -25,6 +26,7 @@ function($scope,Auth,$uibModal,toastr,Category,News,_,$sce,$state,$localStorage,
         $state.go('login');
     }
     var user = $localStorage.currentUser;
+    var idUpload = null;
 	$scope.showItem = 10;
 	$scope.getNews = function(){
 		News.getNews().then(function(result){
@@ -46,6 +48,7 @@ function($scope,Auth,$uibModal,toastr,Category,News,_,$sce,$state,$localStorage,
 	$scope.showEdit = function(post){
 		$scope.new = post;
 		$scope.edit = true;
+		idUpload = post.id;
 	}
 	$scope.close = function(){
 		$scope.edit = false;
@@ -85,24 +88,24 @@ function($scope,Auth,$uibModal,toastr,Category,News,_,$sce,$state,$localStorage,
 	/// end handle
 
 	////------DROPZONE-------
-	$scope.dzOptions = {
-		paramName : 'photo',
-		maxFilesize : '10'
-	};
-	$scope.dzMethods = {};
+	// $scope.dzOptions = {
+	// 	paramName : 'photo',
+	// 	maxFilesize : '10'
+	// };
+	// $scope.dzMethods = {};
 	
-	$scope.dzCallbacks = {
-		'addedfile' : function(file){
-			console.info('File added from dropzone 1.', file);
-		}
-	};
-	$scope.getDropzone = function(){
-				console.log($scope.dzMethods.getDropzone());
-				alert('Check console log.');
-			};
-	$scope.removeNewFile = function(){
-		$scope.dzMethods.removeFile($scope.newFile); //We got $scope.newFile from 'addedfile' event callback
-	}
+	// $scope.dzCallbacks = {
+	// 	'addedfile' : function(file){
+	// 		console.info('File added from dropzone 1.', file);
+	// 	}
+	// };
+	// $scope.getDropzone = function(){
+	// 			console.log($scope.dzMethods.getDropzone());
+	// 			alert('Check console log.');
+	// 		};
+	// $scope.removeNewFile = function(){
+	// 	$scope.dzMethods.removeFile($scope.newFile); //We got $scope.newFile from 'addedfile' event callback
+	// }
 	// ////------END DROPZONE----
 	//-------------GET CATEGORY----------
 
@@ -196,9 +199,73 @@ function($scope,Auth,$uibModal,toastr,Category,News,_,$sce,$state,$localStorage,
 			console.log(error);
 		})
 	}
+	// Modal
+	// $scope.showMulti = false;
+	// if($scope.showMulti){
+		// alert(1);
+	// }
+	$scope.openModal = function (){
+	    var modalInstance = $uibModal.open({
+		    templateUrl: 'resources/views/admin/modal/multiupload.html',
+		    controller: 'MultiUploadController',
+		    resolve: {
+		        post: $scope.new
+		    },
+		    size:'lg'
+	    });
+	    modalInstance.result.then(function (images) {
+	    	if(images){
+	    		// $scope.categories.unshift(images);
+	    		console.log(images);
+	    	}
+	    }, function () {
+	    	console.log('Modal dismissed at: ' + new Date());
+	    });
+	};
+	// $scope.openModal = function (){
+	//     var modalInstance = $uibModal.open({
+	// 	    templateUrl: 'resources/views/admin/modal/multiupload.html',
+	// 	    controller: 'MultiUploadController',
+	//     });
+	// };
 	// END UPDATE NEWS
 
 	///------MultiUploadFile-----
+	// $scope.dzOptions = 
+	$scope.dzOptions = {
+		url : baseurl+'uploadImage/3',
+		paramName : 'photo',
+		maxFilesize : '10',
+		paramName: "image",
+		acceptedFiles : 'image/jpeg, images/jpg, image/png',
+		addRemoveLinks : true,
+		params: {
+			news_id: idUpload
+		},
+		// autoProcessQueue: false,
+	};
+	
+	
+	//Handle events for dropzone
+	//Visit http://www.dropzonejs.com/#events for more events
+	$scope.dzCallbacks = {
+		'addedfile' : function(file){
+			console.log(file);
+			$scope.newFile = file;
+		},
+		'success' : function(file, xhr){
+			console.log(file, xhr);
+			console.log(xhr);
+		},
+	};
+	
+	
+	//Apply methods for dropzone
+	//Visit http://www.dropzonejs.com/#dropzone-methods for more methods
+	$scope.dzMethods = {};
+	$scope.removeNewFile = function(){
+		$scope.dzMethods.removeFile($scope.newFile); //We got $scope.newFile from 'addedfile' event callback
+	}
 	
 	///------End Multi-----------
  //    $scope.save = function(profile){
@@ -292,4 +359,65 @@ function($scope,Auth,$uibModal,toastr,Category,News,_,$sce,$state,$localStorage,
 	$scope.noFilter = function(){
 		$scope.newsFilter = $scope.news;
 	}
+}]);
+app.controller('MultiUploadController',[
+	'$scope',
+	'baseurl',
+	'post',
+	'News',
+	function($scope,baseurl,post,News){
+		if(post.images){
+			$scope.images = post.images;
+		}else{
+			$scope.images = null;
+		}
+		console.log(post);
+		$scope.name = 'uchiha';
+		$scope.dzOptions = {
+			url : baseurl+'uploadImage/'+ post.id,
+			paramName : 'photo',
+			maxFilesize : '10',
+			paramName: "image",
+			acceptedFiles : 'image/jpeg, images/jpg, image/png',
+			addRemoveLinks : true,
+			// params: {
+			// 	news_id: idUpload
+			// },
+			// autoProcessQueue: false,
+		};
+		
+		
+		//Handle events for dropzone
+		//Visit http://www.dropzonejs.com/#events for more events
+		$scope.dzCallbacks = {
+			'addedfile' : function(file){
+				console.log(file);
+				$scope.newFile = file;
+			},
+			'success' : function(file, xhr){
+				console.log(file, xhr);
+				$scope.images.push(xhr.data);
+			},
+		};
+		
+		
+		//Apply methods for dropzone
+		//Visit http://www.dropzonejs.com/#dropzone-methods for more methods
+		$scope.dzMethods = {};
+		$scope.removeNewFile = function(){
+			$scope.dzMethods.removeFile($scope.newFile); //We got $scope.newFile from 'addedfile' event callback
+		}
+		$scope.delImage = function(image){
+			News.delImageNews(image.id).then(function(result){
+				if(result && result.success){
+					var index = _.findIndex($scope.images,function(val){
+					return val.id == result.data;
+					})
+					if(index > -1){
+						$scope.images.splice(index, 1);
+					}
+				}
+			});
+		}
+
 }]);

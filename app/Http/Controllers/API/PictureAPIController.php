@@ -11,6 +11,8 @@ use App\Http\Controllers\AppBaseController;
 use InfyOm\Generator\Criteria\LimitOffsetCriteria;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
+use Intervention\Image\Facades\Image;
+use Illuminate\Support\Facades\Storage;
 
 /**
  * Class PictureController
@@ -117,7 +119,10 @@ class PictureAPIController extends AppBaseController
     {
         /** @var Picture $picture */
         $picture = $this->pictureRepository->findWithoutFail($id);
-
+        $find =  Storage::disk('public')->exists($picture->name);
+            if($find){
+                unlink('storage/app/public/'.$picture->name );
+            }
         if (empty($picture)) {
             return $this->sendError('Picture not found');
         }
@@ -125,5 +130,25 @@ class PictureAPIController extends AppBaseController
         $picture->delete();
 
         return $this->sendResponse($id, 'Picture deleted successfully');
+    }
+    public function uploadImage(Request $request,$id){
+        $isPicture = $request->hasFile('image');
+        $input = $request->all();
+        // return $input;
+        if($isPicture){
+
+            $ext        = $input['image']->guessClientExtension();
+            $reName     = rand(1,999999).'-'.time().'.'.$ext;
+            $img = Image::make($input['image']);
+            $img->save('storage/app/public/'.$reName);
+            $attributes['picture'] = $reName;
+            $url = url('storage/app/public/'.$reName);
+
+            $pic = Picture::create(['name'=>$reName,'news_id'=>$id]);
+            $pic['url'] = $url;
+            return $this->sendResponse($pic, 'Picture upload successfully'); 
+        }else{
+            return $this->sendError('Picture not upload');
+        }
     }
 }

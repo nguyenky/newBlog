@@ -40,6 +40,10 @@ class CommentAPIController extends AppBaseController
         $this->commentRepository->pushCriteria(new LimitOffsetCriteria($request));
         $comments = $this->commentRepository->all();
 
+        foreach ($comments as $key => $comment) {
+            $comment->news;
+        }
+
         return $this->sendResponse($comments->toArray(), 'Comments retrieved successfully');
     }
 

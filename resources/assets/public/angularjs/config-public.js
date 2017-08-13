@@ -53,6 +53,7 @@ app.config(['$stateProvider','$urlRouterProvider','$ocLazyLoadProvider','Faceboo
             resolve: {
                 deps: ['$ocLazyLoad', function($ocLazyLoad) {
                     return $ocLazyLoad.load([
+                            'uiboostrap'
                         ], {
                             insertBefore: '#lazyload_placeholder'
                         })

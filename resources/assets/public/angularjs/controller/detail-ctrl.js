@@ -25,7 +25,9 @@ app.controller('DetailCtrl',[
         PublicService.getNew(id).then(function(result){
             if(result &&result.success){
                 $scope.post = result.data;
-                console.log(result.data);
+                // $scope.slides = result.data.images;
+                // console.log(result.data);
+                $scope.hasImage();
                 var dataEnter = {
                     content:friend + '  accessed your post - '+result.data.name+' !!!',
                     type:1
@@ -54,7 +56,7 @@ app.controller('DetailCtrl',[
             PublicService.like(id);
             $scope.likes = true;
             var dataEnter = {
-                content:friend + ' unliked your post - '+$scope.post.name,
+                content:friend + ' liked your post - '+$scope.post.name,
                 type:4,
                 news_id:$scope.post.id
             };
@@ -82,7 +84,7 @@ app.controller('DetailCtrl',[
             PublicService.createComment($scope.comment).then(function(result){
                 if(result && result.success){
                     $scope.post.comments.push($scope.comment);
-                    $scope.comment = null;
+                    $scope.comment = {};
                     var dataEnter = {
                         content:friend + ' commented on your post - '+$scope.post.name,
                         type:3,
@@ -92,7 +94,7 @@ app.controller('DetailCtrl',[
                 }
             },function(errors){
                 console.log(errors);
-                $scope.comment = null;
+                $scope.comment = {};
             })
         }
         
@@ -105,4 +107,28 @@ app.controller('DetailCtrl',[
     $scope.trustAsHtml = function(value) {
         return $sce.trustAsHtml(value);
     };
+    //---------------------------------------
+    $scope.myInterval = 5000;
+    $scope.noWrapSlides = false;
+    $scope.active = 0;
+    var slides = $scope.slides = [];
+    var currIndex = 0;
+
+    $scope.addSlide = function(image) {
+        var newWidth = 600 + slides.length + 1;
+        slides.push({
+          image: image.url,
+          id: currIndex++
+        });
+    };
+
+    // $scope.randomize = function() {
+    //     var indexes = generateIndexesArray();
+    //     assignNewIndexesToSlides(indexes);
+    // };
+    $scope.hasImage = function(){
+        angular.forEach($scope.post.images, function(value, key) {
+            $scope.addSlide(value);
+        });
+    }
 }]);

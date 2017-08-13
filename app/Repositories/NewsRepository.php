@@ -47,12 +47,23 @@ class NewsRepository extends BaseRepository
             }else{
                 $new['url'] = url('storage/app/public/default.jpg');
             }
+            $images = $new->images;
+            if($images){
+                foreach ($images as $keyImage => $image) {
+                    $find =  Storage::disk('public')->exists($image->name);
+                    if($find){
+                        $image['url'] = url('storage/app/public/'.$image->name);
+                    }else{
+                        $image['url'] = url('storage/app/public/default.jpg');
+                    }
+                }
+            }
         }
         return $news;
     }
     public function addNews(array $attributes){
         if($attributes['picture']){
-           $ext        = $attributes['picture']->guessClientExtension();
+            $ext        = $attributes['picture']->guessClientExtension();
             $reName     = time().'.'.$ext;
             $img = Image::make($attributes['picture'])->resize(870, 500);
             $img->save('storage/app/public/'.$reName);
@@ -93,7 +104,7 @@ class NewsRepository extends BaseRepository
     }
     // --------PUBLIC---------
     public function getNewsPublic(){
-        $cats = Category::where('id','<=',6)->get();
+        $cats = Category::where('id','<=',7)->get();
         $arrayNews = [];
         foreach ($cats as $key => $cat) {
             if($cat->getLatest()){

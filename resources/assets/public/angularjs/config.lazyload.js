@@ -7,7 +7,9 @@ angular.module('app')
                 {
                     name: 'uiboostrap',
                     files: [
+                        // 'node_modules/angular-ui-bootstrap/dist/ui-bootstrap-csp.css',
                         'node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js',
+                        
                     ]
                 },
                 {

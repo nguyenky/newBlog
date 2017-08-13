@@ -52,6 +52,11 @@ Route::group(['prefix'=>'admin','middleware'=>'api.auth'],function(){
 	Route::get('delete/{id}','NotificationController@delete');
 	Route::get('clear','NotificationController@clear');
 
+	// Comments
+	Route::get('getComments','CommentAPIController@index');
+	Route::put('updateComment/{id}','CommentAPIController@update');
+	Route::delete('deleteComment/{id}','CommentAPIController@destroy');
+
 	
 });
 // PUBLIC
@@ -77,3 +82,4 @@ Route::group(['prefix'=>'public'],function(){
 
 Route::get('getProfile/{id}','ProfileAPIController@getProfile');
 Route::resource('pictures', 'PictureAPIController');
+Route::post('uploadImage/{id}','PictureAPIController@uploadImage');
