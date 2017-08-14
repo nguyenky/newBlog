@@ -98,7 +98,8 @@
 							</li>
 							<li><a ui-sref="life">LifeStyle</a></li>
 							<li><a ui-sref="trip">Trip</a></li>
-							<li><a ui-sref="audio">Playlists</a></li>
+							<li><a ui-sref="audio">Just Relax</a></li>
+							<li><a ui-sref="video">Video</a></li>
 							<li><a ui-sref="history">Yes ! I write !</a></li>
 							<li><a ui-sref="historycollected">History in my eye</a></li>
 							<li><a ui-sref="life">About Me</a></li>

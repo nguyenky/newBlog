@@ -67,8 +67,8 @@ app.config(['$stateProvider','$urlRouterProvider','$ocLazyLoadProvider','Faceboo
         })
         .state('video', {
             url: '/video',
-            templateUrl: 'resources/views/public/site/life.html',
-            controller :'LifeStyleCtrl',
+            templateUrl: 'resources/views/public/site/video.html',
+            controller :'VideoController',
             resolve: {
                 deps: ['$ocLazyLoad', function($ocLazyLoad) {
                     return $ocLazyLoad.load([
@@ -77,7 +77,7 @@ app.config(['$stateProvider','$urlRouterProvider','$ocLazyLoadProvider','Faceboo
                         })
                         .then(function() {
                             return $ocLazyLoad.load([
-                                'resources/assets/public/angularjs/controller/lifestyle-ctrl.js'
+                                'resources/assets/public/angularjs/controller/video-ctrl.js'
                                 
                             ]);
                         });

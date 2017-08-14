@@ -15,7 +15,7 @@ app.controller('VideoController',[
     console.log($rootScope.showPosts);
 
     $scope.getPosts = function(page){
-        PublicService.getNewsSite(6,page).then(function(result){
+        PublicService.getNewsSite(5,page).then(function(result){
             if(result &&result.success){
                 $scope.currentPage = result.data.current_page;
                 $scope.lastPage = result.data.last_page;
