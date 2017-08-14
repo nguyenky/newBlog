@@ -14,17 +14,26 @@ app.controller('LifeStyleCtrl',[
     $rootScope.showPosts = false;
     console.log($rootScope.showPosts);
 
-    $scope.getPosts = function(){
-        PublicService.getNewsSite(1).then(function(result){
+    $scope.getPosts = function(page){
+        PublicService.getNewsSite(1,page).then(function(result){
             if(result &&result.success){
-                $scope.posts = result.data;
+                $scope.currentPage = result.data.current_page;
+                $scope.lastPage = result.data.last_page;
+                $scope.posts = result.data.data;
                 console.log(result.data);
             }
         },function(errors){
             console.log(errors);
         });
     }
-    $scope.getPosts();
+    $scope.getPosts(1);
+    $scope.loadMore = function(){
+
+        $scope.getPosts($scope.currentPage+1);
+    }
+    $scope.previus = function(){
+        $scope.getPosts($scope.currentPage-1);
+    }
     $scope.redirec = function(post){
         var name = $scope.vietsub(post.name);
         $state.go('detail', { Id : post.id,Name:name});

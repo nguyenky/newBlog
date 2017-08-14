@@ -46,6 +46,102 @@ app.config(['$stateProvider','$urlRouterProvider','$ocLazyLoadProvider','Faceboo
                 }]
             }
         })
+        .state('trip', {
+            url: '/my-trip',
+            templateUrl: 'resources/views/public/site/trip.html',
+            controller :'TripController',
+            resolve: {
+                deps: ['$ocLazyLoad', function($ocLazyLoad) {
+                    return $ocLazyLoad.load([
+                        ], {
+                            insertBefore: '#lazyload_placeholder'
+                        })
+                        .then(function() {
+                            return $ocLazyLoad.load([
+                                'resources/assets/public/angularjs/controller/trip-ctrl.js'
+                                
+                            ]);
+                        });
+                }]
+            }
+        })
+        .state('video', {
+            url: '/video',
+            templateUrl: 'resources/views/public/site/life.html',
+            controller :'LifeStyleCtrl',
+            resolve: {
+                deps: ['$ocLazyLoad', function($ocLazyLoad) {
+                    return $ocLazyLoad.load([
+                        ], {
+                            insertBefore: '#lazyload_placeholder'
+                        })
+                        .then(function() {
+                            return $ocLazyLoad.load([
+                                'resources/assets/public/angularjs/controller/lifestyle-ctrl.js'
+                                
+                            ]);
+                        });
+                }]
+            }
+        })
+        .state('audio', {
+            url: '/relax',
+            templateUrl: 'resources/views/public/site/audio.html',
+            controller :'AudioController',
+            resolve: {
+                deps: ['$ocLazyLoad', function($ocLazyLoad) {
+                    return $ocLazyLoad.load([
+                        ], {
+                            insertBefore: '#lazyload_placeholder'
+                        })
+                        .then(function() {
+                            return $ocLazyLoad.load([
+                                'resources/assets/public/angularjs/controller/audio-ctrl.js'
+                                
+                            ]);
+                        });
+                }]
+            }
+        })
+        .state('history', {
+            url: '/yeah-i-write',
+            templateUrl: 'resources/views/public/site/history.html',
+            controller :'HistoryCtrl',
+            resolve: {
+                deps: ['$ocLazyLoad', function($ocLazyLoad) {
+                    return $ocLazyLoad.load([
+                        ], {
+                            insertBefore: '#lazyload_placeholder'
+                        })
+                        .then(function() {
+                            return $ocLazyLoad.load([
+                                'resources/assets/public/angularjs/controller/history-ctrl.js'
+                                
+                            ]);
+                        });
+                }]
+            }
+        })
+        .state('historycollected', {
+            url: '/history-in-my-eye',
+            templateUrl: 'resources/views/public/site/history-collected.html',
+            controller :'HistoryCollectedCtrl',
+            resolve: {
+                deps: ['$ocLazyLoad', function($ocLazyLoad) {
+                    return $ocLazyLoad.load([
+                        ], {
+                            insertBefore: '#lazyload_placeholder'
+                        })
+                        .then(function() {
+                            return $ocLazyLoad.load([
+                                'resources/assets/public/angularjs/controller/history-collected-ctrl.js'
+                                
+                            ]);
+                        });
+                }]
+            }
+        })
+
         .state('detail', {
             url: '/:Name-:Id.angularjs',
             templateUrl: 'resources/views/public/site/detail.html',

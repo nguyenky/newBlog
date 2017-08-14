@@ -143,10 +143,10 @@ angular.module('app')
                 });
                 return deferred.promise;
             }
-            function getNewsSite (id){
+            function getNewsSite (id,page){
                 var deferred = $q.defer();
                 $http({
-                    url: baseurl+'public/getNewsSite/' +id,
+                    url: baseurl+'public/getNewsSite/' +id + '?page=' +page,
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json'

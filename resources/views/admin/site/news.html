@@ -108,7 +108,7 @@
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                     <div class="form-group">
                         <label for="">Content</label>
-                        <textarea rows="10"  class="form-control" ng-model="new.detail"></textarea>
+                        <textarea summernote rows="10"  class="form-control" ng-model="new.detail"></textarea>
                     </div>
                 </div>
             </div>
@@ -226,7 +226,7 @@
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <div class="form-group" >
                     <label for="">Content</label>
-                    <textarea summernote rows="10"  class="form-control" ng-model="post.detail"></textarea>
+                    <textarea summernote rows="10"  class="form-control" ng-model="post.detail" data-on-image-upload="imageUpload(files)"></textarea>
                 </div>
             </div>
         </div>

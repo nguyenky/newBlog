@@ -38,6 +38,7 @@ app.controller('HomeCtrl',[
                                 break;
                             case 7:
                                 $scope.historyCollected = value;
+                                $rootScope.latest.push(value);
                                 break;
                             default:
                         }

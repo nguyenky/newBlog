@@ -359,6 +359,7 @@ function($scope,Auth,$uibModal,toastr,Category,News,_,$sce,$state,$localStorage,
 	$scope.noFilter = function(){
 		$scope.newsFilter = $scope.news;
 	}
+	//summernote
 }]);
 app.controller('MultiUploadController',[
 	'$scope',

@@ -41,11 +41,11 @@
     <script src="resources/assets/storage/bootstrap/jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="resources/assets/admin/js/bootstrap/bootstrap.min.js"></script>
+    <script src="resources/assets/storage/bootstrap/bootstrap.min.js"></script>
     <!-- Angular -->
-    <script src="node_modules/angular/angular.js"></script>
-    <script src="node_modules/angular-ui-router/release/angular-ui-router.min.js"></script>
-    <script src="node_modules/oclazyload/dist/ocLazyLoad.js"></script>
+    <script src="resources/assets/storage/angular/angular.js"></script>
+    <script src="resources/assets/storage/angular-ui-router/angular-ui-router.min.js"></script>
+    <script src="resources/assets/storage/oclazyload/ocLazyLoad.min.js"></script>
     
    <!--  Admin -->
     <script src="resources/assets/admin/js/app.js"></script>
@@ -61,13 +61,13 @@
     <script src="resources/assets/admin/js/services/playlist.js"></script>
     <script src="resources/assets/admin/js/services/notification.js"></script>
      <!-- Modules -->
-    <script src="node_modules/underscore/underscore-min.js"></script>
+    <script src="resources/assets/storage/underscore/underscore-min.js"></script>
     <script src="resources/assets/admin/js/modules/underscore.js"></script>
-    <script src="resources/assets/storage/localstorage/ngStorage.js"></script>
+    <script src="resources/assets/storage/localstorage/ngStorage.min.js"></script>
     <script src="https://rawgit.com/enyo/dropzone/d8ef7a82e6ab5447c1f2d9512c8e1bfd4de5ac9e/dist/dropzone.js"></script>
-    <script src="bower_components/moment/moment.js"></script>
-    <script src="bower_components/angular-moment/angular-moment.min.js"></script>
-    <script src="bower_components/angular-moment/angular-moment.min.js"></script>
+    <script src="resources/assets/storage/angular-moment/moment.js"></script>
+    <script src="resources/assets/storage/angular-moment/angular-moment.min.js"></script>
+    <!-- <script src="bower_components/angular-moment/angular-moment.min.js"></script> -->
 
     
 

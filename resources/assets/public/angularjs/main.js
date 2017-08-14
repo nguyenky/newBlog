@@ -185,6 +185,9 @@ app.controller('MyAppCtrl',[
     // }
 
     // $scope.getLocation();
+    $scope.redirecSite = function(site){
+        $state.go('detail', { Id : post.id,Name:name});
+    }
     $scope.redirec = function(post){
         var name = $scope.vietsub(post.name);
         $state.go('detail', { Id : post.id,Name:name});
@@ -204,4 +207,4 @@ app.controller('MyAppCtrl',[
     
     
 }]);
-app.constant('baseurl', 'http://localhost/newBlog/api/')
+app.constant('baseurl', 'http://newblog.dev/api/')

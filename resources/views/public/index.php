@@ -50,6 +50,9 @@
 							<div class="item">
 								<a href="" ng-click="redirec(latest[3])"><p>{{latest[3].name | limitTo:50}}</p></a>
 							</div>
+							<div class="item">
+								<a href="" ng-click="redirec(latest[4])"><p>{{latest[4].name | limitTo:50}}</p></a>
+							</div>
 						</div>
 					</div>
 					<div class="search-social pull-right text-center">
@@ -94,10 +97,10 @@
 								<a ui-sref="/home">Home</a>
 							</li>
 							<li><a ui-sref="life">LifeStyle</a></li>
-							<li><a ui-sref="life">Trip</a></li>
-							<li><a ui-sref="life">Playlists</a></li>
-							<li><a ui-sref="life">Yes ! I write !</a></li>
-							<li><a ui-sref="life">History in my eye</a></li>
+							<li><a ui-sref="trip">Trip</a></li>
+							<li><a ui-sref="audio">Playlists</a></li>
+							<li><a ui-sref="history">Yes ! I write !</a></li>
+							<li><a ui-sref="historycollected">History in my eye</a></li>
 							<li><a ui-sref="life">About Me</a></li>
 							<li><a ui-sref="life">Contact</a></li>
 
@@ -474,7 +477,6 @@
 									<div class="text-center" ng-show="!searchNews.length && !loadingSearch"> Can not find any posts with name like "{{searchWord}}" !!!</div>
 									<div class="text-center" ng-show="loadingSearch"><i class="fa fa-spinner fa-spin" aria-hidden="true"></i></div>
 									<div style="border-top: 1px solid;"  ng-show="searchNews.length ">
-
 										<a class="pull-left" href="" ng-click="previus()" ng-show="hasPrevius">Previus</a> 
 										<a class="pull-right" href="" ng-click="loadMore()" ng-show="hasLoadMoreSearch">Load more posts</a> 
 									</div>
@@ -502,9 +504,11 @@
 					<div class="row">
 						<div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 box-width">
 							<div class="box">
-								<h5>About Us</h5>
+								<h5>This page </h5>
 								<div class="description">
-									<p>On the other hand, we denounce with righteous nation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble and pain.</p>
+									<p>
+										Yeah ! This is personal website, and it's ... very personal. I like talking about my life, around me, my friends...,everything I care, and will care .I do not expect anyone to like it, just I like it be ok. This is my home, and I want it is mine. Welcome to my home !!
+									</p>
 								</div>
 								<ul class="social-icon">
 									<li><a href="#"><i class="fa fa-facebook"></i></a></li>
@@ -563,12 +567,12 @@
     <!-- Bootstrap Core JavaScript -->
     <script src="resources/assets/admin/js/bootstrap/bootstrap.min.js"></script>
     <!-- Angular -->
-    <script src="node_modules/angular/angular.js"></script>
-    <script src="node_modules/angular-ui-router/release/angular-ui-router.min.js"></script>
-    <script src="node_modules/oclazyload/dist/ocLazyLoad.js"></script>
-    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
-    <script src="bower_components/moment/moment.js"></script>
-    <script src="bower_components/angular-moment/angular-moment.min.js"></script>
+    <script src="resources/assets/storage/angular/angular.js"></script>
+    <script src="resources/assets/storage/angular-ui-router/angular-ui-router.min.js"></script>
+    <script src="resources/assets/storage/oclazyload/ocLazyLoad.min.js"></script>
+    <script src="resources/assets/storage/angular-sanitize/angular-sanitize.min.js"></script>
+    <script src="resources/assets/storage/angular-moment/moment.js"></script>
+    <script src="resources/assets/storage/angular-moment/angular-moment.min.js"></script>
     <script src="resources/assets/admin/js/modules/underscore.js"></script>
     <!-- <script src="node_modules/ngstorage/ngStorage.js"></script> -->
     <!-- ------ -->
