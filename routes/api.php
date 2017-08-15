@@ -75,8 +75,9 @@ Route::group(['prefix'=>'public'],function(){
 	Route::resource('comments', 'CommentAPIController');
 	Route::get('search/{search}','NewsAPIController@search');
 	/// Notification
+	Route::post('insertNoti','PublicController@notification');
+	Route::get('getPlaylists','PlaylistAPIController@index');
 
-	Route::post('insertNoti','PublicController@notification'); 
 
 });
 

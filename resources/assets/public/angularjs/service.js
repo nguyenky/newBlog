@@ -213,6 +213,23 @@ angular.module('app')
                 });
                 return deferred.promise;
             }
+            function getPlaylists (){
+                var deferred = $q.defer();
+                $http({
+                    url: baseurl+'public/getPlaylists',
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                }).then(function(result){
+                    if(result && result.data.success){
+                        deferred.resolve(result.data);
+                    }
+                },function(error){
+                    console.log(error);
+                });
+                return deferred.promise;
+            }
 	return {
         getPosts:getPosts,
         getNews:getNews,
@@ -225,6 +242,7 @@ angular.module('app')
         getNewsSite:getNewsSite,
         createComment:createComment,
         search:search,
-        insertNoti:insertNoti
+        insertNoti:insertNoti,
+        getPlaylists:getPlaylists
 	};
 }])

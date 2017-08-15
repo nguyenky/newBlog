@@ -429,6 +429,7 @@ class ComposerStaticInit1354bb56908df177dfae637e33582b3d
     );
 
     public static $classMap = array (
+        'AddColumnAboutInProfileTable' => __DIR__ . '/../..' . '/database/migrations/2017_08_15_131101_add_column_about_in_profile_table.php',
         'AddColumnAvatarInProfile' => __DIR__ . '/../..' . '/database/migrations/2017_05_24_114519_add_column_avatar_in_profile.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
@@ -478,6 +479,7 @@ class ComposerStaticInit1354bb56908df177dfae637e33582b3d
         'App\\Http\\Requests\\UpdateUserRequest' => __DIR__ . '/../..' . '/app/Http/Requests/UpdateUserRequest.php',
         'App\\Models\\Category' => __DIR__ . '/../..' . '/app/Models/Category.php',
         'App\\Models\\Comment' => __DIR__ . '/../..' . '/app/Models/Comment.php',
+        'App\\Models\\Image' => __DIR__ . '/../..' . '/app/Models/Image.php',
         'App\\Models\\News' => __DIR__ . '/../..' . '/app/Models/News.php',
         'App\\Models\\Notification' => __DIR__ . '/../..' . '/app/Models/Notification.php',
         'App\\Models\\Picture' => __DIR__ . '/../..' . '/app/Models/Picture.php',

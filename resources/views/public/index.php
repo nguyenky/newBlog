@@ -24,7 +24,7 @@
 <body data-ng-app="app" ng-controller="MyAppCtrl">
 	<div id="sliding" class="sliding">
 		<div class="container">
-			<a href="#" class="show_hide fa fa-close pull-right"></a>
+			<a href="" class="show_hide fa fa-close pull-right"></a>
 			<form class="header-search-form">
 				<fieldset>
 					<input type="text" class="form-control" placeholder="Search here...">
@@ -72,12 +72,12 @@
 			<div class="container">
 				<div class="logo-box haslayout">
 					<strong class="logo">
-						<a href="#">
+						<a href="">
 							<img src="resources/assets/public/images/yesforme.png" alt="The Success BLOG for Real LifeStyle">
 						</a>
 					</strong>
 				</div>
-				<div class="text-center" ng-show="showPosts" style="margin-bottom: 1em;">
+				<div class="text-center" ng-show="showPosts" style="margin-bottom: 1em;"">
 					<div ng-bind-html="trustAsHtml((postMain.caption))"></div>
 				</div>
 			</div>
@@ -99,16 +99,17 @@
 							<li><a ui-sref="life">LifeStyle</a></li>
 							<li><a ui-sref="trip">Trip</a></li>
 							<li><a ui-sref="audio">Just Relax</a></li>
-							<li><a ui-sref="video">Video</a></li>
+							<li><a ui-sref="playlists">Playlists</a></li>
+							<li><a ui-sref="video">Vides</a></li>
 							<li><a ui-sref="history">Yes ! I write !</a></li>
 							<li><a ui-sref="historycollected">History in my eye</a></li>
 							<li><a ui-sref="life">About Me</a></li>
-							<li><a ui-sref="life">Contact</a></li>
+							<li><a href="#footer">Contact</a></li>
 
 							<!-- <li><a href="aboutus.html">about us</a></li>
 							<li><a href="contactus.html">Có gì khác khộng nề</a></li>
 							<li>
-								<a href="#">Post Type</a>
+								<a href="">Post Type</a>
 								<ul class="dropdown-menu">
 									<li><a href="simple-post.html">Post</a></li>
 									<li><a href="gallery-post.html">Gallery Poast</a></li>
@@ -121,19 +122,19 @@
 								</ul>
 							</li>
 							
-							<li><a href="#">Style &amp; Beauty</a></li>
-							<li><a href="#">Home &amp; Living</a></li>
-							<li><a href="#">everyday life &amp; inspirations</a></li>
-							<li><a href="#">Travel</a></li>
+							<li><a href="">Style &amp; Beauty</a></li>
+							<li><a href="">Home &amp; Living</a></li>
+							<li><a href="">everyday life &amp; inspirations</a></li>
+							<li><a href="">Travel</a></li>
 							<li class="dropdown">
-								<a href="#">Dropdown</a>
+								<a href="">Dropdown</a>
 								<ul class="dropdown-menu">
-									<li><a href="#">LifeStyle</a></li>
-									<li><a href="#">Style &amp; Beauty</a></li>
-									<li><a href="#">Home &amp; Living</a></li>
-									<li><a href="#">everyday life &amp; inspirations</a></li>
-									<li><a href="#">Travel</a></li>
-									<li><a href="#">Contact</a></li>
+									<li><a href="">LifeStyle</a></li>
+									<li><a href="">Style &amp; Beauty</a></li>
+									<li><a href="">Home &amp; Living</a></li>
+									<li><a href="">everyday life &amp; inspirations</a></li>
+									<li><a href="">Travel</a></li>
+									<li><a href="">Contact</a></li>
 								</ul>
 							</li> -->
 						</ul>
@@ -147,7 +148,7 @@
 					<div class="item">
 						<div class="tg-banner-poststyle">
 							<figure>
-								<a href="#">
+								<a href="">
 									<img ng-src="{{postMain.url ? postMain.url : 'storage/app/public/default.jpg'}}" alt="image description">
 								</a>
 							</figure>
@@ -155,7 +156,7 @@
 								<div class="display-table">
 									<div class="display-table-cell">
 										<div class="post-meta">
-											<span><a href="#">LifeStyle</a></span>
+											<span><a href="">LifeStyle</a></span>
 											<span>Sep, 17 2015</span>
 										</div>
 										<div class="title">
@@ -163,13 +164,13 @@
 										</div>
 										<div class="post-meta no-padding">
 											<span>
-												<a href="#">
+												<a href="">
 													<i class="fa fa-user"></i>
 													<em>Jhone Smithon</em>
 												</a>
 											</span>
 											<span>
-												<a href="#">
+												<a href="">
 													<i class="fa fa-comment"></i>
 													<em>No Comments Yet</em>
 												</a>
@@ -183,7 +184,7 @@
 					<!-- <div class="item">
 						<div class="tg-banner-poststyle">
 							<figure>
-								<a href="#">
+								<a href="">
 									<img src="resources/assets/public/images/01-img.jpg" alt="image description">
 								</a>
 							</figure>
@@ -191,7 +192,7 @@
 								<div class="display-table">
 									<div class="display-table-cell">
 										<div class="post-meta">
-											<span><a href="#">LifeStyle</a></span>
+											<span><a href="">LifeStyle</a></span>
 											<span>Sep, 17 2015</span>
 										</div>
 										<div class="title">
@@ -199,13 +200,13 @@
 										</div>
 										<div class="post-meta no-padding">
 											<span>
-												<a href="#">
+												<a href="">
 													<i class="fa fa-user"></i>
 													<em>Jhone Smithon</em>
 												</a>
 											</span>
 											<span>
-												<a href="#">
+												<a href="">
 													<i class="fa fa-comment"></i>
 													<em>No Comments Yet</em>
 												</a>
@@ -219,7 +220,7 @@
 					<div class="item">
 						<div class="tg-banner-poststyle">
 							<figure>
-								<a href="#">
+								<a href="">
 									<img src="resources/assets/public/images/01-img.jpg" alt="image description">
 								</a>
 							</figure>
@@ -227,7 +228,7 @@
 								<div class="display-table">
 									<div class="display-table-cell">
 										<div class="post-meta">
-											<span><a href="#">LifeStyle</a></span>
+											<span><a href="">LifeStyle</a></span>
 											<span>Sep, 17 2015</span>
 										</div>
 										<div class="title">
@@ -235,13 +236,13 @@
 										</div>
 										<div class="post-meta no-padding">
 											<span>
-												<a href="#">
+												<a href="">
 													<i class="fa fa-user"></i>
 													<em>Jhone Smithon</em>
 												</a>
 											</span>
 											<span>
-												<a href="#">
+												<a href="">
 													<i class="fa fa-comment"></i>
 													<em>No Comments Yet</em>
 												</a>
@@ -276,7 +277,7 @@
 					<div class="item">
 						<div class="tg-category">
 							<figure>
-								<a href="#">
+								<a href="">
 									<img ng-src="{{postExtra1.url ? postExtra1.url : 'storage/app/public/default.jpg'}}" alt="image description">
 								</a>
 							</figure>
@@ -284,7 +285,7 @@
 								<div class="display-table">
 									<div class="display-table-cell">
 										<div class="post-meta">
-											<span><a href="#">LifeStyle</a></span>
+											<span><a href="">LifeStyle</a></span>
 											<span>{{ postExtra1.created_at | amCalendar:referenceTime:formats}}</span>
 										</div>
 										<div class="description  post-meta" style="max-height: 70px; overflow: hide;">
@@ -292,13 +293,13 @@
 										</div>
 										<div class="post-meta no-padding">
 											<span>
-												<a href="#">
+												<a href="">
 													<i class="fa fa-user"></i>
 													<em>Ng Ký Lê</em>
 												</a>
 											</span>
 											<span>
-												<a href="#">
+												<a href="">
 													<i class="fa fa-comment"></i>
 													<em>No Comments Yet</em>
 												</a>
@@ -312,7 +313,7 @@
 					<div class="item">
 						<div class="tg-category">
 							<figure>
-								<a href="#">
+								<a href="">
 									<img ng-src="{{postExtra2.url ? postExtra2.url : 'storage/app/public/default.jpg'}}" alt="image description">
 								</a>
 							</figure>
@@ -320,7 +321,7 @@
 								<div class="display-table">
 									<div class="display-table-cell">
 										<div class="post-meta">
-											<span><a href="#">LifeStyle</a></span>
+											<span><a href="">LifeStyle</a></span>
 											<span>{{ postExtra2.created_at | amCalendar:referenceTime:formats}}</span>
 										</div>
 										<div class="description  post-meta" style="max-height: 70px; overflow: hide;">
@@ -328,13 +329,13 @@
 										</div>
 										<div class="post-meta no-padding">
 											<span>
-												<a href="#">
+												<a href="">
 													<i class="fa fa-user"></i>
 													<em>Ng Ký Lê</em>
 												</a>
 											</span>
 											<span>
-												<a href="#">
+												<a href="">
 													<i class="fa fa-comment"></i>
 													<em>No Comments Yet</em>
 												</a>
@@ -348,7 +349,7 @@
 					<div class="item">
 						<div class="tg-category">
 							<figure>
-								<a href="#">
+								<a href="">
 									<img ng-src="{{postExtra3.url ? postExtra3.url : 'storage/app/public/default.jpg'}}" alt="image description">
 								</a>
 							</figure>
@@ -356,7 +357,7 @@
 								<div class="display-table">
 									<div class="display-table-cell">
 										<div class="post-meta">
-											<span><a href="#">LifeStyle</a></span>
+											<span><a href="">LifeStyle</a></span>
 											<span>{{ postExtra3.created_at | amCalendar:referenceTime:formats}}</span>
 										</div>
 										<div class="description  post-meta" style="max-height: 70px; overflow: hide;">
@@ -364,13 +365,13 @@
 										</div>
 										<div class="post-meta no-padding">
 											<span>
-												<a href="#">
+												<a href="">
 													<i class="fa fa-user"></i>
 													<em>Ng Ký Lê</em>
 												</a>
 											</span>
 											<span>
-												<a href="#">
+												<a href="">
 													<i class="fa fa-comment"></i>
 													<em>No Comments Yet</em>
 												</a>
@@ -404,9 +405,9 @@
 											<img ng-src="{{profile.url}}" alt="image description">
 										</div>
 										<div class="description">
-											<p>Tonx cray is a commodo, exercitation you probaly a is haven’t heard of them beard cred. Base  Selfies Kickstarter.</p>
+											{{profile.preview}}
 										</div>
-										<a class="tg-btn-countinuereading" href="#">countinue reading</a>
+										<a class="tg-btn-countinuereading" href="">countinue reading</a>
 									</div>
 								</div>
 							</div>
@@ -455,8 +456,8 @@
 								<div class="tg-widget tg-category">
 									<h4><span>Blog Catagories</span></h4>
 									<ul class="blog-category">
-										<li ng-repeat="cat in categories" ng-show="cat.count!=0 ">
-											<a href="">
+										<li ng-repeat="cat in categories" ng-show="cat.count!=0">
+											<a href="" ng-click="redirectCategory(cat)">
 												<em>{{cat.name}}</em>
 												<i>({{cat.count}})</i>
 											</a>
@@ -493,7 +494,7 @@
 			<div class="plugin-instagram">
 				<div class="container-fluid">
 					<div class="row">
-						<h4> Media On Instagram</h4>
+						<h4><a href="https://www.instagram.com/_ky.lenguyen_/"  target="_blank">Media On Instagram</a></h4>
 						<div id="instagram-gallery" class="instagram-gallery">
 							<div class="item" ng-repeat="instagram in instagrams  | limitTo:20" ng-show="$index >12"><a href="{{instagram.link}}" target="_blank"><img ng-src="{{instagram.images.standard_resolution.url}}"></a></div>
 						</div>
@@ -508,16 +509,16 @@
 								<h5>This page </h5>
 								<div class="description">
 									<p>
-										Yeah ! This is personal website, and it's ... very personal. I like talking about my life, around me, my friends...,everything I care, and will care .I do not expect anyone to like it, just I like it be ok. This is my home, and I want it is mine. Welcome to my home !!
+										{{profile.about}}
 									</p>
 								</div>
 								<ul class="social-icon">
-									<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-									<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-									<li><a href="#"><i class="fa fa-instagram"></i></a></li>
-									<li><a href="#"><i class="fa fa-pinterest-p"></i></a></li>
-									<li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-									<li><a href="#"><i class="fa fa-tumblr"></i></a></li>
+									<li><a href=""><i class="fa fa-facebook"></i></a></li>
+									<li><a href=""><i class="fa fa-twitter"></i></a></li>
+									<li><a href=""><i class="fa fa-instagram"></i></a></li>
+									<li><a href=""><i class="fa fa-pinterest-p"></i></a></li>
+									<li><a href=""><i class="fa fa-dribbble"></i></a></li>
+									<li><a href=""><i class="fa fa-tumblr"></i></a></li>
 								</ul>
 							</div>
 						</div>
@@ -525,19 +526,19 @@
 							<div class="box">
 								<h5>Instagram</h5>
 								<div class="instagram">
-									<div class="item"><a href="#"><img src="resources/assets/public/images/15-img.jpg" alt="image description"></a></div>
-									<div class="item"><a href="#"><img src="resources/assets/public/images/16-img.jpg" alt="image description"></a></div>
-									<div class="item"><a href="#"><img src="resources/assets/public/images/17-img.jpg" alt="image description"></a></div>
-									<div class="item"><a href="#"><img src="resources/assets/public/images/18-img.jpg" alt="image description"></a></div>
-									<div class="item"><a href="#"><img src="resources/assets/public/images/19-img.jpg" alt="image description"></a></div>
-									<div class="item"><a href="#"><img src="resources/assets/public/images/20-img.jpg" alt="image description"></a></div>
-									<div class="item"><a href="#"><img src="resources/assets/public/images/21-img.jpg" alt="image description"></a></div>
-									<div class="item"><a href="#"><img src="resources/assets/public/images/15-img.jpg" alt="image description"></a></div>
+									<div class="item"><a href=""><img src="resources/assets/public/images/15-img.jpg" alt="image description"></a></div>
+									<div class="item"><a href=""><img src="resources/assets/public/images/16-img.jpg" alt="image description"></a></div>
+									<div class="item"><a href=""><img src="resources/assets/public/images/17-img.jpg" alt="image description"></a></div>
+									<div class="item"><a href=""><img src="resources/assets/public/images/18-img.jpg" alt="image description"></a></div>
+									<div class="item"><a href=""><img src="resources/assets/public/images/19-img.jpg" alt="image description"></a></div>
+									<div class="item"><a href=""><img src="resources/assets/public/images/20-img.jpg" alt="image description"></a></div>
+									<div class="item"><a href=""><img src="resources/assets/public/images/21-img.jpg" alt="image description"></a></div>
+									<div class="item"><a href=""><img src="resources/assets/public/images/15-img.jpg" alt="image description"></a></div>
 								</div>
 							</div>
 						</div>
 						<div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 box-width">
-							<div class="box">
+							<div class="box" id="contact">
 								<h5>NewsLetter</h5>
 								<div class="description">
 									<p>On the other hand, we denounce with righteous nation and dislike men .</p>
@@ -574,6 +575,7 @@
     <script src="resources/assets/storage/angular-sanitize/angular-sanitize.min.js"></script>
     <script src="resources/assets/storage/angular-moment/moment.js"></script>
     <script src="resources/assets/storage/angular-moment/angular-moment.min.js"></script>
+    <script src="resources/assets/storage/underscore/underscore-min.js"></script>
     <script src="resources/assets/admin/js/modules/underscore.js"></script>
     <!-- <script src="node_modules/ngstorage/ngStorage.js"></script> -->
     <!-- ------ -->

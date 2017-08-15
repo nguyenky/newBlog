@@ -13,7 +13,6 @@ app.controller('MyAppCtrl',[
     if($localStorage.userLogin){
         $rootScope.userLogin = $localStorage.userLogin;
         $rootScope.loginStatus = true;
-        console.log($localStorage.userLogin);
         var friend = $localStorage.userLogin.name;
     }else{
         $rootScope.userLogin = {
@@ -105,7 +104,10 @@ app.controller('MyAppCtrl',[
     $scope.countCategory = function(){
         PublicService.countCategory().then(function(result){
             if(result &&result.success){
-                $rootScope.categories = result.data;
+                $rootScope.categories = _.filter(result.data,function(val){
+                    return val.id != 5 && val.id !=6; 
+                })
+
                 console.log(result.data);
             }
         },function(errors){
@@ -120,7 +122,6 @@ app.controller('MyAppCtrl',[
     $scope.getInstagram = function(){
         PublicService.getInstagram().then(function(result){
             if(result && result.success){
-                // console.log(result);
                 $rootScope.instagrams = result.data;
             }
         },function(errors){
@@ -205,6 +206,10 @@ app.controller('MyAppCtrl',[
         return str;
     }
     
+    $scope.redirectCategory = function(category){
+        var name = $scope.vietsub(category.name);
+        $state.go('site', { Id : category.id,Name:name});
+    }
     
 }]);
-app.constant('baseurl', 'http://newblog.dev/api/')
+app.constant('baseurl', 'http://localhost/newBlog/api/')

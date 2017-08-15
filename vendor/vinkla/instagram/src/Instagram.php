@@ -64,7 +64,7 @@ class Instagram
      */
     public function get(string $user): array
     {
-        $uri = sprintf('https://www.instagram.com/%s/media/', $user);
+        $uri = sprintf('https://www.instagram.com/%s/media/?count=250', $user);
 
         $request = $this->requestFactory->createRequest('GET', $uri);
 

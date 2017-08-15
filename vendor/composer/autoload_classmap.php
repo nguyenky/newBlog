@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'AddColumnAboutInProfileTable' => $baseDir . '/database/migrations/2017_08_15_131101_add_column_about_in_profile_table.php',
     'AddColumnAvatarInProfile' => $baseDir . '/database/migrations/2017_05_24_114519_add_column_avatar_in_profile.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
@@ -55,6 +56,7 @@ return array(
     'App\\Http\\Requests\\UpdateUserRequest' => $baseDir . '/app/Http/Requests/UpdateUserRequest.php',
     'App\\Models\\Category' => $baseDir . '/app/Models/Category.php',
     'App\\Models\\Comment' => $baseDir . '/app/Models/Comment.php',
+    'App\\Models\\Image' => $baseDir . '/app/Models/Image.php',
     'App\\Models\\News' => $baseDir . '/app/Models/News.php',
     'App\\Models\\Notification' => $baseDir . '/app/Models/Notification.php',
     'App\\Models\\Picture' => $baseDir . '/app/Models/Picture.php',

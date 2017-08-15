@@ -103,6 +103,25 @@ app.config(['$stateProvider','$urlRouterProvider','$ocLazyLoadProvider','Faceboo
                 }]
             }
         })
+        .state('playlists', {
+            url: '/playlists',
+            templateUrl: 'resources/views/public/site/playlist.html',
+            controller :'PlaylistController',
+            resolve: {
+                deps: ['$ocLazyLoad', function($ocLazyLoad) {
+                    return $ocLazyLoad.load([
+                        ], {
+                            insertBefore: '#lazyload_placeholder'
+                        })
+                        .then(function() {
+                            return $ocLazyLoad.load([
+                                'resources/assets/public/angularjs/controller/playlist-ctrl.js'
+                                
+                            ]);
+                        });
+                }]
+            }
+        })
         .state('history', {
             url: '/yeah-i-write',
             templateUrl: 'resources/views/public/site/history.html',
@@ -135,6 +154,26 @@ app.config(['$stateProvider','$urlRouterProvider','$ocLazyLoadProvider','Faceboo
                         .then(function() {
                             return $ocLazyLoad.load([
                                 'resources/assets/public/angularjs/controller/history-collected-ctrl.js'
+                                
+                            ]);
+                        });
+                }]
+            }
+        })
+        .state('site', {
+            url: '/site/:Name-:Id-category',
+            templateUrl: 'resources/views/public/site/site-category.html',
+            controller :'SiteCategory',
+            resolve: {
+                deps: ['$ocLazyLoad', function($ocLazyLoad) {
+                    return $ocLazyLoad.load([
+                            'uiboostrap'
+                        ], {
+                            insertBefore: '#lazyload_placeholder'
+                        })
+                        .then(function() {
+                            return $ocLazyLoad.load([
+                                'resources/assets/public/angularjs/controller/site-category-ctrl.js'
                                 
                             ]);
                         });

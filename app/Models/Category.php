@@ -63,7 +63,7 @@ class Category extends Model
             if($find){
                 $newLatest['url'] = url('storage/app/public/'.$newLatest->picture);
             }else{
-                $newLatest['url'] = url('storage/app/public/default.jpg');
+                $newLatest['url'] = url('storage/app/public/default-new.png');
             }
         }
         

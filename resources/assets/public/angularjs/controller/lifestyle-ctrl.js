@@ -7,11 +7,13 @@ app.controller('LifeStyleCtrl',[
     '$sce',
     '$state',
     function($scope,$rootScope,$http,PublicService,$sce,$state){
-	$rootScope.name ="uchiha";
-    // if($localStorage.currentUser){
-    //     $rootScope.avatar = $localStorage.currentUser.avatar;
-    // }
+	if($rootScope.loginStatus){
+        var friend = $rootScope.userLogin.name;
+    }else{
+        var friend = 'A friend';
+    }
     $rootScope.showPosts = false;
+    window.scrollTo(100,100);
     console.log($rootScope.showPosts);
 
     $scope.getPosts = function(page){
@@ -20,7 +22,11 @@ app.controller('LifeStyleCtrl',[
                 $scope.currentPage = result.data.current_page;
                 $scope.lastPage = result.data.last_page;
                 $scope.posts = result.data.data;
-                console.log(result.data);
+                var dataEnter = {
+                    content:friend + '  accessed lifestyle !!!',
+                    type:1
+                };
+                $scope.insertNoti(dataEnter);
             }
         },function(errors){
             console.log(errors);

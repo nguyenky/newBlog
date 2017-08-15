@@ -42,10 +42,10 @@ class NewsRepository extends BaseRepository
                 if($find){
                     $new['url'] = url('storage/app/public/'.$new->picture);
                 }else{
-                    $new['url'] = url('storage/app/public/default.jpg');
+                    $new['url'] = url('storage/app/public/default-new.png');
                 }
             }else{
-                $new['url'] = url('storage/app/public/default.jpg');
+                $new['url'] = url('storage/app/public/default-new.png');
             }
             $images = $new->images;
             if($images){
@@ -70,7 +70,7 @@ class NewsRepository extends BaseRepository
             $attributes['picture'] = $reName;
             $url = url('storage/app/public/'.$reName); 
         }else{
-            $url = url('storage/app/public/default.jpg');
+            $url = url('storage/app/public/default-new.png');
         }
 
         $new = News::create($attributes);

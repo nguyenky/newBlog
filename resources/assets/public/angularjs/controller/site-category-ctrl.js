@@ -1,29 +1,35 @@
 app = angular.module('app');
-app.controller('HistoryCollectedCtrl',[
+app.controller('SiteCategory',[
     '$scope',
     '$rootScope',
     '$http',
     'PublicService',
     '$sce',
     '$state',
-    function($scope,$rootScope,$http,PublicService,$sce,$state){
+    '$stateParams',
+    function($scope,$rootScope,$http,PublicService,$sce,$state,$stateParams){
 	if($rootScope.loginStatus){
         var friend = $rootScope.userLogin.name;
     }else{
         var friend = 'A friend';
     }
-    window.scrollTo(100,100);
     $rootScope.showPosts = false;
+    window.scrollTo(100,100);
     console.log($rootScope.showPosts);
 
     $scope.getPosts = function(page){
-        PublicService.getNewsSite(7,page).then(function(result){
+        PublicService.getNewsSite($stateParams.Id,page).then(function(result){
             if(result &&result.success){
                 $scope.currentPage = result.data.current_page;
                 $scope.lastPage = result.data.last_page;
-                $scope.posts = result.data.data;
+                if(result.data.data.length){
+                    $scope.posts = result.data.data;
+                }else{
+                    $state.go('/home');
+                }
+                
                 var dataEnter = {
-                    content:friend + '  accessed history collected !!!',
+                    content:friend + '  accessed lifestyle !!!',
                     type:1
                 };
                 $scope.insertNoti(dataEnter);

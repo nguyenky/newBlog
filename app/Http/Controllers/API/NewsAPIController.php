@@ -79,7 +79,7 @@ class NewsAPIController extends AppBaseController
                 if($find){
                     $image['url'] = url('storage/app/public/'.$image->name);
                 }else{
-                    $image['url'] = url('storage/app/public/default.jpg');
+                    $image['url'] = url('storage/app/public/default-new.png');
                 }
             }
         }
@@ -197,7 +197,7 @@ class NewsAPIController extends AppBaseController
                 if($find){
                     $new['url'] = url('storage/app/public/'.$new->picture);
                 }else{
-                    $new['url'] = url('storage/app/public/default.jpg');
+                    $new['url'] = url('storage/app/public/default-new.png');
                 }
             }else{
                 $new['url'] = url('storage/app/public/default-new.png');

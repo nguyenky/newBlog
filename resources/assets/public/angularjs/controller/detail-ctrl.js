@@ -13,6 +13,7 @@ app.controller('DetailCtrl',[
     }else{
         var friend = 'A friend';
     }
+    window.scrollTo(100,100);
     // if($localStorage.currentUser){
     //     $rootScope.avatar = $localStorage.currentUser.avatar;
     // }

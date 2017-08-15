@@ -6,8 +6,13 @@ app.controller('HomeCtrl',[
     '$sce',
     '$state',
     function($scope,$rootScope,PublicService,$sce,$state){
-	$scope.name ="uchiha";
+	if($rootScope.loginStatus){
+        var friend = $rootScope.userLogin.name;
+    }else{
+        var friend = 'A friend';
+    }
     $rootScope.showPosts = true;
+    window.scrollTo(100,100);
     $scope.getNews = function(){
         PublicService.getNews().then(function(result){
             if(result &&result.success){
