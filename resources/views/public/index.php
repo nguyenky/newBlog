@@ -72,7 +72,7 @@
 			<div class="container">
 				<div class="logo-box haslayout">
 					<strong class="logo">
-						<a href="">
+						<a  ui-sref="/home">
 							<img src="resources/assets/public/images/yesforme.jpg" alt="The Success BLOG for Real LifeStyle">
 						</a>
 					</strong>
@@ -100,43 +100,9 @@
 							<li><a ui-sref="trip">Trip</a></li>
 							<li><a ui-sref="audio">Just Relax</a></li>
 							<li><a ui-sref="playlists">Playlists</a></li>
-							<li><a ui-sref="video">Vides</a></li>
+							<li><a ui-sref="video">Videos</a></li>
 							<li><a ui-sref="history">Yes ! I write !</a></li>
 							<li><a ui-sref="historycollected">History in my eye</a></li>
-							<li><a ui-sref="life">About Me</a></li>
-							<li><a href="#footer">Contact</a></li>
-
-							<!-- <li><a href="aboutus.html">about us</a></li>
-							<li><a href="contactus.html">Có gì khác khộng nề</a></li>
-							<li>
-								<a href="">Post Type</a>
-								<ul class="dropdown-menu">
-									<li><a href="simple-post.html">Post</a></li>
-									<li><a href="gallery-post.html">Gallery Poast</a></li>
-									<li><a href="slider-post.html">Slider Post</a></li>
-									<li><a href="video-post.html">Video Post</a></li>
-									<li><a href="audio-post.html">Audio Post</a></li>
-									<li><a href="img-blockquote-post.html">image Blockquote post</a></li>
-									<li><a href="blockquote-post.html">Blockquote post</a></li>
-									<li><a href="text-post.html">text post</a></li>
-								</ul>
-							</li>
-							
-							<li><a href="">Style &amp; Beauty</a></li>
-							<li><a href="">Home &amp; Living</a></li>
-							<li><a href="">everyday life &amp; inspirations</a></li>
-							<li><a href="">Travel</a></li>
-							<li class="dropdown">
-								<a href="">Dropdown</a>
-								<ul class="dropdown-menu">
-									<li><a href="">LifeStyle</a></li>
-									<li><a href="">Style &amp; Beauty</a></li>
-									<li><a href="">Home &amp; Living</a></li>
-									<li><a href="">everyday life &amp; inspirations</a></li>
-									<li><a href="">Travel</a></li>
-									<li><a href="">Contact</a></li>
-								</ul>
-							</li> -->
 						</ul>
 					</div>
 				</div>
@@ -152,126 +118,10 @@
 									<img ng-src="{{postMain.url ? postMain.url : 'storage/app/public/default.jpg'}}" alt="image description">
 								</a>
 							</figure>
-							<!-- <div class="post-content">
-								<div class="display-table">
-									<div class="display-table-cell">
-										<div class="post-meta">
-											<span><a href="">LifeStyle</a></span>
-											<span>Sep, 17 2015</span>
-										</div>
-										<div class="title">
-											<h1>What Do You Think Of <span>LifeStyle</span></h1>
-										</div>
-										<div class="post-meta no-padding">
-											<span>
-												<a href="">
-													<i class="fa fa-user"></i>
-													<em>Jhone Smithon</em>
-												</a>
-											</span>
-											<span>
-												<a href="">
-													<i class="fa fa-comment"></i>
-													<em>No Comments Yet</em>
-												</a>
-											</span>
-										</div>
-									</div>
-								</div>
-							</div> -->
 						</div>
 					</div>
-					<!-- <div class="item">
-						<div class="tg-banner-poststyle">
-							<figure>
-								<a href="">
-									<img src="resources/assets/public/images/01-img.jpg" alt="image description">
-								</a>
-							</figure>
-							<div class="post-content">
-								<div class="display-table">
-									<div class="display-table-cell">
-										<div class="post-meta">
-											<span><a href="">LifeStyle</a></span>
-											<span>Sep, 17 2015</span>
-										</div>
-										<div class="title">
-											<h1>What Do You Think Of <span>LifeStyle</span></h1>
-										</div>
-										<div class="post-meta no-padding">
-											<span>
-												<a href="">
-													<i class="fa fa-user"></i>
-													<em>Jhone Smithon</em>
-												</a>
-											</span>
-											<span>
-												<a href="">
-													<i class="fa fa-comment"></i>
-													<em>No Comments Yet</em>
-												</a>
-											</span>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="item">
-						<div class="tg-banner-poststyle">
-							<figure>
-								<a href="">
-									<img src="resources/assets/public/images/01-img.jpg" alt="image description">
-								</a>
-							</figure>
-							<div class="post-content">
-								<div class="display-table">
-									<div class="display-table-cell">
-										<div class="post-meta">
-											<span><a href="">LifeStyle</a></span>
-											<span>Sep, 17 2015</span>
-										</div>
-										<div class="title">
-											<h1>What Do You Think Of <span>LifeStyle</span></h1>
-										</div>
-										<div class="post-meta no-padding">
-											<span>
-												<a href="">
-													<i class="fa fa-user"></i>
-													<em>Jhone Smithon</em>
-												</a>
-											</span>
-											<span>
-												<a href="">
-													<i class="fa fa-comment"></i>
-													<em>No Comments Yet</em>
-												</a>
-											</span>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div> -->
 				</div>
 				<div class="tg-newsupdate">
-					<!-- <div class="title-box">
-						<h2>Subscribed us for latest news</h2>
-						<span>We will send you Blog Updates</span>
-					</div>
-					<form class="tg-latestnewsform">
-						<fieldset>
-							<div class="col-sm-5 form-group">
-								<input type="text" name="name" placeholder="Name..." class="form-control">
-							</div>
-							<div class="col-sm-5 form-group">
-								<input type="email" name="email" placeholder="Email Address..." class="form-control">
-							</div>
-							<div class="col-sm-2 form-group">
-								<button type="submit">Submit</button>
-							</div>
-						</fieldset>
-					</form> -->
 				</div>
 				<div id="categories-slider" class="tg-categories">
 					<div class="item">
@@ -567,7 +417,6 @@
 				</div>
 			</div>
 		</footer>
-		<!-- <p id="demo">Click the button to get your position.</p> -->
 	</div>
 
 	<script src="resources/assets/admin/js/bootstrap/jquery.js"></script>
@@ -583,11 +432,9 @@
     <script src="resources/assets/storage/angular-moment/angular-moment.min.js"></script>
     <script src="resources/assets/storage/underscore/underscore-min.js"></script>
     <script src="resources/assets/admin/js/modules/underscore.js"></script>
-    <!-- <script src="node_modules/ngstorage/ngStorage.js"></script> -->
     <!-- ------ -->
     <script src="resources/assets/storage/facebook/angular-facebook.js"></script>
     <script src="resources/assets/storage/localstorage/ngStorage.js"></script>
-    <!-- <script src="bower_components/angular-facebook/lib/angular-facebook.js"></script> -->
 
     <!-- End Angular  -->
 	<script src="resources/assets/public/angularjs/app.js"></script>
