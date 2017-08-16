@@ -24,6 +24,7 @@ app.controller('MyAppCtrl',[
         var friend = 'A fiend';
 
     }
+    // window.scrollTo(100,100);
     $scope.searchWord = null;
     $scope.showSearch = false;
     $scope.loadingSearch = false;
@@ -227,4 +228,4 @@ app.controller('MyAppCtrl',[
     }
     
 }]);
-app.constant('baseurl', 'http://newblog.dev/api/')
+app.constant('baseurl', 'http://localhost/newBlog/api/')

@@ -88,7 +88,6 @@ app.config(['$stateProvider','$urlRouterProvider','$ocLazyLoadProvider',function
                                     'uiboostrap',
                                     'toastr',
                                     'paginate',
-                                    'treeview',
                                     'select',
                                     // 'resources/assets/admin/js/controller/modalCtrl/upload-avatar-modal-ctrl.js',
                                 ], {
@@ -113,7 +112,6 @@ app.config(['$stateProvider','$urlRouterProvider','$ocLazyLoadProvider',function
                                     'uiboostrap',
                                     'toastr',
                                     'paginate',
-                                    'treeview',
                                     'select',
                                     'cropimage',
                                     'dropzone',

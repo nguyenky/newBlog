@@ -9,14 +9,14 @@
 			        <thead>
 			          <tr>
 			            <th >ID</th>
-			            <th >Content</th>
+			            <th width="40%" >Content</th>
 			            <th >Status</th>
-			            <th ><a href="" ng-click="order = '-type'">Type</a></th>
-			            <th ><a href="" ng-click="order = 'created_at'">Time</a></th>
+			            <th >Type</th>
+			            <th >Time</th>
 			          </tr>
 			        </thead>
 			        <tbody>
-			          <tr dir-paginate="notification in notifications | itemsPerPage: 10 | orderBy:order" pagination-id="newNotification">
+			          <tr dir-paginate="notification in notifications | itemsPerPage: 10" pagination-id="newNotification">
 			            <td  >{{notification.id}}</td>
 			            <td >{{notification.content}}</td>
 			            <td>{{notification.status ? 'Seen' : 'Not Seen'}}</td>
@@ -54,10 +54,10 @@
 			        <thead>
 			          <tr>
 			            <th >ID</th>
-			            <th >Content</th>
+			            <th width="40%" >Content</th>
 			            <th >Status</th>
-			            <th ><a href="" ng-click="order = '-type'">Type</a></th>
-			            <th ><a href="" ng-click="order = 'created_at'">Time</a>
+			             <th >Type</th>
+			            <th >Time</th>
 			            </th>
 			            <th> Action </th>
 			          </tr>

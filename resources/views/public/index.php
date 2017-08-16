@@ -257,7 +257,7 @@
 										<div class="description">
 											{{profile.preview}}
 										</div>
-										<a class="tg-btn-countinuereading" href="">countinue reading</a>
+										<a class="tg-btn-countinuereading" href="https://www.facebook.com/ky.nguyenkyle" target="_blank">more infomation</a>
 									</div>
 								</div>
 							</div>

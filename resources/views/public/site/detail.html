@@ -49,43 +49,7 @@
 		</div>
 	</article>
 	<div class="next-previous">
-		<!-- <span class="prev-post"><a href="#">privious post</a></span>
-		<span class="next-post"><a href="#">next post</a></span> -->
 	</div>
-	<!-- ------------------------------------- -->
-  <!-- <div class="row">
-    <div class="col-md-6">
-      <button type="button" class="btn btn-info" ng-click="addSlide()">Add Slide</button>
-      <button type="button" class="btn btn-info" ng-click="randomize()">Randomize slides</button>
-      <div class="checkbox">
-        <label>
-          <input type="checkbox" ng-model="noWrapSlides">
-          Disable Slide Looping
-        </label>
-      </div>
-    </div>
-    <div class="col-md-6">
-      Interval, in milliseconds: <input type="number" class="form-control" ng-model="myInterval">
-      <br />Enter a negative number or 0 to stop the interval.
-    </div>
-  </div> -->
-  <!-- <div class="row">
-    <div class="col-md-6">
-      <button type="button" class="btn btn-info" ng-click="addSlide()">Add Slide</button>
-      <button type="button" class="btn btn-info" ng-click="randomize()">Randomize slides</button>
-      <div class="checkbox">
-        <label>
-          <input type="checkbox" ng-model="noWrapSlides">
-          Disable Slide Looping
-        </label>
-      </div>
-    </div>
-    <div class="col-md-6">
-      Interval, in milliseconds: <input type="number" class="form-control" ng-model="myInterval">
-      <br />Enter a negative number or 0 to stop the interval.
-    </div>
-  </div> -->
-	<!-- ------------------------------------- -->
 	<div id="comment">
 		<h3>{{post.comments.length}} Comments 
 			<a href="" ng-click="showComment = true" ng-show="!showComment"><i class="fa fa-angle-down" aria-hidden="true"></i></a> 
@@ -98,9 +62,9 @@
 						<img src="{{comment.avatar ? comment.avatar: 'resources/assets/public/images/avatar.png'}}" alt="image description">
 					</div>
 					<div class="meta">
-						<span class="name">{{comment.name}}</span>
-						<span class="date" ng-show="comment.created_at">{{comment.created_at |  amDateFormat:'MMMM Do'}}</span>
-						<span class="date" ng-show="!comment.created_at">Just now</span>
+						<span class="name name-comment">{{comment.name}}</span>
+						<span class="date name-comment" ng-show="comment.created_at">{{comment.created_at |  amDateFormat:'MMMM Do'}}</span>
+						<span class="date name-comment" ng-show="!comment.created_at">Just now</span>
 					</div>
 				</div>
 				<div class="description">
