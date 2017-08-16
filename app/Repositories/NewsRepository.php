@@ -32,7 +32,7 @@ class NewsRepository extends BaseRepository
         return News::class;
     }
     public function getAllNews(){
-        $news = News::orderBy('id','DESC')->select('id','name','picture','preview','detail','category_id','likes','display','note','created_at','updated_at')
+        $news = News::orderBy('id','DESC')->select('id','name','picture','preview','detail','category_id','likes','created_at','updated_at')
                 ->with(array('category'=>function($query){
                     $query->select('id','name');
                 }))->get();

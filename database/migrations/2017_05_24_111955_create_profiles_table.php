@@ -20,7 +20,7 @@ class CreateProfilesTable extends Migration
             $table->string('phone')->nullable();
             $table->string('address')->nullable();
             $table->text('preview')->nullable();
-            $table->string('cv')->nullable();
+            $table->string('avatar')->nullable();
             $table->text('about')->nullable();
             $table->timestamps();
             $table->softDeletes();

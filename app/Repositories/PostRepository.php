@@ -40,7 +40,7 @@ class PostRepository extends BaseRepository
     public function create(array $attributes){
         $ext        = $attributes['picture']->guessClientExtension();
         $reName     = time().'.'.$ext;
-        $img = Image::make($attributes['picture'])->resize(680, 400);
+        $img = Image::make($attributes['picture'])->resize(1360, 800);
         $img->save('storage/app/public/'.$reName);
         $post = Post::create([
             'caption'=>$attributes['caption'],

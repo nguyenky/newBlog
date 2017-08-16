@@ -1093,6 +1093,15 @@ button[type="submit"]:hover{
     padding-top:0;
     padding-bottom:0;
 }
+.form-newsletter fieldset .form-group textarea{
+    width:100%;
+    background:none;
+    border:1px solid #e7e7e7;
+    height:200px;
+    line-height:35px;
+    padding-top:0;
+    padding-bottom:0;
+}
 button[type="submit"].btn-send{
     background:#424242;
     width:180px;
@@ -1399,4 +1408,30 @@ button[type="submit"].btn-send:hover{
 }
 .site-post{
     margin-bottom: 1em;
+}
+.name-post{
+    height: 100px; 
+    overflow: hidden;
+}
+.error{
+    background: #f1bf49;
+    padding: 5px;
+    border-radius: 5px;
+}
+.error h5 {
+    color: #ffffff;
+}
+.error p {
+    color: #ffffff;
+}
+.success{
+    background: #17a9eb;
+    padding: 5px;
+    border-radius: 5px;
+}
+.success h5 {
+    color: #ffffff;
+}
+.success p {
+    color: #ffffff;
 }

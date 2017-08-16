@@ -7,7 +7,7 @@
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Yes ! For me !!!</title>
-	<link rel="apple-touch-icon" href="apple-touch-icon.png">
+	<link rel="icon" href="/resources/assets/icon-logo.jpg"/>
 	<!-- ------------Defaulf-------------- -->
 	<!-- <link rel="stylesheet" href="resources/assets/public/css/bootstrap.min.css"> -->
 	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
@@ -73,7 +73,7 @@
 				<div class="logo-box haslayout">
 					<strong class="logo">
 						<a href="">
-							<img src="resources/assets/public/images/yesforme.png" alt="The Success BLOG for Real LifeStyle">
+							<img src="resources/assets/public/images/yesforme.jpg" alt="The Success BLOG for Real LifeStyle">
 						</a>
 					</strong>
 				</div>
@@ -524,30 +524,36 @@
 						</div>
 						<div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 box-width">
 							<div class="box">
-								<h5>Instagram</h5>
+								<h5>Contact</h5>
 								<div class="instagram">
-									<div class="item"><a href=""><img src="resources/assets/public/images/15-img.jpg" alt="image description"></a></div>
-									<div class="item"><a href=""><img src="resources/assets/public/images/16-img.jpg" alt="image description"></a></div>
-									<div class="item"><a href=""><img src="resources/assets/public/images/17-img.jpg" alt="image description"></a></div>
-									<div class="item"><a href=""><img src="resources/assets/public/images/18-img.jpg" alt="image description"></a></div>
-									<div class="item"><a href=""><img src="resources/assets/public/images/19-img.jpg" alt="image description"></a></div>
-									<div class="item"><a href=""><img src="resources/assets/public/images/20-img.jpg" alt="image description"></a></div>
-									<div class="item"><a href=""><img src="resources/assets/public/images/21-img.jpg" alt="image description"></a></div>
-									<div class="item"><a href=""><img src="resources/assets/public/images/15-img.jpg" alt="image description"></a></div>
+									<div class="description">
+										<p>Want to send me a message ?? Let's enter the content on "Here ! This here !" !!</p>
+										<p>You also want to talking about history ?? Yeah welcomed, let's enter the content on "Here ! This here !" and "Send" for me, your article will appear on my page, and do not forget to leave your name and email ! You are always welcomed !!!</p>
+									</div>
+									<form class="form-newsletter" name='contact'>
+										<fieldset>
+											<div class="form-group"><input type="text" name="name" class="form-control" placeholder="Your Name" ng-model="contact.name" required></div>
+											<div class="form-group"><input type="text" name="email" class="form-control" placeholder="Email Address" ng-model="contact.email" required></div>
+										</fieldset>
+									</form>
+									<div class="error" ng-show ="errorContact">
+										<h5>Warning !!!!</h5>
+										<p> No no ! Make sure you had enter the 'Name' , 'Email' or 'Content', let's check  now !!   </p>
+									</div>
+									<div class="success" ng-show ="successContact">
+										<h5>Success !!!!</h5>
+										<p> Yeah !! thank you for that !! I will check as soon as possible and respond for you !!</p>
+									</div>
 								</div>
 							</div>
 						</div>
 						<div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 box-width">
 							<div class="box" id="contact">
-								<h5>NewsLetter</h5>
-								<div class="description">
-									<p>On the other hand, we denounce with righteous nation and dislike men .</p>
-								</div>
-								<form class="form-newsletter">
+								<h5>Here ! This Here !</h5>
+								<form class="form-newsletter" name='contact'>
 									<fieldset>
-										<div class="form-group"><input type="text" name="name" class="form-control" placeholder="Your Name"></div>
-										<div class="form-group"><input type="email" name="email" class="form-control" placeholder="Email Address"></div>
-										<div class="form-group"><button type="submit">Subscribed Newsletter</button></div>
+										<div class="form-group"><textarea class="form-control" placeholder="Your message" ng-model="contact.message" required></textarea></div>
+										<div class="form-group"><button type="submit" ng-click="sendContact()">Send</button></div>
 									</fieldset>
 								</form>
 							</div>

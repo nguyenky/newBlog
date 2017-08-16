@@ -56,6 +56,9 @@ Route::group(['prefix'=>'admin','middleware'=>'api.auth'],function(){
 	Route::get('getComments','CommentAPIController@index');
 	Route::put('updateComment/{id}','CommentAPIController@update');
 	Route::delete('deleteComment/{id}','CommentAPIController@destroy');
+	// Contact
+	Route::get('getAllContact','ContactController@getAll');
+	Route::delete('deleteContact/{id}','ContactController@deleteContact');
 
 	
 });
@@ -77,6 +80,7 @@ Route::group(['prefix'=>'public'],function(){
 	/// Notification
 	Route::post('insertNoti','PublicController@notification');
 	Route::get('getPlaylists','PlaylistAPIController@index');
+	Route::post('createContact','ContactController@create');
 
 
 });

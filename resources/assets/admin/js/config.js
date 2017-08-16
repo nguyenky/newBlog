@@ -180,6 +180,29 @@ app.config(['$stateProvider','$urlRouterProvider','$ocLazyLoadProvider',function
                 }]
             }
         })
+        .state('admin.contact',{
+            url : '/contacts',
+            templateUrl :'resources/views/admin/site/contact.html',
+            controller :'ContactCtrl',
+            resolve: {
+                deps: ['$ocLazyLoad', function($ocLazyLoad) {
+                    return $ocLazyLoad.load([
+                            'uiboostrap',
+                            'paginate',
+                            'toastr',
+                            // 'resources/assets/admin/js/controller/modalCtrl/post-modal-ctrl.js',
+                        ], {
+                            insertBefore: '#lazyload_placeholder'
+                        })
+                        .then(function() {
+                            return $ocLazyLoad.load([
+                                'resources/assets/admin/js/controller/contact-ctrl.js'
+                                
+                            ]);
+                        });
+                }]
+            }
+        })
         .state('home', {
             url: '/home',
             template: 'home',

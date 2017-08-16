@@ -27,9 +27,7 @@ class News extends Model
         'preview',
         'detail',
         'category_id',
-        'likes',
-        'display',
-        'note'
+        'likes'
     ];
 
     /**
@@ -43,9 +41,7 @@ class News extends Model
         'preview' => 'text',
         'detail' => 'text',
         'category_id' => 'integer',
-        'likes' => 'integer',
-        'display' => 'integer',
-        'note' => 'string'
+        'likes' => 'integer'
     ];
 
     /**
@@ -71,7 +67,7 @@ class News extends Model
         if($find){
             $url= url('storage/app/public/'.$picture);
         }else{
-            $url = url('storage/app/public/default.jpg');
+            $url = url('storage/app/public/default-new.png');
         }
         return $url;
     }

@@ -20,6 +20,7 @@
     <link href="resources/assets/admin/css/reset.css" rel="stylesheet">
     <link href="resources/assets/font-awesome/css/font-awesome.css" rel="stylesheet">
     <link rel="stylesheet" href="https://rawgit.com/enyo/dropzone/d8ef7a82e6ab5447c1f2d9512c8e1bfd4de5ac9e/dist/dropzone.css">
+    <link rel="icon" href="/resources/assets/icon-logo.jpg"/>
     <!-- <link rel="stylesheet" href="resources/assets/dropzone/dropzone.css"> -->
 
     <!-- <link href="node_modules/ng-toast/dist/ngToast.css" rel="stylesheet"> -->
@@ -60,6 +61,7 @@
     <script src="resources/assets/admin/js/services/post.js"></script>
     <script src="resources/assets/admin/js/services/playlist.js"></script>
     <script src="resources/assets/admin/js/services/notification.js"></script>
+    <script src="resources/assets/admin/js/services/contact.js"></script>
      <!-- Modules -->
     <script src="resources/assets/storage/underscore/underscore-min.js"></script>
     <script src="resources/assets/admin/js/modules/underscore.js"></script>

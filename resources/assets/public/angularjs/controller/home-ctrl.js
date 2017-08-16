@@ -16,7 +16,6 @@ app.controller('HomeCtrl',[
     $scope.getNews = function(){
         PublicService.getNews().then(function(result){
             if(result &&result.success){
-                console.log(result.data);
                 angular.forEach(result.data, function(value, key) {
                         switch (value.category_id) {
                             case 1:

@@ -9,7 +9,7 @@ app.controller('MyAppCtrl',[
     '$localStorage',
     '$state',
     function($scope,$rootScope,$http,PublicService,$sce,Facebook,$localStorage,$state){
-	$rootScope.name ="uchiha";
+	$scope.contact= null;
     if($localStorage.userLogin){
         $rootScope.userLogin = $localStorage.userLogin;
         $rootScope.loginStatus = true;
@@ -94,7 +94,6 @@ app.controller('MyAppCtrl',[
         PublicService.getProfile().then(function(result){
             if(result &&result.success){
                 $rootScope.profile = result.data;
-                console.log(result.data);
             }
         },function(errors){
             console.log(errors)
@@ -107,8 +106,6 @@ app.controller('MyAppCtrl',[
                 $rootScope.categories = _.filter(result.data,function(val){
                     return val.id != 5 && val.id !=6; 
                 })
-
-                console.log(result.data);
             }
         },function(errors){
             console.log(errors)
@@ -210,6 +207,24 @@ app.controller('MyAppCtrl',[
         var name = $scope.vietsub(category.name);
         $state.go('site', { Id : category.id,Name:name});
     }
+    // Contact
+    $scope.errorContact = false;
+    $scope.successContact = false;
+    $scope.sendContact = function(){
+        if(!$scope.contact.name || !$scope.contact.email || !$scope.contact.message){
+            $scope.errorContact = true;
+        }else{
+            $scope.errorContact = false;
+            PublicService.createContact($scope.contact).then(function(result){
+                if(result && result.success){
+                    $scope.successContact = true;
+                    $scope.contact= null;
+                }
+            },function(error){
+                console.log(error);
+            })
+        }
+    }
     
 }]);
-app.constant('baseurl', 'http://localhost/newBlog/api/')
+app.constant('baseurl', 'http://newblog.dev/api/')

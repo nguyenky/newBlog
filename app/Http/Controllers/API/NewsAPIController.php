@@ -189,7 +189,7 @@ class NewsAPIController extends AppBaseController
         return $this->sendResponse([], 'News retrieved successfully');
     }
     public function getNewsSite($id){
-        $news = News::orderBy('id','DESC')->where('category_id',$id)->paginate(3);
+        $news = News::orderBy('id','DESC')->where('category_id',$id)->paginate(9);
         foreach ($news as $key => $new) {
             $new['comments'] = $new->comments()->select('id')->count();
             if($new->picture){

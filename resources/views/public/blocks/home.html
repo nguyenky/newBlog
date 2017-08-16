@@ -48,7 +48,7 @@
 									<span class="date">{{video.created_at | amCalendar:referenceTime:formats}}</span>
 								</div>
 								<div class="description">
-									{{video.detail}}
+									<div ng-bind-html="trustAsHtml((video.detail))"></div>
 								</div>
 								<div class="tg-post-foot">
 									<ul class="post-social-icons">
@@ -149,9 +149,8 @@
 									<span class="date">{{music.created_at | amCalendar:referenceTime:formats}}</span>
 								</div>
 								<div class="description">
-									{{music.detail}}
+									<div ng-bind-html="trustAsHtml((music.detail))"></div>
 								</div>
-								<!-- <a href="#" class="tg-btn-countinuereading">countinue reading</a> -->
 								<div class="tg-post-foot">
 									<ul class="post-social-icons">
 										<li><a href=""><i class="fa fa-facebook"></i></a></li>

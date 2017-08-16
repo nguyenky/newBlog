@@ -6,7 +6,6 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'AddColumnAboutInProfileTable' => $baseDir . '/database/migrations/2017_08_15_131101_add_column_about_in_profile_table.php',
     'AddColumnAvatarInProfile' => $baseDir . '/database/migrations/2017_05_24_114519_add_column_avatar_in_profile.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
@@ -56,6 +55,7 @@ return array(
     'App\\Http\\Requests\\UpdateUserRequest' => $baseDir . '/app/Http/Requests/UpdateUserRequest.php',
     'App\\Models\\Category' => $baseDir . '/app/Models/Category.php',
     'App\\Models\\Comment' => $baseDir . '/app/Models/Comment.php',
+    'App\\Models\\Contact' => $baseDir . '/app/Models/Contact.php',
     'App\\Models\\Image' => $baseDir . '/app/Models/Image.php',
     'App\\Models\\News' => $baseDir . '/app/Models/News.php',
     'App\\Models\\Notification' => $baseDir . '/app/Models/Notification.php',
@@ -112,6 +112,7 @@ return array(
     'CommentTableSeeder' => $baseDir . '/database/seeds/CommentTableSeeder.php',
     'CreateCategoriesTable' => $baseDir . '/database/migrations/2017_05_27_051131_create_categories_table.php',
     'CreateCommentsTable' => $baseDir . '/database/migrations/2017_08_07_020401_create_comments_table.php',
+    'CreateContactsTable' => $baseDir . '/database/migrations/2017_08_16_080943_create_contacts_table.php',
     'CreateImageTable' => $baseDir . '/database/migrations/2017_08_12_055654_create_image_table.php',
     'CreateNewsTable' => $baseDir . '/database/migrations/2017_05_28_133652_create_news_table.php',
     'CreateNotificationTable' => $baseDir . '/database/migrations/2017_08_11_024631_create_notification_table.php',

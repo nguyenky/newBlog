@@ -25,9 +25,7 @@ class Category extends Model
 
     public $fillable = [
         'name',
-        'description',
         'category_id',
-        'impotant'
     ];
 
     /**
@@ -37,9 +35,7 @@ class Category extends Model
      */
     protected $casts = [
         'name' => 'string',
-        'description' => 'string',
         'category_id' => 'integer',
-        'impotant' => 'integer'
     ];
 
     /**

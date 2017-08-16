@@ -16,10 +16,7 @@ class CreatePicturesTable extends Migration
         Schema::create('pictures', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->integer('news_id')->unsigned()->nullable();
-            $table->integer('post_id')->unsigned()->nullable();
-            $table->foreign('news_id')->references('id')->on('news')->onDelete('cascade');
-            $table->foreign('post_id')->references('id')->on('posts')->onDelete('cascade');
+            $table->integer('news_id');
             $table->timestamps();
         });
     }
