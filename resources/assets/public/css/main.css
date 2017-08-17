@@ -1438,3 +1438,17 @@ button[type="submit"].btn-send:hover{
 .name-comment{
     margin-right: 5px;
 }
+.images{
+    display: inline;
+    
+}
+.images img {
+    margin-bottom: 3px;
+}
+.images img:hover {
+    transition: opacity 1s;
+    -moz-transition: opacity 1s;
+    -webkit-transition: opacity 1s;
+    -o-transition: opacity 1s;
+    opacity: 0.8;
+}

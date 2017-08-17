@@ -67,6 +67,7 @@ Route::group(['prefix'=>'public'],function(){
 	// Musical
 	
 	/// Posts
+	Route::get('getAllPosts','PostAPIController@index');
 	Route::get('getPostPublic','PostAPIController@getPostPublic');
 	Route::get('getNewsPublic','NewsAPIController@getNewsPublic');
 	Route::get('getNewDetail/{id}','NewsAPIController@show');

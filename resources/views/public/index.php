@@ -103,6 +103,7 @@
 							<li><a ui-sref="video">Videos</a></li>
 							<li><a ui-sref="history">Yes ! I write !</a></li>
 							<li><a ui-sref="historycollected">History in my eye</a></li>
+							<li><a ui-sref="images">Images</a></li>
 						</ul>
 					</div>
 				</div>

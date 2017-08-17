@@ -160,6 +160,25 @@ app.config(['$stateProvider','$urlRouterProvider','$ocLazyLoadProvider','Faceboo
                 }]
             }
         })
+        .state('images', {
+            url: '/images',
+            templateUrl: 'resources/views/public/site/images.html',
+            controller :'ImagesCtrl',
+            resolve: {
+                deps: ['$ocLazyLoad', function($ocLazyLoad) {
+                    return $ocLazyLoad.load([
+                        ], {
+                            insertBefore: '#lazyload_placeholder'
+                        })
+                        .then(function() {
+                            return $ocLazyLoad.load([
+                                'resources/assets/public/angularjs/controller/images-ctrl.js'
+                                
+                            ]);
+                        });
+                }]
+            }
+        })
         .state('site', {
             url: '/site/:Name-:Id-category',
             templateUrl: 'resources/views/public/site/site-category.html',
@@ -180,7 +199,6 @@ app.config(['$stateProvider','$urlRouterProvider','$ocLazyLoadProvider','Faceboo
                 }]
             }
         })
-
         .state('detail', {
             url: '/:Name-:Id.angularjs',
             templateUrl: 'resources/views/public/site/detail.html',

@@ -26,7 +26,7 @@ class PostRepository extends BaseRepository
         return Post::class;
     }
     public function all($columns = ['*']){
-        $posts = Post::orderBy('id','DESC')->paginate(20);
+        $posts = Post::orderBy('id','DESC')->paginate(12);
         foreach ($posts as $key => $post) {
             $find =  Storage::disk('public')->exists($post->picture);
             if($find){
