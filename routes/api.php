@@ -45,20 +45,47 @@ Route::group(['prefix'=>'admin','middleware'=>'api.auth'],function(){
 	Route::resource('posts', 'PostAPIController');
 	// Musical
 	Route::resource('playlists', 'PlaylistAPIController');
+	// Notification
+	Route::get('getNewNotification','NotificationController@getNewNotification');
+	Route::get('getAllNotification','NotificationController@getAllNotification');
+	Route::get('checkAll','NotificationController@checkAll');
+	Route::get('delete/{id}','NotificationController@delete');
+	Route::get('clear','NotificationController@clear');
+
+	// Comments
+	Route::get('getComments','CommentAPIController@index');
+	Route::put('updateComment/{id}','CommentAPIController@update');
+	Route::delete('deleteComment/{id}','CommentAPIController@destroy');
+	// Contact
+	Route::get('getAllContact','ContactController@getAll');
+	Route::delete('deleteContact/{id}','ContactController@deleteContact');
+
+	
 });
 // PUBLIC
 Route::group(['prefix'=>'public'],function(){
 	// Musical
 	
 	/// Posts
+	Route::get('getAllPosts','PostAPIController@index');
 	Route::get('getPostPublic','PostAPIController@getPostPublic');
 	Route::get('getNewsPublic','NewsAPIController@getNewsPublic');
+	Route::get('getNewDetail/{id}','NewsAPIController@show');
+	Route::get('like/{id}','NewsAPIController@like');
+	Route::get('unlike/{id}','NewsAPIController@unLike');
+	Route::get('getInstagram','ProfileAPIController@getInstagram');
+	Route::get('getCategory','CategoryAPIController@getCategory');
+	Route::get('getNewsSite/{id}','NewsAPIController@getNewsSite');
+	Route::resource('comments', 'CommentAPIController');
+	Route::get('search/{search}','NewsAPIController@search');
+	/// Notification
+	Route::post('insertNoti','PublicController@notification');
+	Route::get('getPlaylists','PlaylistAPIController@index');
+	Route::post('createContact','ContactController@create');
+
+
 });
 
 Route::get('getProfile/{id}','ProfileAPIController@getProfile');
 Route::resource('pictures', 'PictureAPIController');
-
-
-
-
-
+Route::post('uploadImage/{id}','PictureAPIController@uploadImage');

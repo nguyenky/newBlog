@@ -223,3 +223,26 @@ form .progress {
 .caption{
 	margin-bottom: 20px;
 }
+.notification-count{
+	font-size: 10px;
+    margin-left: -5px;
+    background: #e49c07;
+    padding: 2px;
+    color: black;
+    font-weight: bold;
+    border-radius: 2px;
+}
+.multiupload{
+	margin-right: 10px;
+	/*width: px;*/
+	/*height: 30px;*/
+	position: relative;
+	display: inline;
+}
+.center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 18px;
+}

@@ -17,12 +17,10 @@ class CreateNewsTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('picture')->nullable();
-            $table->string('preview');
-            $table->string('detail');
+            $table->text('preview');
+            $table->text('detail');
             $table->integer('category_id');
             $table->integer('likes')->nullable();
-            $table->integer('display')->nullable();
-            $table->string('note')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

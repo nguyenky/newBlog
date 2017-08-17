@@ -26,7 +26,7 @@ class PostRepository extends BaseRepository
         return Post::class;
     }
     public function all($columns = ['*']){
-        $posts = Post::orderBy('id','DESC')->paginate(20);
+        $posts = Post::orderBy('id','DESC')->paginate(12);
         foreach ($posts as $key => $post) {
             $find =  Storage::disk('public')->exists($post->picture);
             if($find){
@@ -40,7 +40,7 @@ class PostRepository extends BaseRepository
     public function create(array $attributes){
         $ext        = $attributes['picture']->guessClientExtension();
         $reName     = time().'.'.$ext;
-        $img = Image::make($attributes['picture'])->resize(680, 400);
+        $img = Image::make($attributes['picture'])->resize(1360, 800);
         $img->save('storage/app/public/'.$reName);
         $post = Post::create([
             'caption'=>$attributes['caption'],

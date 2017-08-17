@@ -7,4 +7,5 @@ angular.module('app', [
     'angularMoment',
     'underscore',
     'ngStorage',
+    'facebook'
 ]);

@@ -40,6 +40,8 @@ app.config(['$stateProvider','$urlRouterProvider','$ocLazyLoadProvider',function
             resolve: {
                         deps: ['$ocLazyLoad', function($ocLazyLoad) {
                             return $ocLazyLoad.load([
+                                    'paginate',
+                                    'toastr',
                                     'node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js'
                                 ], {
                                     insertBefore: '#lazyload_placeholder'
@@ -86,7 +88,6 @@ app.config(['$stateProvider','$urlRouterProvider','$ocLazyLoadProvider',function
                                     'uiboostrap',
                                     'toastr',
                                     'paginate',
-                                    'treeview',
                                     'select',
                                     // 'resources/assets/admin/js/controller/modalCtrl/upload-avatar-modal-ctrl.js',
                                 ], {
@@ -111,7 +112,6 @@ app.config(['$stateProvider','$urlRouterProvider','$ocLazyLoadProvider',function
                                     'uiboostrap',
                                     'toastr',
                                     'paginate',
-                                    'treeview',
                                     'select',
                                     'cropimage',
                                     'dropzone',
@@ -172,6 +172,29 @@ app.config(['$stateProvider','$urlRouterProvider','$ocLazyLoadProvider',function
                         .then(function() {
                             return $ocLazyLoad.load([
                                 'resources/assets/admin/js/controller/playlist-ctrl.js'
+                                
+                            ]);
+                        });
+                }]
+            }
+        })
+        .state('admin.contact',{
+            url : '/contacts',
+            templateUrl :'resources/views/admin/site/contact.html',
+            controller :'ContactCtrl',
+            resolve: {
+                deps: ['$ocLazyLoad', function($ocLazyLoad) {
+                    return $ocLazyLoad.load([
+                            'uiboostrap',
+                            'paginate',
+                            'toastr',
+                            // 'resources/assets/admin/js/controller/modalCtrl/post-modal-ctrl.js',
+                        ], {
+                            insertBefore: '#lazyload_placeholder'
+                        })
+                        .then(function() {
+                            return $ocLazyLoad.load([
+                                'resources/assets/admin/js/controller/contact-ctrl.js'
                                 
                             ]);
                         });

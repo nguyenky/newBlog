@@ -1,19 +1,17 @@
 
 <!doctype html>
-<!--[if lt IE 7]>		<html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
-<!--[if IE 7]>			<html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
-<!--[if IE 8]>			<html class="no-js lt-ie9" lang=""> <![endif]-->
-<!--[if gt IE 8]><!-->	<html class="no-js" lang=""> <!--<![endif]-->
+<html class="no-js" lang="">
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Yes ! For me !!!</title>
-	<link rel="apple-touch-icon" href="apple-touch-icon.png">
+	<link rel="icon" href="/resources/assets/icon-logo.jpg"/>
 	<!-- ------------Defaulf-------------- -->
-	<link rel="stylesheet" href="resources/assets/public/css/bootstrap.min.css">
-	<!-- <link rel="stylesheet" href="resources/assets/public/css/font-awesome.min.css"> -->
+	<!-- <link rel="stylesheet" href="resources/assets/public/css/bootstrap.min.css"> -->
+	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+	
 	<link href="resources/assets/font-awesome/css/font-awesome.css" rel="stylesheet">
 	<link rel="stylesheet" href="resources/assets/public/css/owl.carousel.css">
 	<link rel="stylesheet" href="resources/assets/public/css/owl.theme.css">
@@ -24,12 +22,9 @@
 	<!-- --------Defaulf------------ -->
 </head>
 <body data-ng-app="app" ng-controller="MyAppCtrl">
-	<!--[if lt IE 8]>
-		<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-	<![endif]-->
 	<div id="sliding" class="sliding">
 		<div class="container">
-			<a href="#" class="show_hide fa fa-close pull-right"></a>
+			<a href="" class="show_hide fa fa-close pull-right"></a>
 			<form class="header-search-form">
 				<fieldset>
 					<input type="text" class="form-control" placeholder="Search here...">
@@ -41,29 +36,35 @@
 		<header id="header" class="tg-header haslayout">
 			<div class="topbar haslayout">
 				<div class="container">
-					<div class="new-slides pull-left col-lg-4 col-md-5 col-sm-6 col-xs-6">
+					<div class="new-slides pull-left col-lg-6 col-md-7 col-sm-8 col-xs-8">
 						<div id="news-slider">
-							<div class="item" ng-repeat="d in demo">
-								<p>asdsad</p>
-							</div>
-							<!-- <div class="item">
-								<p>The Latest New For Your New Post</p>
+							<div class="item">
+								<a href="" ng-click="redirec(latest[0])"><p>{{latest[0].name | limitTo:50}}</p></a>
 							</div>
 							<div class="item">
-								<p>The Latest New For Your New Post</p>
-							</div> -->
+								<a href="" ng-click="redirec(latest[1])"><p>{{latest[1].name | limitTo:50}}</p></a>
+							</div>
+							<div class="item">
+								<a href="" ng-click="redirec(latest[2])"><p>{{latest[2].name | limitTo:50}}</p></a>
+							</div>
+							<div class="item">
+								<a href="" ng-click="redirec(latest[3])"><p>{{latest[3].name | limitTo:50}}</p></a>
+							</div>
+							<div class="item">
+								<a href="" ng-click="redirec(latest[4])"><p>{{latest[4].name | limitTo:50}}</p></a>
+							</div>
 						</div>
 					</div>
-					<div class="search-social pull-right">
-						<ul class="social-icon">
-							<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-							<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-							<li><a href="#"><i class="fa fa-instagram"></i></a></li>
-							<li><a href="#"><i class="fa fa-pinterest-p"></i></a></li>
-							<li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-							<li><a href="#"><i class="fa fa-tumblr"></i></a></li>
+					<div class="search-social pull-right text-center">
+						<div class="avatar-user" ng-show="loginStatus">
+							<div class="name-user">
+								<a href="" ng-click="logout()">{{userLogin.name}}</a>
+							</div>
+							<img ng-src="{{userLogin.avatar}}" width="40" height="40" ng-show='loginStatus'>
+						</div>
+						<ul class="social-icon" ng-show="!loginStatus">
+							<li ><a href="" ng-click="login()"><i class="fa fa-facebook"></i></a></li>
 						</ul>
-						<a href="#" class="btn-search fa fa-search show_hide"></a>
 					</div>
 				</div>
 			</div>
@@ -71,13 +72,12 @@
 			<div class="container">
 				<div class="logo-box haslayout">
 					<strong class="logo">
-						<a href="#">
-							<img src="resources/assets/public/images/logo.png" alt="The Success BLOG for Real LifeStyle">
+						<a  ui-sref="/home">
+							<img src="resources/assets/public/images/yesforme.jpg" alt="The Success BLOG for Real LifeStyle">
 						</a>
 					</strong>
-					<span class="slogn">For Real LifeStyle</span>
 				</div>
-				<div class="text-center">
+				<div class="text-center" ng-show="showPosts" style="margin-bottom: 1em;"">
 					<div ng-bind-html="trustAsHtml((postMain.caption))"></div>
 				</div>
 			</div>
@@ -93,189 +93,42 @@
 					</div>
 					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 						<ul class="nav navbar-nav">
-							<li class="active">
-								<a href="index.html">Home</a>
-								<ul class="dropdown-menu">
-									<li><a href="index.html">Home</a></li>
-									<li class="active"><a href="index-slider.html">Home slider</a></li>
-									<li><a href="index-masonry.html">Home Masnory</a></li>
-									<li><a href="index-three-columns.html">Home Three Columns</a></li>
-									<li><a href="single.html">Single</a></li>
-									<li><a href="index-fixnav.html">Sticky Nav</a></li>
-								</ul>
-							</li>
-							<li><a href="aboutus.html">about us</a></li>
-							<li><a href="contactus.html">Contact</a></li>
 							<li>
-								<a href="#">Post Type</a>
-								<ul class="dropdown-menu">
-									<li><a href="simple-post.html">Post</a></li>
-									<li><a href="gallery-post.html">Gallery Poast</a></li>
-									<li><a href="slider-post.html">Slider Post</a></li>
-									<li><a href="video-post.html">Video Post</a></li>
-									<li><a href="audio-post.html">Audio Post</a></li>
-									<li><a href="img-blockquote-post.html">image Blockquote post</a></li>
-									<li><a href="blockquote-post.html">Blockquote post</a></li>
-									<li><a href="text-post.html">text post</a></li>
-								</ul>
+								<a ui-sref="/home">Home</a>
 							</li>
-							<li><a href="#">LifeStyle</a></li>
-							<li><a href="#">Style &amp; Beauty</a></li>
-							<li><a href="#">Home &amp; Living</a></li>
-							<li><a href="#">everyday life &amp; inspirations</a></li>
-							<li><a href="#">Travel</a></li>
-							<li class="dropdown">
-								<a href="#">Dropdown</a>
-								<ul class="dropdown-menu">
-									<li><a href="#">LifeStyle</a></li>
-									<li><a href="#">Style &amp; Beauty</a></li>
-									<li><a href="#">Home &amp; Living</a></li>
-									<li><a href="#">everyday life &amp; inspirations</a></li>
-									<li><a href="#">Travel</a></li>
-									<li><a href="#">Contact</a></li>
-								</ul>
-							</li>
+							<li><a ui-sref="life">LifeStyle</a></li>
+							<li><a ui-sref="trip">Trip</a></li>
+							<li><a ui-sref="audio">Just Relax</a></li>
+							<li><a ui-sref="playlists">Playlists</a></li>
+							<li><a ui-sref="video">Videos</a></li>
+							<li><a ui-sref="history">Yes ! I write !</a></li>
+							<li><a ui-sref="historycollected">History in my eye</a></li>
+							<li><a ui-sref="images">Images</a></li>
 						</ul>
 					</div>
 				</div>
 			</nav>
 		</header>
 		<div class="tg-banner haslayout">
-			<div class="container">
+			<div class="container" ng-show="showPosts">
 				<div id="home-slider" class="home-slider">
 					<div class="item">
 						<div class="tg-banner-poststyle">
 							<figure>
-								<a href="#">
+								<a href="">
 									<img ng-src="{{postMain.url ? postMain.url : 'storage/app/public/default.jpg'}}" alt="image description">
 								</a>
 							</figure>
-							<!-- <div class="post-content">
-								<div class="display-table">
-									<div class="display-table-cell">
-										<div class="post-meta">
-											<span><a href="#">LifeStyle</a></span>
-											<span>Sep, 17 2015</span>
-										</div>
-										<div class="title">
-											<h1>What Do You Think Of <span>LifeStyle</span></h1>
-										</div>
-										<div class="post-meta no-padding">
-											<span>
-												<a href="#">
-													<i class="fa fa-user"></i>
-													<em>Jhone Smithon</em>
-												</a>
-											</span>
-											<span>
-												<a href="#">
-													<i class="fa fa-comment"></i>
-													<em>No Comments Yet</em>
-												</a>
-											</span>
-										</div>
-									</div>
-								</div>
-							</div> -->
 						</div>
 					</div>
-					<!-- <div class="item">
-						<div class="tg-banner-poststyle">
-							<figure>
-								<a href="#">
-									<img src="resources/assets/public/images/01-img.jpg" alt="image description">
-								</a>
-							</figure>
-							<div class="post-content">
-								<div class="display-table">
-									<div class="display-table-cell">
-										<div class="post-meta">
-											<span><a href="#">LifeStyle</a></span>
-											<span>Sep, 17 2015</span>
-										</div>
-										<div class="title">
-											<h1>What Do You Think Of <span>LifeStyle</span></h1>
-										</div>
-										<div class="post-meta no-padding">
-											<span>
-												<a href="#">
-													<i class="fa fa-user"></i>
-													<em>Jhone Smithon</em>
-												</a>
-											</span>
-											<span>
-												<a href="#">
-													<i class="fa fa-comment"></i>
-													<em>No Comments Yet</em>
-												</a>
-											</span>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="item">
-						<div class="tg-banner-poststyle">
-							<figure>
-								<a href="#">
-									<img src="resources/assets/public/images/01-img.jpg" alt="image description">
-								</a>
-							</figure>
-							<div class="post-content">
-								<div class="display-table">
-									<div class="display-table-cell">
-										<div class="post-meta">
-											<span><a href="#">LifeStyle</a></span>
-											<span>Sep, 17 2015</span>
-										</div>
-										<div class="title">
-											<h1>What Do You Think Of <span>LifeStyle</span></h1>
-										</div>
-										<div class="post-meta no-padding">
-											<span>
-												<a href="#">
-													<i class="fa fa-user"></i>
-													<em>Jhone Smithon</em>
-												</a>
-											</span>
-											<span>
-												<a href="#">
-													<i class="fa fa-comment"></i>
-													<em>No Comments Yet</em>
-												</a>
-											</span>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div> -->
 				</div>
 				<div class="tg-newsupdate">
-					<!-- <div class="title-box">
-						<h2>Subscribed us for latest news</h2>
-						<span>We will send you Blog Updates</span>
-					</div>
-					<form class="tg-latestnewsform">
-						<fieldset>
-							<div class="col-sm-5 form-group">
-								<input type="text" name="name" placeholder="Name..." class="form-control">
-							</div>
-							<div class="col-sm-5 form-group">
-								<input type="email" name="email" placeholder="Email Address..." class="form-control">
-							</div>
-							<div class="col-sm-2 form-group">
-								<button type="submit">Submit</button>
-							</div>
-						</fieldset>
-					</form> -->
 				</div>
 				<div id="categories-slider" class="tg-categories">
 					<div class="item">
 						<div class="tg-category">
 							<figure>
-								<a href="#">
+								<a href="">
 									<img ng-src="{{postExtra1.url ? postExtra1.url : 'storage/app/public/default.jpg'}}" alt="image description">
 								</a>
 							</figure>
@@ -283,21 +136,21 @@
 								<div class="display-table">
 									<div class="display-table-cell">
 										<div class="post-meta">
-											<span><a href="#">LifeStyle</a></span>
+											<span><a href="">LifeStyle</a></span>
 											<span>{{ postExtra1.created_at | amCalendar:referenceTime:formats}}</span>
 										</div>
-										<div class="description  post-meta">
-											<div ng-bind-html="trustAsHtml((postExtra1.caption))"></div>
+										<div class="description  post-meta" style="max-height: 70px; overflow: hide;">
+											<div ng-bind-html="trustAsHtml((postExtra1.caption | limitTo:200))"></div>
 										</div>
 										<div class="post-meta no-padding">
 											<span>
-												<a href="#">
+												<a href="">
 													<i class="fa fa-user"></i>
 													<em>Ng Ký Lê</em>
 												</a>
 											</span>
 											<span>
-												<a href="#">
+												<a href="">
 													<i class="fa fa-comment"></i>
 													<em>No Comments Yet</em>
 												</a>
@@ -311,7 +164,7 @@
 					<div class="item">
 						<div class="tg-category">
 							<figure>
-								<a href="#">
+								<a href="">
 									<img ng-src="{{postExtra2.url ? postExtra2.url : 'storage/app/public/default.jpg'}}" alt="image description">
 								</a>
 							</figure>
@@ -319,21 +172,21 @@
 								<div class="display-table">
 									<div class="display-table-cell">
 										<div class="post-meta">
-											<span><a href="#">LifeStyle</a></span>
+											<span><a href="">LifeStyle</a></span>
 											<span>{{ postExtra2.created_at | amCalendar:referenceTime:formats}}</span>
 										</div>
-										<div class="description post-meta">
-											<div ng-bind-html="trustAsHtml((postExtra2.caption))"></div>
+										<div class="description  post-meta" style="max-height: 70px; overflow: hide;">
+											<div ng-bind-html="trustAsHtml((postExtra2.caption | limitTo:200))"></div>
 										</div>
 										<div class="post-meta no-padding">
 											<span>
-												<a href="#">
+												<a href="">
 													<i class="fa fa-user"></i>
 													<em>Ng Ký Lê</em>
 												</a>
 											</span>
 											<span>
-												<a href="#">
+												<a href="">
 													<i class="fa fa-comment"></i>
 													<em>No Comments Yet</em>
 												</a>
@@ -347,7 +200,7 @@
 					<div class="item">
 						<div class="tg-category">
 							<figure>
-								<a href="#">
+								<a href="">
 									<img ng-src="{{postExtra3.url ? postExtra3.url : 'storage/app/public/default.jpg'}}" alt="image description">
 								</a>
 							</figure>
@@ -355,21 +208,21 @@
 								<div class="display-table">
 									<div class="display-table-cell">
 										<div class="post-meta">
-											<span><a href="#">LifeStyle</a></span>
+											<span><a href="">LifeStyle</a></span>
 											<span>{{ postExtra3.created_at | amCalendar:referenceTime:formats}}</span>
 										</div>
-										<div class="description post-meta">
-											<div ng-bind-html="trustAsHtml((postExtra3.caption))"></div>
+										<div class="description  post-meta" style="max-height: 70px; overflow: hide;">
+											<div ng-bind-html="trustAsHtml((postExtra3.caption | limitTo:200))"></div>
 										</div>
 										<div class="post-meta no-padding">
 											<span>
-												<a href="#">
+												<a href="">
 													<i class="fa fa-user"></i>
 													<em>Ng Ký Lê</em>
 												</a>
 											</span>
 											<span>
-												<a href="#">
+												<a href="">
 													<i class="fa fa-comment"></i>
 													<em>No Comments Yet</em>
 												</a>
@@ -386,7 +239,13 @@
 		<main id="main" class="haslayout">
 			<div id="twocolumns" class="container">
 				<div class="row">
-					<div data-ui-view=""></div>
+					<div data-ui-view="">
+						<div id="content" class="col-lg-9 col-md-8 col-sm-12 col-xs-12">
+							<div class="text-center">
+								<i class="fa fa-spinner fa-spin" aria-hidden="true"></i>
+							</div>
+						</div>
+					</div>
 					<aside id="sidebar" class="col-lg-3 col-md-4 col-sm-12 col-xs-12">
 						<div class="row">
 							<div class="col-lg-12 col-md-12 col-sm-6  col-xs-6 widget-width">
@@ -394,18 +253,18 @@
 									<h4><span>about me</span></h4>
 									<div class="about-widget">
 										<div class="author-img">
-											<img src="resources/assets/public/images/author.jpg" alt="image description">
+											<img ng-src="{{profile.url}}" alt="image description">
 										</div>
 										<div class="description">
-											<p>Tonx cray is a commodo, exercitation you probaly a is haven’t heard of them beard cred. Base  Selfies Kickstarter.</p>
+											{{profile.preview}}
 										</div>
-										<a class="tg-btn-countinuereading" href="#">countinue reading</a>
+										<a class="tg-btn-countinuereading" href="https://www.facebook.com/ky.nguyenkyle" target="_blank">more infomation</a>
 									</div>
 								</div>
 							</div>
 							<div class="col-lg-12 col-md-12 col-sm-6  col-xs-6 widget-width">
 								<div class="tg-widget add">
-									<img src="resources/assets/public/images/placeholder.jpg" alt="image description">
+									<img ng-src="{{instagrams[0].images.standard_resolution.url}}" alt="image description">
 								</div>
 							</div>
 							<div class="col-lg-12 col-md-12 col-sm-6  col-xs-6 widget-width">
@@ -413,52 +272,11 @@
 									<h4><span>Recent post</span></h4>
 									<div class="recent-post">
 										<ul>
-											<li>
+											<li ng-repeat="instagram in instagrams| limitTo:4" ng-show="$index >0">
 												<div class="post-thumb">
-													<a href="#">
-														<img src="resources/assets/public/images/thumbnails/01-img.jpg" alt="image description">
+													<a href="{{instagram.link}}" target="_blank">
+														<img ng-src="{{instagram.images.standard_resolution.url}}" alt="image description">
 													</a>
-												</div>
-												<div class="post-data">
-													<h5><a href="#">Beauty Of Nature</a></h5>
-													<span class="author-name">By: <a href="#">Rick Allenson</a></span>
-													<span class="date">Sep, 05 2015</span>
-												</div>
-											</li>
-											<li>
-												<div class="post-thumb">
-													<a href="#">
-														<img src="resources/assets/public/images/thumbnails/02-img.jpg" alt="image description">
-													</a>
-												</div>
-												<div class="post-data">
-													<h5><a href="#">Beauty Of Nature</a></h5>
-													<span class="author-name">By: <a href="#">Rick Allenson</a></span>
-													<span class="date">Sep, 05 2015</span>
-												</div>
-											</li>
-											<li>
-												<div class="post-thumb">
-													<a href="#">
-														<img src="resources/assets/public/images/thumbnails/03-img.jpg" alt="image description">
-													</a>
-												</div>
-												<div class="post-data">
-													<h5><a href="#">Beauty Of Nature</a></h5>
-													<span class="author-name">By: <a href="#">Rick Allenson</a></span>
-													<span class="date">Sep, 05 2015</span>
-												</div>
-											</li>
-											<li>
-												<div class="post-thumb">
-													<a href="#">
-														<img src="resources/assets/public/images/thumbnails/04-img.jpg" alt="image description">
-													</a>
-												</div>
-												<div class="post-data">
-													<h5><a href="#">Beauty Of Nature</a></h5>
-													<span class="author-name">By: <a href="#">Rick Allenson</a></span>
-													<span class="date">Sep, 05 2015</span>
 												</div>
 											</li>
 										</ul>
@@ -469,15 +287,9 @@
 								<div class="tg-widget tg-instagram">
 									<h4><span>Instagram</span></h4>
 									<ul class="instagram-plugin">
-										<li><a href="#"><img src="resources/assets/public/images/thumbnails/05-img.jpg" alt="image description"></a></li>
-										<li><a href="#"><img src="resources/assets/public/images/thumbnails/06-img.jpg" alt="image description"></a></li>
-										<li><a href="#"><img src="resources/assets/public/images/thumbnails/07-img.jpg" alt="image description"></a></li>
-										<li><a href="#"><img src="resources/assets/public/images/thumbnails/08-img.jpg" alt="image description"></a></li>
-										<li><a href="#"><img src="resources/assets/public/images/thumbnails/09-img.jpg" alt="image description"></a></li>
-										<li><a href="#"><img src="resources/assets/public/images/thumbnails/10-img.jpg" alt="image description"></a></li>
-										<li><a href="#"><img src="resources/assets/public/images/thumbnails/11-img.jpg" alt="image description"></a></li>
-										<li><a href="#"><img src="resources/assets/public/images/thumbnails/12-img.jpg" alt="image description"></a></li>
-										<li><a href="#"><img src="resources/assets/public/images/thumbnails/13-img.jpg" alt="image description"></a></li>
+										<li ng-repeat="instagram in instagrams  | limitTo:13" ng-show="$index >3">
+											<a href="{{instagram.link}}" target="_blank"><img ng-src="{{instagram.images.standard_resolution.url}}" alt="image description"></a>
+										</li>
 									</ul>
 								</div>
 							</div>
@@ -485,8 +297,8 @@
 								<div class="tg-widget tg-search">
 									<form class="tg-search-form">
 										<fieldset>
-											<input type="search" name="search" class="form-control" placeholder="Search Here...">
-											<button type="submit"><i class="fa fa-search"></i></button>
+											<input type="search" name="search" class="form-control" placeholder="Search Here..." ng-model='searchWord'>
+											<button type="submit" ng-click="search(1)"><i class="fa fa-search"></i></button>
 										</fieldset>
 									</form>
 								</div>
@@ -495,49 +307,32 @@
 								<div class="tg-widget tg-category">
 									<h4><span>Blog Catagories</span></h4>
 									<ul class="blog-category">
-										<li>
-											<a href="#">
-												<em>Awesome Travelling</em>
-												<i>(598)</i>
-											</a>
-										</li>
-										<li>
-											<a href="#">
-												<em>Daily Life Routeen</em>
-												<i>(1058)</i>
-											</a>
-										</li>
-										<li>
-											<a href="#">
-												<em>Amazing Food</em>
-												<i>(42)</i>
-											</a>
-										</li>
-										<li>
-											<a href="#">
-												<em>Fashion</em>
-												<i>(158)</i>
-											</a>
-										</li>
-										<li>
-											<a href="#">
-												<em>Lifestyle</em>
-												<i>(4058)</i>
-											</a>
-										</li>
-										<li>
-											<a href="#">
-												<em>Politics</em>
-												<i>(958)</i>
-											</a>
-										</li>
-										<li>
-											<a href="#">
-												<em>Miscellenious</em>
-												<i>(9852)</i>
+										<li ng-repeat="cat in categories" ng-show="cat.count!=0">
+											<a href="" ng-click="redirectCategory(cat)">
+												<em>{{cat.name}}</em>
+												<i>({{cat.count}})</i>
 											</a>
 										</li>
 									</ul>
+								</div>
+							</div>
+							<div class="col-lg-12 col-md-12 col-sm-6  col-xs-6 widget-width" ng-show="showSearch">
+								<div class="tg-widget tg-category">
+									<h4><span>Posts Search</span></h4>
+
+									<ul class="blog-category" ng-show="searchNews.length && !loadingSearch">
+										<li ng-repeat="news in searchNews">
+											<a href="" ng-click="redirec(news)" class="pull-left">
+												<em>{{news.name}}</em>
+											</a>
+										</li>
+									</ul>
+									<div class="text-center" ng-show="!searchNews.length && !loadingSearch"> Can not find any posts with name like "{{searchWord}}" !!!</div>
+									<div class="text-center" ng-show="loadingSearch"><i class="fa fa-spinner fa-spin" aria-hidden="true"></i></div>
+									<div style="border-top: 1px solid;"  ng-show="searchNews.length ">
+										<a class="pull-left" href="" ng-click="previus()" ng-show="hasPrevius">Previus</a> 
+										<a class="pull-right" href="" ng-click="loadMore()" ng-show="hasLoadMoreSearch">Load more posts</a> 
+									</div>
 								</div>
 							</div>
 							
@@ -550,15 +345,9 @@
 			<div class="plugin-instagram">
 				<div class="container-fluid">
 					<div class="row">
-						<h4>Follow Me On Instagram</h4>
+						<h4><a href="https://www.instagram.com/_ky.lenguyen_/"  target="_blank">Media On Instagram</a></h4>
 						<div id="instagram-gallery" class="instagram-gallery">
-							<div class="item"><a href="#"><img src="resources/assets/public/images/15-img.jpg" alt="image description"></a></div>
-							<div class="item"><a href="#"><img src="resources/assets/public/images/16-img.jpg" alt="image description"></a></div>
-							<div class="item"><a href="#"><img src="resources/assets/public/images/17-img.jpg" alt="image description"></a></div>
-							<div class="item"><a href="#"><img src="resources/assets/public/images/18-img.jpg" alt="image description"></a></div>
-							<div class="item"><a href="#"><img src="resources/assets/public/images/19-img.jpg" alt="image description"></a></div>
-							<div class="item"><a href="#"><img src="resources/assets/public/images/20-img.jpg" alt="image description"></a></div>
-							<div class="item"><a href="#"><img src="resources/assets/public/images/21-img.jpg" alt="image description"></a></div>
+							<div class="item" ng-repeat="instagram in instagrams  | limitTo:20" ng-show="$index >12"><a href="{{instagram.link}}" target="_blank"><img ng-src="{{instagram.images.standard_resolution.url}}"></a></div>
 						</div>
 					</div>
 				</div>
@@ -568,46 +357,54 @@
 					<div class="row">
 						<div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 box-width">
 							<div class="box">
-								<h5>About Us</h5>
+								<h5>This page </h5>
 								<div class="description">
-									<p>On the other hand, we denounce with righteous nation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble and pain.</p>
+									<p>
+										{{profile.about}}
+									</p>
 								</div>
 								<ul class="social-icon">
-									<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-									<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-									<li><a href="#"><i class="fa fa-instagram"></i></a></li>
-									<li><a href="#"><i class="fa fa-pinterest-p"></i></a></li>
-									<li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-									<li><a href="#"><i class="fa fa-tumblr"></i></a></li>
+									<li><a href=""><i class="fa fa-facebook"></i></a></li>
+									<li><a href=""><i class="fa fa-twitter"></i></a></li>
+									<li><a href=""><i class="fa fa-instagram"></i></a></li>
+									<li><a href=""><i class="fa fa-pinterest-p"></i></a></li>
+									<li><a href=""><i class="fa fa-dribbble"></i></a></li>
+									<li><a href=""><i class="fa fa-tumblr"></i></a></li>
 								</ul>
 							</div>
 						</div>
 						<div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 box-width">
 							<div class="box">
-								<h5>Instagram</h5>
+								<h5>Contact</h5>
 								<div class="instagram">
-									<div class="item"><a href="#"><img src="resources/assets/public/images/15-img.jpg" alt="image description"></a></div>
-									<div class="item"><a href="#"><img src="resources/assets/public/images/16-img.jpg" alt="image description"></a></div>
-									<div class="item"><a href="#"><img src="resources/assets/public/images/17-img.jpg" alt="image description"></a></div>
-									<div class="item"><a href="#"><img src="resources/assets/public/images/18-img.jpg" alt="image description"></a></div>
-									<div class="item"><a href="#"><img src="resources/assets/public/images/19-img.jpg" alt="image description"></a></div>
-									<div class="item"><a href="#"><img src="resources/assets/public/images/20-img.jpg" alt="image description"></a></div>
-									<div class="item"><a href="#"><img src="resources/assets/public/images/21-img.jpg" alt="image description"></a></div>
-									<div class="item"><a href="#"><img src="resources/assets/public/images/15-img.jpg" alt="image description"></a></div>
+									<div class="description">
+										<p>Want to send me a message ?? Let's enter the content on "Here ! This here !" !!</p>
+										<p>You also want to talking about history ?? Yeah welcomed, let's enter the content on "Here ! This here !" and "Send" for me, your article will appear on my page, and do not forget to leave your name and email ! You are always welcomed !!!</p>
+									</div>
+									<form class="form-newsletter" name='contact'>
+										<fieldset>
+											<div class="form-group"><input type="text" name="name" class="form-control" placeholder="Your Name" ng-model="contact.name" required></div>
+											<div class="form-group"><input type="text" name="email" class="form-control" placeholder="Email Address" ng-model="contact.email" required></div>
+										</fieldset>
+									</form>
+									<div class="error" ng-show ="errorContact">
+										<h5>Warning !!!!</h5>
+										<p> No no ! Make sure you had enter the 'Name' , 'Email' or 'Content', let's check  now !!   </p>
+									</div>
+									<div class="success" ng-show ="successContact">
+										<h5>Success !!!!</h5>
+										<p> Yeah !! thank you for that !! I will check as soon as possible and respond for you !!</p>
+									</div>
 								</div>
 							</div>
 						</div>
 						<div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 box-width">
-							<div class="box">
-								<h5>NewsLetter</h5>
-								<div class="description">
-									<p>On the other hand, we denounce with righteous nation and dislike men .</p>
-								</div>
-								<form class="form-newsletter">
+							<div class="box" id="contact">
+								<h5>Here ! This Here !</h5>
+								<form class="form-newsletter" name='contact'>
 									<fieldset>
-										<div class="form-group"><input type="text" name="name" class="form-control" placeholder="Your Name"></div>
-										<div class="form-group"><input type="email" name="email" class="form-control" placeholder="Email Address"></div>
-										<div class="form-group"><button type="submit">Subscribed Newsletter</button></div>
+										<div class="form-group"><textarea class="form-control" placeholder="Your message" ng-model="contact.message" required></textarea></div>
+										<div class="form-group"><button type="submit" ng-click="sendContact()">Send</button></div>
 									</fieldset>
 								</form>
 							</div>
@@ -628,14 +425,18 @@
     <!-- Bootstrap Core JavaScript -->
     <script src="resources/assets/admin/js/bootstrap/bootstrap.min.js"></script>
     <!-- Angular -->
-    <script src="node_modules/angular/angular.js"></script>
-    <script src="node_modules/angular-ui-router/release/angular-ui-router.min.js"></script>
-    <script src="node_modules/oclazyload/dist/ocLazyLoad.js"></script>
-    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
-    <script src="bower_components/moment/moment.js"></script>
-    <script src="bower_components/angular-moment/angular-moment.min.js"></script>
+    <script src="resources/assets/storage/angular/angular.js"></script>
+    <script src="resources/assets/storage/angular-ui-router/angular-ui-router.min.js"></script>
+    <script src="resources/assets/storage/oclazyload/ocLazyLoad.min.js"></script>
+    <script src="resources/assets/storage/angular-sanitize/angular-sanitize.min.js"></script>
+    <script src="resources/assets/storage/angular-moment/moment.js"></script>
+    <script src="resources/assets/storage/angular-moment/angular-moment.min.js"></script>
+    <script src="resources/assets/storage/underscore/underscore-min.js"></script>
     <script src="resources/assets/admin/js/modules/underscore.js"></script>
-    <script src="node_modules/ngstorage/ngStorage.js"></script>
+    <!-- ------ -->
+    <script src="resources/assets/storage/facebook/angular-facebook.js"></script>
+    <script src="resources/assets/storage/localstorage/ngStorage.js"></script>
+
     <!-- End Angular  -->
 	<script src="resources/assets/public/angularjs/app.js"></script>
 	<script src="resources/assets/public/angularjs/config.lazyload.js"></script>
@@ -647,14 +448,10 @@
     <!-- main -->
     <!-- End main -->
 	<!---------- Defaulf ---------->
-	<!-- <script src="resources/assets/public/js/vendor/jquery-1.11.3.min.js"></script> -->
-	<!-- <script src="resources/assets/public/js/vendor/bootstrap.min.js"></script> -->
 	<script src="resources/assets/public/js/owl.carousel.js"></script>
 	<script src="resources/assets/public/js/isotope.pkgd.min.js"></script>
 	<script src="resources/assets/public/js/isotop.js"></script>
 	<script src="resources/assets/public/js/theia-sticky-sidebar.js"></script>
-	<!-- <script src="http://maps.google.com/maps/api/js?sensor=false"></script> -->
-	<!-- <script src="js/gmap3.min.js"></script> -->
 	<script src="resources/assets/public/js/main.js"></script>
 	<!-- ------------End defaulf---------- -->
 </body>

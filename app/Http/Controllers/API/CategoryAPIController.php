@@ -116,6 +116,9 @@ class CategoryAPIController extends AppBaseController
     public function destroy($id)
     {
         /** @var Category $category */
+        if($id <= 7){
+            return $this->sendError('Category cant delete');
+        }
         $category = $this->categoryRepository->findWithoutFail($id);
 
         if (empty($category)) {
@@ -134,6 +137,10 @@ class CategoryAPIController extends AppBaseController
     public function getAllCategoryTreeView(){
         $categories = $this->categoryRepository->getAllCategoryTreeView();
 
+        return $this->sendResponse($categories->toArray(), 'Categories retrieved successfully');
+    }
+    public function getCategory(){
+        $categories = $this->categoryRepository->getCategory();
         return $this->sendResponse($categories->toArray(), 'Categories retrieved successfully');
     }
 }

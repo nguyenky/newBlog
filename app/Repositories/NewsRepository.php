@@ -32,7 +32,7 @@ class NewsRepository extends BaseRepository
         return News::class;
     }
     public function getAllNews(){
-        $news = News::orderBy('id','DESC')->select('id','name','picture','preview','detail','category_id','likes','display','note','created_at','updated_at')
+        $news = News::orderBy('id','DESC')->select('id','name','picture','preview','detail','category_id','likes','created_at','updated_at')
                 ->with(array('category'=>function($query){
                     $query->select('id','name');
                 }))->get();
@@ -42,24 +42,35 @@ class NewsRepository extends BaseRepository
                 if($find){
                     $new['url'] = url('storage/app/public/'.$new->picture);
                 }else{
-                    $new['url'] = url('storage/app/public/default.jpg');
+                    $new['url'] = url('storage/app/public/default-new.png');
                 }
             }else{
-                $new['url'] = url('storage/app/public/default.jpg');
+                $new['url'] = url('storage/app/public/default-new.png');
+            }
+            $images = $new->images;
+            if($images){
+                foreach ($images as $keyImage => $image) {
+                    $find =  Storage::disk('public')->exists($image->name);
+                    if($find){
+                        $image['url'] = url('storage/app/public/'.$image->name);
+                    }else{
+                        $image['url'] = url('storage/app/public/default.jpg');
+                    }
+                }
             }
         }
         return $news;
     }
     public function addNews(array $attributes){
         if($attributes['picture']){
-           $ext        = $attributes['picture']->guessClientExtension();
+            $ext        = $attributes['picture']->guessClientExtension();
             $reName     = time().'.'.$ext;
             $img = Image::make($attributes['picture'])->resize(870, 500);
             $img->save('storage/app/public/'.$reName);
             $attributes['picture'] = $reName;
             $url = url('storage/app/public/'.$reName); 
         }else{
-            $url = url('storage/app/public/default.jpg');
+            $url = url('storage/app/public/default-new.png');
         }
 
         $new = News::create($attributes);
@@ -93,11 +104,14 @@ class NewsRepository extends BaseRepository
     }
     // --------PUBLIC---------
     public function getNewsPublic(){
-        $cats = Category::where('id','<=',6)->get();
+        $cats = Category::where('id','<=',7)->get();
         $arrayNews = [];
         foreach ($cats as $key => $cat) {
             if($cat->getLatest()){
-                array_push($arrayNews,$cat->getLatest()->toArray());
+                $new = $cat->getLatest();
+                $new['comments'] = $new->comments()->select('id')->count();
+                $arrayCat = $new->toArray();
+                array_push($arrayNews,$arrayCat);
             }
             
         }

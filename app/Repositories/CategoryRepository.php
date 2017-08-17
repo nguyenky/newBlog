@@ -48,11 +48,18 @@ class CategoryRepository extends BaseRepository
     }
     public function getAllCategoryTreeView(){
         $categories = Category::orderBy('id','ASC')->select('id','name','category_id')->get();
-        foreach ($categories as $key => $category) {
-            $hasParent = $category->hasParent;
+        // foreach ($categories as $key => $category) {
+        //     $hasParent = $category->hasParent;
+        // }
+        // $recursion = $this->recursion($categories);
+        return $categories;
+    }
+    public function getCategory(){
+        $categories = Category::select('id','name')->get();
+        foreach ($categories as $key => $cat) {
+            $categories[$key]['count'] = $cat->news()->count();
         }
-        $recursion = $this->recursion($categories);
-        return $recursion;
+        return $categories;
     }
 
 }

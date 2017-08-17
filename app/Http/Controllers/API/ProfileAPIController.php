@@ -13,7 +13,7 @@ use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
-
+use Vinkla\Instagram\Instagram;
 /**
  * Class ProfileController
  * @package App\Http\Controllers\API
@@ -158,5 +158,10 @@ class ProfileAPIController extends AppBaseController
         }
 
         return $this->sendResponse($profile, 'Profile retrieved successfully');
+    }
+    public function getInstagram(){
+        $instagram = new Instagram();
+        $media =  $instagram->get('_ky.lenguyen_');
+        return $this->sendResponse($media, 'Instagram retrieved successfully');
     }
 }

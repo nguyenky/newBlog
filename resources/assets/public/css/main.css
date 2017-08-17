@@ -22,7 +22,7 @@
 /* =============================================
                         Theme Reset Style
 ============================================= */
-@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700|Merriweather:300,400);
+@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700|Merriweather:300,400|Noto+Sans:300,400,500,600,700);
 * {
     margin: 0px;
     padding: 0px;
@@ -34,7 +34,7 @@ html{
 body {
     background: #fff;
     color: #424242;
-    font:normal 14px/24px 'Raleway', Arial, Helvetica, sans-serif;
+    font:normal 14px/24px 'Noto Sans', Arial, Helvetica, sans-serif;
 }
 body h1,
 body h2,
@@ -638,7 +638,7 @@ button[type="submit"]:hover{
     width:60px;
     height:60px;
     color:#000;
-    background:rgba(255,255,255,0.95);
+    /*background:rgba(255,255,255,0.95);*/
     display:block;
     text-align:center;
     position:absolute;
@@ -646,7 +646,7 @@ button[type="submit"]:hover{
     left:auto;
     right:50%;
     margin:-30px -62px 0 0;
-    border:1px solid #414141;
+    /*border:1px solid #414141;*/
 }
 .tg-post figure .tg-img-hover a:first-child{
     top:80%;
@@ -1093,6 +1093,15 @@ button[type="submit"]:hover{
     padding-top:0;
     padding-bottom:0;
 }
+.form-newsletter fieldset .form-group textarea{
+    width:100%;
+    background:none;
+    border:1px solid #e7e7e7;
+    height:200px;
+    line-height:35px;
+    padding-top:0;
+    padding-bottom:0;
+}
 button[type="submit"].btn-send{
     background:#424242;
     width:180px;
@@ -1384,4 +1393,62 @@ button[type="submit"].btn-send:hover{
 .home-slider .owl-controls .owl-buttons div.owl-next:hover{background:rgba(66,66,66,0.5)}
 .owl-carousel .owl-wrapper, .owl-carousel .owl-item{
     float: left;
+}
+.avatar-user img{
+    border-radius: 2px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.name-user{
+    display: inline;
+}
+.name-user a{
+    margin-right: 10px;
+}
+.site-post{
+    margin-bottom: 1em;
+}
+.name-post{
+    height: 100px; 
+    overflow: hidden;
+}
+.error{
+    background: #f1bf49;
+    padding: 5px;
+    border-radius: 5px;
+}
+.error h5 {
+    color: #ffffff;
+}
+.error p {
+    color: #ffffff;
+}
+.success{
+    background: #17a9eb;
+    padding: 5px;
+    border-radius: 5px;
+}
+.success h5 {
+    color: #ffffff;
+}
+.success p {
+    color: #ffffff;
+}
+.name-comment{
+    margin-right: 5px;
+}
+.images{
+    display: inline;
+    
+}
+.images img {
+    margin-bottom: 3px;
+}
+.images img:hover {
+    transition: opacity 1s;
+    -moz-transition: opacity 1s;
+    -webkit-transition: opacity 1s;
+    -o-transition: opacity 1s;
+    opacity: 0.8;
 }

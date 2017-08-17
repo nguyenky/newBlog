@@ -4,31 +4,35 @@ app.controller('HomeCtrl',[
     '$rootScope',
     'PublicService',
     '$sce',
-    function($scope,$rootScope,PublicService,$sce){
-	$scope.name ="uchiha";
-	// $scope.logout = function(){
-	// 	Auth.logout();
-	// }
-    // if($localStorage.currentUser){
-    //     $rootScope.avatar = $localStorage.currentUser.avatar;
-    // }
+    '$state',
+    function($scope,$rootScope,PublicService,$sce,$state){
+	if($rootScope.loginStatus){
+        var friend = $rootScope.userLogin.name;
+    }else{
+        var friend = 'A friend';
+    }
+    $rootScope.showPosts = true;
+    window.scrollTo(100,100);
     $scope.getNews = function(){
         PublicService.getNews().then(function(result){
             if(result &&result.success){
-                console.log(result.data);
                 angular.forEach(result.data, function(value, key) {
                         switch (value.category_id) {
                             case 1:
                                 $scope.life = value;
+                                $rootScope.latest.push(value);
                                 break;
                             case 2:
-                                $scope.childood = value;
+                                $scope.chilhood = value;
+                                $rootScope.latest.push(value);
                                 break;
                             case 3:
                                 $scope.trip = value;
+                                $rootScope.latest.push(value);
                                 break;
                             case 4:
                                 $scope.history = value;
+                                $rootScope.latest.push(value);
                                 break;
                             case 5:
                                 $scope.video = value;
@@ -36,57 +40,35 @@ app.controller('HomeCtrl',[
                             case 6:
                                 $scope.music = value;
                                 break;
+                            case 7:
+                                $scope.historyCollected = value;
+                                $rootScope.latest.push(value);
+                                break;
                             default:
                         }
                 });
-                console.log($scope.life);
-                    console.log($scope.childood);
-                    console.log($scope.trip);
-                    console.log($scope.history);
-                    console.log($scope.video);
-                    console.log($scope.music);
-                // _.each(result.data,function(val){
-                    // switch (val.category_id) {
-                    //     case '1':
-                    //         $scope.life = val;
-                    //         break;
-                    //     case '2':
-                    //         $scope.childood = val;
-                    //         break;
-                    //     case '3':
-                    //         $scope.trip = val;
-                    //         break;
-                    //     case '4':
-                    //         $scope.history = val;
-                    //         break;
-                    //     case '5':
-                    //         $scope.video = val;
-                    //         break;
-                    //     case '6':
-                    //         $scope.music = val;
-                    //         break;
-                    //     default:
-                    // }
-                // });
-                // console.log($scope.life);
-                // console.log($scope.childood);
-                // console.log($scope.trip);
-                // console.log($scope.history);
-                // console.log($scope.video);
-                // console.log($scope.music);
-                // $rootScope.postMain = result.data[0];
-                // $rootScope.postExtra1 = result.data[1];
-                // $rootScope.postExtra2 = result.data[2];
-                // $rootScope.postExtra3 = result.data[3];
-                // $rootScope.demo = result.data;
-
-
             }
         },function(errors){
             console.log(errors);
         });
     }
     $scope.getNews();
+    $scope.redirec = function(post){
+        var name = $scope.vietsub(post.name);
+        $state.go('detail', { Id : post.id,Name:name});
+    }
+    $scope.vietsub = function(str) {
+        str = str.toLowerCase();
+        str = str.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g, "a");
+        str = str.replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ/g, "e");
+        str = str.replace(/ì|í|ị|ỉ|ĩ/g, "i");
+        str = str.replace(/ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ/g, "o");
+        str = str.replace(/ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ/g, "u");
+        str = str.replace(/ỳ|ý|ỵ|ỷ|ỹ/g, "y");
+        str = str.replace(/đ/g, "d");
+        str = str.replace(/ /g, "-");
+        return str;
+    }
     $scope.trustAsHtml = function(value) {
         return $sce.trustAsHtml(value);
     };

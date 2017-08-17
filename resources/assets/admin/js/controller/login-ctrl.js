@@ -29,7 +29,6 @@ app.controller('LoginCtrl',[
                 method: 'GET',
             }).then(function(result){
                 if(result && result.data.success){
-                    // console.log(result.data.data.avatar);
                     $rootScope.avatar = result.data.data.url;
                 }
             },function(error){

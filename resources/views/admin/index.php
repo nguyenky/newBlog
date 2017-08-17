@@ -20,6 +20,9 @@
     <link href="resources/assets/admin/css/reset.css" rel="stylesheet">
     <link href="resources/assets/font-awesome/css/font-awesome.css" rel="stylesheet">
     <link rel="stylesheet" href="https://rawgit.com/enyo/dropzone/d8ef7a82e6ab5447c1f2d9512c8e1bfd4de5ac9e/dist/dropzone.css">
+    <link rel="icon" href="/resources/assets/icon-logo.jpg"/>
+    <!-- <link rel="stylesheet" href="resources/assets/dropzone/dropzone.css"> -->
+
     <!-- <link href="node_modules/ng-toast/dist/ngToast.css" rel="stylesheet"> -->
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -36,14 +39,14 @@
     <!-- /#wrapper -->
 
     <!-- jQuery -->
-    <script src="resources/assets/admin/js/bootstrap/jquery.js"></script>
+    <script src="resources/assets/storage/bootstrap/jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="resources/assets/admin/js/bootstrap/bootstrap.min.js"></script>
+    <script src="resources/assets/storage/bootstrap/bootstrap.min.js"></script>
     <!-- Angular -->
-    <script src="node_modules/angular/angular.js"></script>
-    <script src="node_modules/angular-ui-router/release/angular-ui-router.min.js"></script>
-    <script src="node_modules/oclazyload/dist/ocLazyLoad.js"></script>
+    <script src="resources/assets/storage/angular/angular.js"></script>
+    <script src="resources/assets/storage/angular-ui-router/angular-ui-router.min.js"></script>
+    <script src="resources/assets/storage/oclazyload/ocLazyLoad.min.js"></script>
     
    <!--  Admin -->
     <script src="resources/assets/admin/js/app.js"></script>
@@ -57,12 +60,16 @@
     <script src="resources/assets/admin/js/services/news.js"></script>
     <script src="resources/assets/admin/js/services/post.js"></script>
     <script src="resources/assets/admin/js/services/playlist.js"></script>
+    <script src="resources/assets/admin/js/services/notification.js"></script>
+    <script src="resources/assets/admin/js/services/contact.js"></script>
      <!-- Modules -->
-    <script src="node_modules/underscore/underscore-min.js"></script>
+    <script src="resources/assets/storage/underscore/underscore-min.js"></script>
     <script src="resources/assets/admin/js/modules/underscore.js"></script>
-    <script src="node_modules/ngstorage/ngStorage.js"></script>
+    <script src="resources/assets/storage/localstorage/ngStorage.min.js"></script>
     <script src="https://rawgit.com/enyo/dropzone/d8ef7a82e6ab5447c1f2d9512c8e1bfd4de5ac9e/dist/dropzone.js"></script>
-
+    <script src="resources/assets/storage/angular-moment/moment.js"></script>
+    <script src="resources/assets/storage/angular-moment/angular-moment.min.js"></script>
+    <!-- <script src="bower_components/angular-moment/angular-moment.min.js"></script> -->
 
     
 

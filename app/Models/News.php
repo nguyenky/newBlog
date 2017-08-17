@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\Storage;
 
 /**
  * Class News
@@ -26,9 +27,7 @@ class News extends Model
         'preview',
         'detail',
         'category_id',
-        'likes',
-        'display',
-        'note'
+        'likes'
     ];
 
     /**
@@ -42,9 +41,7 @@ class News extends Model
         'preview' => 'text',
         'detail' => 'text',
         'category_id' => 'integer',
-        'likes' => 'integer',
-        'display' => 'integer',
-        'note' => 'string'
+        'likes' => 'integer'
     ];
 
     /**
@@ -64,6 +61,18 @@ class News extends Model
     }
     public function images(){
         return $this->hasMany(\App\Models\Picture::class);
+    }
+    public function getImage($picture){
+        $find =  Storage::disk('public')->exists($picture);
+        if($find){
+            $url= url('storage/app/public/'.$picture);
+        }else{
+            $url = url('storage/app/public/default-new.png');
+        }
+        return $url;
+    }
+    public function comments(){
+        return $this->hasMany(\App\Models\Comment::class,'news_id');
     }
     
 }

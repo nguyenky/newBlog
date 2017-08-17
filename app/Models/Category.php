@@ -25,9 +25,7 @@ class Category extends Model
 
     public $fillable = [
         'name',
-        'description',
         'category_id',
-        'impotant'
     ];
 
     /**
@@ -37,9 +35,7 @@ class Category extends Model
      */
     protected $casts = [
         'name' => 'string',
-        'description' => 'string',
         'category_id' => 'integer',
-        'impotant' => 'integer'
     ];
 
     /**
@@ -63,11 +59,17 @@ class Category extends Model
             if($find){
                 $newLatest['url'] = url('storage/app/public/'.$newLatest->picture);
             }else{
-                $newLatest['url'] = url('storage/app/public/default.jpg');
+                $newLatest['url'] = url('storage/app/public/default-new.png');
             }
         }
         
         return $newLatest;
     }
+    public function news(){
+        return $this->hasMany(\App\Models\News::class);
+    }
+    // public function countNews (){
+    //     $cat = Category::find($this->id)->with('news')-
+    // }
     
 }

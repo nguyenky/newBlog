@@ -71,13 +71,26 @@ class NewsAPIController extends AppBaseController
     public function show($id)
     {
         /** @var News $news */
-        $news = $this->newsRepository->findWithoutFail($id);
-
-        if (empty($news)) {
+        $new = $this->newsRepository->findWithoutFail($id);
+        $images = $new->images;
+        if($images){
+            foreach ($images as $key => $image) {
+                $find =  Storage::disk('public')->exists($image->name);
+                if($find){
+                    $image['url'] = url('storage/app/public/'.$image->name);
+                }else{
+                    $image['url'] = url('storage/app/public/default-new.png');
+                }
+            }
+        }
+        $new['url'] = $new->getImage($new->picture);
+        $new['comments'] = $new->comments()->select('id','name','avatar','admin','content','created_at')->get();
+        $new['category'] = $new->category()->select('id','name')->first();
+        if (empty($new)) {
             return $this->sendError('News not found');
         }
 
-        return $this->sendResponse($news->toArray(), 'News retrieved successfully');
+        return $this->sendResponse($new->toArray(), 'News retrieved successfully');
     }
 
     /**
@@ -162,5 +175,46 @@ class NewsAPIController extends AppBaseController
         }
         return $this->sendResponse($news, 'News retrieved successfully');
 
+    }
+    public function like($id){
+        $new = News::find($id);
+        $new->likes = $new->likes +1;
+        $new->save();
+        return $this->sendResponse([], 'News retrieved successfully');
+    }
+    public function unLike($id){
+        $new = News::find($id);
+        $new->likes = $new->likes -1 ;
+        $new->save();
+        return $this->sendResponse([], 'News retrieved successfully');
+    }
+    public function getNewsSite($id){
+        $news = News::orderBy('id','DESC')->where('category_id',$id)->paginate(9);
+        foreach ($news as $key => $new) {
+            $new['comments'] = $new->comments()->select('id')->count();
+            if($new->picture){
+                $find =  Storage::disk('public')->exists($new->picture);
+                if($find){
+                    $new['url'] = url('storage/app/public/'.$new->picture);
+                }else{
+                    $new['url'] = url('storage/app/public/default-new.png');
+                }
+            }else{
+                $new['url'] = url('storage/app/public/default-new.png');
+            }
+        }
+        return $this->sendResponse($news, 'News retrieved successfully');
+    }
+    public function search($search){
+        $news = News::orderBy('id','DESC')->where('name','LIKE','%'.$search.'%')->paginate(10);
+        return $this->sendResponse($news, 'News retrieved successfully');
+    }
+    public function uploadImage($id){
+        $isPicture = $request->hasFile('image');
+        if($isPicture){
+            dd('yes');
+        }else{
+            dd('no');
+        }
     }
 }

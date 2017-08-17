@@ -26,7 +26,8 @@ class Profile extends Model
         'phone',
         'address',
         'preview',
-        'cv'
+        'cv',
+        'about',
     ];
 
     /**
@@ -39,8 +40,9 @@ class Profile extends Model
         'fullname' => 'string',
         'phone' => 'string',
         'address' => 'string',
-        'preview' => 'string',
-        'cv' => 'string'
+        'preview' => 'text',
+        'cv' => 'string',
+        'about' =>'text'
     ];
 
     /**

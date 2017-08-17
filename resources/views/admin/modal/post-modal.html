@@ -20,12 +20,12 @@
                             ng-init="croppedDataUrl=''"
                             aspect-ratio="1.7"
                             area-type="rectangle"
-                            result-image-size='[{w: 680,h: 400}]'
+                            result-image-size="'max'"
                 >
                 </img-crop>
             </div>
             <div class="crop-readly text-center" ng-show="croppedDataUrl">
-                <img ng-src="{{croppedDataUrl}}" />
+                <img ng-src="{{croppedDataUrl}}"  width="50%" />
             </div>
 
             <div class="row">

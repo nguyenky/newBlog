@@ -33,7 +33,7 @@ angular.module('app')
             function updateProfile (profiles){
                 var deferred = $q.defer();
                 $http({
-                    url: baseurl+'profiles/' +profiles.id,
+                    url: baseurl+'admin/profiles/' +profiles.id,
                     method: 'PUT',
                     headers: {
                         'Authorization': user.remember_token,

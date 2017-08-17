@@ -87,10 +87,29 @@ angular.module('app')
                 });
                 return deferred.promise;
             }
+            function delImageNews (id){
+                var deferred = $q.defer();
+                $http({
+                    url: baseurl + 'pictures/'+ id,
+                    method: 'DELETE',
+                    headers: {
+                        'Authorization': user.remember_token,
+                        'Content-Type': 'application/json'
+                    }
+                }).then(function(result){
+                    if(result && result.data.success){
+                        deferred.resolve(result.data);
+                    }
+                },function(error){
+                    console.log(error);
+                });
+                return deferred.promise;
+            }
 	return {
 		getNews : getNews,
         addNews:addNews,
         updateNews :updateNews,
-        delNews :delNews
+        delNews :delNews,
+        delImageNews:delImageNews
 	};
 }])
