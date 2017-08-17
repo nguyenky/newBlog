@@ -101,6 +101,8 @@ class UserAPIController extends AppBaseController
         }
 
         $user = $this->userRepository->update($input, $id);
+        $user->password = bcrypt($input['password']);
+        $user->save();  
 
         return $this->sendResponse($user->toArray(), 'User updated successfully');
     }

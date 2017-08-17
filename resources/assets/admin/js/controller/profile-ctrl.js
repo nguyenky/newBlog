@@ -49,4 +49,26 @@ function($scope,$state,Auth,$rootScope,$uibModal,Upload,baseurl,Profile,toastr,$
 			    controller: 'UploadAvatarController',
 		    });
 		};
+	$scope.getUser = function(){
+		Profile.getUser().then(function(result){
+			if(result && result.success){
+				$scope.userAdmin = _.omit(result.data,'password');
+				// $scope.userAdmin = result.data;
+			}
+		},function(error){
+			console.log(error);
+		})
+	}
+	$scope.getUser();
+	$scope.updateAdmin = function(){
+		console.log($scope.userAdmin);
+		Profile.updateUser($scope.userAdmin).then(function(result){
+			if(result && result.success){
+				$scope.userAdmin = _.omit(result.data,'password');
+				toastr.success('Update user successfully !!!');
+			}
+		},function(error){
+			console.log(error);
+		})
+	}
 }]);
