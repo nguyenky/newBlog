@@ -8,36 +8,4 @@
 	<div class="next-previous" ng-show="showLoadMore">
 		<span class="older-post"><a href="" ng-click="loadmore()">load more</a></span>
 	</div>
-	
-	<!-- <div id="categories-slider" class="tg-categories"> -->
-	<!-- <div class="item col-md-4 " ng-repeat="post in posts">
-		<div class="tg-category">
-			<figure class="images">
-				<a href="">
-					<img ng-src="{{post.url ? post.url : 'storage/app/public/default.jpg'}}" alt="image description">
-				</a>
-			</figure>
-			<div class="category-content">
-				<div class="display-table">
-					<div class="display-table-cell">
-						<div class="post-meta">
-							<span>{{ post.created_at | amCalendar:referenceTime:formats}}</span>
-						</div>
-						<div class="description  post-meta" style="max-height: 70px; overflow: hide;">
-							<div ng-bind-html="trustAsHtml((post.caption | limitTo:200))"></div>
-						</div>
-						<div class="post-meta no-padding">
-							<span>
-								<a href="">
-									<i class="fa fa-user"></i>
-									<em>Ng Ký Lê</em>
-								</a>
-							</span>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div> -->
-	<!-- </div> -->
 </div>
