@@ -288,7 +288,7 @@
 									<h4><span>Instagram</span></h4>
 									<ul class="instagram-plugin">
 										<li ng-repeat="instagram in instagrams  | limitTo:13" ng-show="$index >3">
-											<a href="{{instagram.link}}" target="_blank"><img ng-src="{{instagram.images.standard_resolution.url}}" alt="image description"></a>
+											<a href="{{instagram.link}}" target="_blank"><img ng-src="{{instagram.images.thumbnail.url}}" alt="image description"></a>
 										</li>
 									</ul>
 								</div>
@@ -347,7 +347,7 @@
 					<div class="row">
 						<h4><a href="https://www.instagram.com/_ky.lenguyen_/"  target="_blank">Media On Instagram</a></h4>
 						<div id="instagram-gallery" class="instagram-gallery">
-							<div class="item" ng-repeat="instagram in instagrams  | limitTo:20" ng-show="$index >12"><a href="{{instagram.link}}" target="_blank"><img ng-src="{{instagram.images.standard_resolution.url}}"></a></div>
+							<div class="item" ng-repeat="instagram in instagrams  | limitTo:20" ng-show="$index >12"><a href="{{instagram.link}}" target="_blank"><img ng-src="{{instagram.images.thumbnail.url}}"></a></div>
 						</div>
 					</div>
 				</div>
