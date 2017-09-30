@@ -19,19 +19,12 @@ Route::get('/', function () {
 Route::get('/admin',function(){
 	return view('admin.index');
 });
-Route::get('/public',function(){
-	return view('public.index');
-});
+// Route::get('/public',function(){
+// 	return view('public.index');
+// });
 
 
 
-Auth::routes();
+// Auth::routes();
 
-Route::get('/home', 'HomeController@index');
-
-
-
-
-
-Route::resource('users', 'UserController');
-Route::post('demoUpload','demoCtrl@index');
+// Route::get('/home', 'HomeController@index');

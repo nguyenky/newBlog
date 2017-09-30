@@ -95,7 +95,7 @@ class NewsRepository extends BaseRepository
                 unlink('storage/app/public/'.$news->picture ); 
             }
         }else{
-            $url = url('storage/app/public/'.$news->picture);
+            $url = url('storage/app/public/default-new.png');
         }
 
         $news->update($attributes);

@@ -228,4 +228,4 @@ app.controller('MyAppCtrl',[
     }
     
 }]);
-app.constant('baseurl', 'http://newblog.dev/api/')
+app.constant('baseurl', 'http://localhost/newBlog/api/')

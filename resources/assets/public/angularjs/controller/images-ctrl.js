@@ -20,6 +20,11 @@ app.controller('ImagesCtrl',[
                 $scope.currentPage = result.data.current_page;
                 $scope.lastPage = result.data.last_page;
                 $scope.posts = result.data.data;
+                var dataEnter = {
+                    content:friend + '  accessed images !!!',
+                    type:1
+                };
+                $scope.insertNoti(dataEnter);
                 if($scope.currentPage == $scope.lastPage){
                     $scope.showLoadMore = false;
                 }else{
@@ -52,6 +57,9 @@ app.controller('ImagesCtrl',[
                 console.log(errors);
             })
         }
+    }
+    $scope.insertNoti = function(data){
+        PublicService.insertNoti(data);
     }
 
 }]);
