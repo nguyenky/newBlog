@@ -160,8 +160,13 @@ class ProfileAPIController extends AppBaseController
         return $this->sendResponse($profile, 'Profile retrieved successfully');
     }
     public function getInstagram(){
-        $instagram = new Instagram();
-        $media =  $instagram->get('_ky.lenguyen_');
-        return $this->sendResponse($media, 'Instagram retrieved successfully');
+        // $instagram = new Instagram();
+        // $media =  $instagram->get('_ky.lenguyen_');
+        // return $this->sendResponse($media, 'Instagram retrieved successfully');
+        $str = file_get_contents("https://api.instagram.com/v1/users/2293866932/media/recent/?access_token=2293866932.1677ed0.5fb0088e7ad44161a69a2de237d04fa7");
+
+        $json = json_decode($str, true);
+
+        return $this->sendResponse($json, 'Instagram retrieved successfully');
     }
 }
