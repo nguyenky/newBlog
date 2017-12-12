@@ -120,7 +120,7 @@ app.controller('MyAppCtrl',[
     $scope.getInstagram = function(){
         PublicService.getInstagram().then(function(result){
             if(result && result.success){
-                $rootScope.instagrams = result.data;
+                $rootScope.instagrams = result.data.data;
             }
         },function(errors){
             console.log(errors);
@@ -228,4 +228,5 @@ app.controller('MyAppCtrl',[
     }
     
 }]);
-app.constant('baseurl', 'http://localhost/newBlog/api/')
+// app.constant('baseurl', 'http://localhost/newBlog/api/')
+app.constant('baseurl', 'http://yesforme.esy.es/api/')
