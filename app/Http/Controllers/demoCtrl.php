@@ -8,7 +8,7 @@ use JD\Cloudder\Facades\Cloudder;
 class demoCtrl extends Controller
 {
     public function index(Request $request){
-    	$input = $request->all();
-    	dd($input);
+    	$items = \App\Models\News::all();
+    	dd($items->toArray());
     }
 }
