@@ -41,7 +41,7 @@ class ProfileRepository extends BaseRepository
     public function showProfile($id){
         $profile = Profile::find($id);
         $arrayProfile = $profile->toArray();
-        $arrayProfile['url'] = url('storage/app/public/'.$profile->avatar);
+        // $arrayProfile['url'] = url('storage/app/public/'.$profile->avatar);
         return $arrayProfile;
     }
 }

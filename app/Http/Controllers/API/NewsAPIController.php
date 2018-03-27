@@ -217,4 +217,9 @@ class NewsAPIController extends AppBaseController
             dd('no');
         }
     }
+    public function getNews(){
+        $users = $this->newsRepository->all();
+        // return $this->sendResponse($users, 'Users retrieved successfully');
+        dd($users->toArray());
+    }
 }

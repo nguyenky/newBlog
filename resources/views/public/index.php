@@ -116,7 +116,7 @@
 						<div class="tg-banner-poststyle">
 							<figure>
 								<a href="">
-									<img ng-src="{{postMain.url ? postMain.url : 'storage/app/public/default.jpg'}}" alt="image description">
+									<img ng-src="{{postMain.picture ? postMain.picture : 'storage/app/public/default.jpg'}}" alt="image description">
 								</a>
 							</figure>
 						</div>
@@ -129,7 +129,7 @@
 						<div class="tg-category">
 							<figure>
 								<a href="">
-									<img ng-src="{{postExtra1.url ? postExtra1.url : 'storage/app/public/default.jpg'}}" alt="image description">
+									<img ng-src="{{postExtra1.picture ? postExtra1.picture : 'storage/app/public/default.jpg'}}" alt="image description">
 								</a>
 							</figure>
 							<div class="category-content">
@@ -165,7 +165,7 @@
 						<div class="tg-category">
 							<figure>
 								<a href="">
-									<img ng-src="{{postExtra2.url ? postExtra2.url : 'storage/app/public/default.jpg'}}" alt="image description">
+									<img ng-src="{{postExtra2.picture ? postExtra2.picture : 'storage/app/public/default.jpg'}}" alt="image description">
 								</a>
 							</figure>
 							<div class="category-content">
@@ -201,7 +201,7 @@
 						<div class="tg-category">
 							<figure>
 								<a href="">
-									<img ng-src="{{postExtra3.url ? postExtra3.url : 'storage/app/public/default.jpg'}}" alt="image description">
+									<img ng-src="{{postExtra3.picture ? postExtra3.picture : 'storage/app/public/default.jpg'}}" alt="image description">
 								</a>
 							</figure>
 							<div class="category-content">
@@ -253,7 +253,7 @@
 									<h4><span>about me</span></h4>
 									<div class="about-widget">
 										<div class="author-img">
-											<img ng-src="{{profile.url}}" alt="image description">
+											<img ng-src="{{profile.avatar}}" alt="avatar">
 										</div>
 										<div class="description">
 											{{profile.preview}}

@@ -52,14 +52,14 @@ class PostRepository extends BaseRepository
     }
     public function getPostPublic(){
         $posts = Post::orderBy('id','DESC')->limit(4)->get();
-        foreach ($posts as $key => $post) {
-            $find =  Storage::disk('public')->exists($post->picture);
-            if($find){
-                $post['url'] = url('storage/app/public/'.$post->picture);
-            }else{
-                $post['url'] = url('storage/app/public/default.jpg');
-            }
-        }
+        // foreach ($posts as $key => $post) {
+        //     $find =  Storage::disk('public')->exists($post->picture);
+        //     if($find){
+        //         $post['url'] = url('storage/app/public/'.$post->picture);
+        //     }else{
+        //         $post['url'] = url('storage/app/public/default.jpg');
+        //     }
+        // }
         return $posts;
     }
 }

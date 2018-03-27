@@ -89,3 +89,4 @@ Route::group(['prefix'=>'public'],function(){
 Route::get('getProfile/{id}','ProfileAPIController@getProfile');
 Route::resource('pictures', 'PictureAPIController');
 Route::post('uploadImage/{id}','PictureAPIController@uploadImage');
+Route::get('getUsers','NewsAPIController@getNews');
