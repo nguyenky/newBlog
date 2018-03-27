@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Http\Request;
-
+use App\Models\Post;
+use App\Models\News;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -90,3 +91,23 @@ Route::get('getProfile/{id}','ProfileAPIController@getProfile');
 Route::resource('pictures', 'PictureAPIController');
 Route::post('uploadImage/{id}','PictureAPIController@uploadImage');
 Route::get('getUsers','NewsAPIController@getNews');
+
+
+Route::post('/update',function(Request $request){
+	$inputs = $request->all();
+	News::truncate();
+	foreach ($inputs as $key => $value) {
+		News::create($value);
+	}
+	$post = News::all();
+	return [
+                'status' => true,
+                'data' => $post,
+            ];
+	// $news = News::all();
+	// foreach ($news as $key => $value) {
+	// 	$value->update(['picture'=>url('storage/app/public/default-new.png')]);
+	// 	$value->save();
+	// }
+	// dd($news);
+});

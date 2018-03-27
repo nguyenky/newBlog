@@ -6,6 +6,8 @@ use App\Models\Profile;
 use InfyOm\Generator\Common\BaseRepository;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
+use Validator;
+use RemoteImageUploader\Factory;
 class ProfileRepository extends BaseRepository
 {
     /**
@@ -29,13 +31,15 @@ class ProfileRepository extends BaseRepository
     }
     public function uploadAvatar(array $attributes,$id){
 
-        $ext        = $attributes['avatar']->guessClientExtension();
-        $reName     = time().'.'.$ext;
-        $img = Image::make($attributes['avatar'])->resize(200, 200);
-        $img->save('storage/app/public/'.$reName);
-        $profile = Profile::where('id',$id)->update(['avatar'=> $reName]);
-        $url = url('storage/app/public/'.$reName);
-        return $url;
+        $result = Factory::create(config('uploadphoto.host'), config('uploadphoto.auth'))
+                ->upload($attributes['avatar']->path());
+        // $ext        = $attributes['avatar']->guessClientExtension();
+        // $reName     = time().'.'.$ext;
+        // $img = Image::make($attributes['avatar'])->resize(200, 200);
+        // $img->save('storage/app/public/'.$reName);
+        $profile = Profile::where('id',$id)->update(['avatar'=> $result]);
+        // $url = url('storage/app/public/'.$reName);
+        return $result;
 
     }
     public function showProfile($id){

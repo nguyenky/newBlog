@@ -7,7 +7,8 @@ use App\Models\Category;
 use InfyOm\Generator\Common\BaseRepository;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
-
+use Validator;
+use RemoteImageUploader\Factory;
 class NewsRepository extends BaseRepository
 {
     /**
@@ -37,16 +38,16 @@ class NewsRepository extends BaseRepository
                     $query->select('id','name');
                 }))->get();
         foreach ($news as $key => $new) {
-            if($new->picture){
-                $find =  Storage::disk('public')->exists($new->picture);
-                if($find){
-                    $new['url'] = url('storage/app/public/'.$new->picture);
-                }else{
-                    $new['url'] = url('storage/app/public/default-new.png');
-                }
-            }else{
-                $new['url'] = url('storage/app/public/default-new.png');
-            }
+            // if($new->picture){
+            //     $find =  Storage::disk('public')->exists($new->picture);
+            //     if($find){
+            //         $new['url'] = url('storage/app/public/'.$new->picture);
+            //     }else{
+            //         $new['url'] = url('storage/app/public/default-new.png');
+            //     }
+            // }else{
+            //     $new['url'] = url('storage/app/public/default-new.png');
+            // }
             $images = $new->images;
             if($images){
                 foreach ($images as $keyImage => $image) {
@@ -63,43 +64,24 @@ class NewsRepository extends BaseRepository
     }
     public function addNews(array $attributes){
         if($attributes['picture']){
-            $ext        = $attributes['picture']->guessClientExtension();
-            $reName     = time().'.'.$ext;
-            $img = Image::make($attributes['picture'])->resize(870, 500);
-            $img->save('storage/app/public/'.$reName);
-            $attributes['picture'] = $reName;
-            $url = url('storage/app/public/'.$reName); 
+            $result = Factory::create(config('uploadphoto.host'), config('uploadphoto.auth'))
+                ->upload($attributes['picture']->path());
+            $attributes['picture'] = $result;
         }else{
-            $url = url('storage/app/public/default-new.png');
+            $attributes['picture'] = url('storage/app/public/default-new.png');
         }
 
         $new = News::create($attributes);
-        $new->url = $url;
         return $new;
     }
     public function update(array $attributes,$id){
-        // if($attributes['likes']){
-        //     $attributes['likes'] = (int)$attributes['likes'];
-        //     $attributes['display'] = null;
-        // }
         $news = News::find($id);
         if($attributes['file']){
-            $ext        = $attributes['file']->guessClientExtension();
-            $reName     = time().'.'.$ext;
-            $img = Image::make($attributes['file'])->resize(870, 500);
-            $img->save('storage/app/public/'.$reName);
-            $attributes['picture'] = $reName;
-            $url = url('storage/app/public/'.$reName);
-            $find =  Storage::disk('public')->exists($news->picture);
-            if($find){
-                unlink('storage/app/public/'.$news->picture ); 
-            }
-        }else{
-            $url = url('storage/app/public/default-new.png');
+            $result = Factory::create(config('uploadphoto.host'), config('uploadphoto.auth'))
+                ->upload($attributes['file']->path());
+            $attributes['picture'] = $result;
         }
-
         $news->update($attributes);
-        $news->url = $url;
         return $news;
     }
     // --------PUBLIC---------

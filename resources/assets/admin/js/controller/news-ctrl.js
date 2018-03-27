@@ -32,6 +32,7 @@ function($scope,Auth,$uibModal,toastr,Category,News,_,$sce,$state,$localStorage,
 		News.getNews().then(function(result){
 			if(result && result.success){
 				$scope.news = result.data;
+				console.log($scope.news);
 				$scope.newsFilter = result.data;
 			}
 		},function(error){
@@ -131,7 +132,7 @@ function($scope,Auth,$uibModal,toastr,Category,News,_,$sce,$state,$localStorage,
         		var index = _.findIndex($scope.newsFilter,function(val){
         			return val.id == result.data.data.id;
         		});
-        		$scope.newsFilter[index].url = result.data.data.url;
+        		$scope.newsFilter[index].picture = result.data.data.picture;
         		$scope.edit = false;
         		toastr.success('Update news successfully !!!','Success !!');
         	}

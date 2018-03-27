@@ -136,12 +136,12 @@ class ProfileAPIController extends AppBaseController
         if (empty($profile)) {
             return $this->sendError('Profile not found');
         }
-        if($profile->avatar){
-            $find =  Storage::disk('public')->exists($profile->avatar);
-            if($find){
-                unlink('storage/app/public/'.$profile->avatar );
-            }
-        }
+        // if($profile->avatar){
+        //     $find =  Storage::disk('public')->exists($profile->avatar);
+        //     if($find){
+        //         unlink('storage/app/public/'.$profile->avatar );
+        //     }
+        // }
         if($request->hasFile('avatar')){
 
             $upload = $this->profileRepository->uploadAvatar($input,$id);

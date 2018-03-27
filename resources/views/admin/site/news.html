@@ -35,7 +35,7 @@
             <td ng-show="!edit" >{{new.id}}</td>
             <td>{{new.name}}</td>
             <td ng-show="!edit">
-                <img width="90px;" height="50px;" ng-src="{{new.url}}">
+                <img width="90px;" height="50px;" ng-src="{{new.picture}}">
             </td>
             <td ng-show="!edit">{{new.category.name}}</td>
             <td ng-show="!edit">{{new.likes}}</td>
@@ -79,7 +79,7 @@
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" ng-show="!croppedDataUrl" >
                     <div class="form-group text-center">
-                        <img src="{{new.url}}" width="170px" height="100px">
+                        <img src="{{new.picture}}" width="170px" height="100px">
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" ng-show="croppedDataUrl" >
