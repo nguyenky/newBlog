@@ -9,6 +9,7 @@ app.controller('MyAppCtrl',[
 	$rootScope.name ="uchiha";
 	$scope.logout = function(){
 		Auth.logout();
+        $localStorage.currentUser = null;
 	}
     if($localStorage.currentUser){
         $rootScope.avatar = $localStorage.currentUser.avatar;
