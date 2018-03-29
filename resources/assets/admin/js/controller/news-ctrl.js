@@ -78,7 +78,7 @@ function($scope,Auth,$uibModal,toastr,Category,News,_,$sce,$state,$localStorage,
 		});
 	}
 
-	$scope.getAllCategoryTreeView();
+	// $scope.getAllCategoryTreeView();
 	//--------------END GET CATEGORY-------
 	$scope.trustAsHtml = function(value) {
         return $sce.trustAsHtml(value);

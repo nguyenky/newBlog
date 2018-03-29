@@ -29,7 +29,7 @@ app.controller('LoginCtrl',[
                 method: 'GET',
             }).then(function(result){
                 if(result && result.data.success){
-                    $rootScope.avatar = result.data.data.url;
+                    $rootScope.avatar = result.data.data.avatar;
                 }
             },function(error){
                 console.log(error);

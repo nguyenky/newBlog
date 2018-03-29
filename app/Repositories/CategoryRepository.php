@@ -63,6 +63,7 @@ class CategoryRepository extends BaseRepository
                 $categories[$key]['count'] = 0;
             }
         }
+        // dd($categories->toArray());
         return $categories;
     }
 

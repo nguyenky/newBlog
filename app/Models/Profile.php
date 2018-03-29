@@ -28,6 +28,7 @@ class Profile extends Model
         'preview',
         'cv',
         'about',
+        'avatar',
     ];
 
     /**
