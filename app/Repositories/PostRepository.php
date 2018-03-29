@@ -6,7 +6,8 @@ use App\Models\Post;
 use InfyOm\Generator\Common\BaseRepository;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
-
+use Validator;
+use RemoteImageUploader\Factory;
 class PostRepository extends BaseRepository
 {
     /**
@@ -27,27 +28,23 @@ class PostRepository extends BaseRepository
     }
     public function all($columns = ['*']){
         $posts = Post::orderBy('id','DESC')->paginate(12);
-        foreach ($posts as $key => $post) {
-            $find =  Storage::disk('public')->exists($post->picture);
-            if($find){
-                $post['url'] = url('storage/app/public/'.$post->picture);
-            }else{
-                $post['url'] = url('storage/app/public/default.jpg');
-            }
-        }
+        // foreach ($posts as $key => $post) {
+        //     $find =  Storage::disk('public')->exists($post->picture);
+        //     if($find){
+        //         $post['url'] = url('storage/app/public/'.$post->picture);
+        //     }else{
+        //         $post['url'] = url('storage/app/public/default.jpg');
+        //     }
+        // }
         return $posts;
     }
     public function create(array $attributes){
-        $ext        = $attributes['picture']->guessClientExtension();
-        $reName     = time().'.'.$ext;
-        $img = Image::make($attributes['picture'])->resize(1360, 800);
-        $img->save('storage/app/public/'.$reName);
+        $result = Factory::create(config('uploadphoto.host'), config('uploadphoto.auth'))
+                ->upload($attributes['picture']->path());
         $post = Post::create([
             'caption'=>$attributes['caption'],
-            'picture'=>$reName
+            'picture'=>$result
             ]);
-        $url = url('storage/app/public/'.$reName);
-        $post['url'] = $url;
         return $post;
     }
     public function getPostPublic(){

@@ -68,6 +68,7 @@ class ComposerStaticInit1354bb56908df177dfae637e33582b3d
         ),
         'R' => 
         array (
+            'RemoteImageUploader\\' => 20,
             'Ramsey\\Uuid\\' => 12,
         ),
         'P' => 
@@ -218,6 +219,10 @@ class ComposerStaticInit1354bb56908df177dfae637e33582b3d
         'Swagger\\' => 
         array (
             0 => __DIR__ . '/..' . '/zircote/swagger-php/src',
+        ),
+        'RemoteImageUploader\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/ptcong/php-image-uploader/src/RemoteImageUploader',
         ),
         'Ramsey\\Uuid\\' => 
         array (
@@ -407,6 +412,13 @@ class ComposerStaticInit1354bb56908df177dfae637e33582b3d
                 0 => __DIR__ . '/..' . '/jrm2k6/cloudder/src',
             ),
         ),
+        'E' => 
+        array (
+            'EasyRequest' => 
+            array (
+                0 => __DIR__ . '/..' . '/ptcong/php-http-class',
+            ),
+        ),
         'D' => 
         array (
             'Doctrine\\DBAL\\' => 
@@ -429,7 +441,6 @@ class ComposerStaticInit1354bb56908df177dfae637e33582b3d
     );
 
     public static $classMap = array (
-        'AddColumnAvatarInProfile' => __DIR__ . '/../..' . '/database/migrations/2017_05_24_114519_add_column_avatar_in_profile.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Http\\Controllers\\API\\AuthController' => __DIR__ . '/../..' . '/app/Http/Controllers/API/AuthController.php',
@@ -442,6 +453,7 @@ class ComposerStaticInit1354bb56908df177dfae637e33582b3d
         'App\\Http\\Controllers\\API\\ProfileAPIController' => __DIR__ . '/../..' . '/app/Http/Controllers/API/ProfileAPIController.php',
         'App\\Http\\Controllers\\API\\PublicController' => __DIR__ . '/../..' . '/app/Http/Controllers/API/PublicController.php',
         'App\\Http\\Controllers\\API\\UserAPIController' => __DIR__ . '/../..' . '/app/Http/Controllers/API/UserAPIController.php',
+        'App\\Http\\Controllers\\Api\\ContactController' => __DIR__ . '/../..' . '/app/Http/Controllers/API/ContactController.php',
         'App\\Http\\Controllers\\Api\\NotificationController' => __DIR__ . '/../..' . '/app/Http/Controllers/API/NotificationController.php',
         'App\\Http\\Controllers\\AppBaseController' => __DIR__ . '/../..' . '/app/Http/Controllers/AppBaseController.php',
         'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
@@ -505,8 +517,6 @@ class ComposerStaticInit1354bb56908df177dfae637e33582b3d
         'Carbon\\CarbonInterval' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/CarbonInterval.php',
         'Carbon\\Exceptions\\InvalidDateException' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Exceptions/InvalidDateException.php',
         'CategoryTableSeeder' => __DIR__ . '/../..' . '/database/seeds/CategoryTableSeeder.php',
-        'ChangeTypeDetailInNewsTable' => __DIR__ . '/../..' . '/database/migrations/2017_07_25_162539_change_type_detail_in_news_table.php',
-        'ChangeTypePreviewInNewsTable' => __DIR__ . '/../..' . '/database/migrations/2017_07_29_061048_Change_type_preview_in_news_table.php',
         'Cloudinary' => __DIR__ . '/..' . '/cloudinary/cloudinary_php/src/Cloudinary.php',
         'CloudinaryField' => __DIR__ . '/..' . '/cloudinary/cloudinary_php/src/CloudinaryField.php',
         'Cloudinary\\Api' => __DIR__ . '/..' . '/cloudinary/cloudinary_php/src/Api.php',
@@ -928,7 +938,7 @@ class ComposerStaticInit1354bb56908df177dfae637e33582b3d
         'Dotenv\\Exception\\ValidationException' => __DIR__ . '/..' . '/vlucas/phpdotenv/src/Exception/ValidationException.php',
         'Dotenv\\Loader' => __DIR__ . '/..' . '/vlucas/phpdotenv/src/Loader.php',
         'Dotenv\\Validator' => __DIR__ . '/..' . '/vlucas/phpdotenv/src/Validator.php',
-        'EditTextForDetailInNewsTable' => __DIR__ . '/../..' . '/database/migrations/2017_05_28_142515_edit_text_for_detail_in_news_table.php',
+        'EasyRequest' => __DIR__ . '/..' . '/ptcong/php-http-class/EasyRequest.php',
         'Faker\\Calculator\\Iban' => __DIR__ . '/..' . '/fzaninotto/faker/src/Faker/Calculator/Iban.php',
         'Faker\\Calculator\\Luhn' => __DIR__ . '/..' . '/fzaninotto/faker/src/Faker/Calculator/Luhn.php',
         'Faker\\DefaultGenerator' => __DIR__ . '/..' . '/fzaninotto/faker/src/Faker/DefaultGenerator.php',
@@ -3601,6 +3611,15 @@ class ComposerStaticInit1354bb56908df177dfae637e33582b3d
         'Ramsey\\Uuid\\UuidFactory' => __DIR__ . '/..' . '/ramsey/uuid/src/UuidFactory.php',
         'Ramsey\\Uuid\\UuidFactoryInterface' => __DIR__ . '/..' . '/ramsey/uuid/src/UuidFactoryInterface.php',
         'Ramsey\\Uuid\\UuidInterface' => __DIR__ . '/..' . '/ramsey/uuid/src/UuidInterface.php',
+        'RemoteImageUploader\\Adapters\\Flickr' => __DIR__ . '/..' . '/ptcong/php-image-uploader/src/RemoteImageUploader/Adapters/Flickr.php',
+        'RemoteImageUploader\\Adapters\\Imageshack' => __DIR__ . '/..' . '/ptcong/php-image-uploader/src/RemoteImageUploader/Adapters/Imageshack.php',
+        'RemoteImageUploader\\Adapters\\Imgur' => __DIR__ . '/..' . '/ptcong/php-image-uploader/src/RemoteImageUploader/Adapters/Imgur.php',
+        'RemoteImageUploader\\Adapters\\Picasa' => __DIR__ . '/..' . '/ptcong/php-image-uploader/src/RemoteImageUploader/Adapters/Picasa.php',
+        'RemoteImageUploader\\Adapters\\Postimage' => __DIR__ . '/..' . '/ptcong/php-image-uploader/src/RemoteImageUploader/Adapters/Postimage.php',
+        'RemoteImageUploader\\Factory' => __DIR__ . '/..' . '/ptcong/php-image-uploader/src/RemoteImageUploader/Factory.php',
+        'RemoteImageUploader\\Helper' => __DIR__ . '/..' . '/ptcong/php-image-uploader/src/RemoteImageUploader/Helper.php',
+        'RemoteImageUploader\\Interfaces\\Account' => __DIR__ . '/..' . '/ptcong/php-image-uploader/src/RemoteImageUploader/Interfaces/Account.php',
+        'RemoteImageUploader\\Interfaces\\OAuth' => __DIR__ . '/..' . '/ptcong/php-image-uploader/src/RemoteImageUploader/Interfaces/OAuth.php',
         'SebastianBergmann\\CodeCoverage\\CodeCoverage' => __DIR__ . '/..' . '/phpunit/php-code-coverage/src/CodeCoverage.php',
         'SebastianBergmann\\CodeCoverage\\CoveredCodeNotExecutedException' => __DIR__ . '/..' . '/phpunit/php-code-coverage/src/Exception/CoveredCodeNotExecutedException.php',
         'SebastianBergmann\\CodeCoverage\\Driver\\Driver' => __DIR__ . '/..' . '/phpunit/php-code-coverage/src/Driver/Driver.php',
