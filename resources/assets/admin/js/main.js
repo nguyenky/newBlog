@@ -46,6 +46,6 @@ app.controller('MyAppCtrl',[
     
 }]);
 // app.constant('baseurl', 'http://localhost/newBlog/api/')
-// app.constant('baseurl', 'http://yesforme.herokuapp.com/api/')
+app.constant('baseurl', 'https://yesforme.herokuapp.com/api/')
 // app.constant('baseurl', 'http://newblog.com/api/')
-app.constant('baseurl', '/api/')
+// app.constant('baseurl', '/api/')
