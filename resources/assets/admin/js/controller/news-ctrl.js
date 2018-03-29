@@ -31,8 +31,7 @@ function($scope,Auth,$uibModal,toastr,Category,News,_,$sce,$state,$localStorage,
 	$scope.getNews = function(){
 		News.getNews().then(function(result){
 			if(result && result.success){
-				$scope.news = result.data;
-				console.log($scope.news);
+				$scope.news = result.data; 
 				$scope.newsFilter = result.data;
 			}
 		},function(error){
