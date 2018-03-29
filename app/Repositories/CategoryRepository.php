@@ -57,7 +57,9 @@ class CategoryRepository extends BaseRepository
     public function getCategory(){
         $categories = Category::select('id','name')->get();
         foreach ($categories as $key => $cat) {
-            $categories[$key]['count'] = $cat->news()->count();
+            if($$cat->news()){
+                $categories[$key]['count'] = $cat->news()->count();
+            }
         }
         return $categories;
     }
