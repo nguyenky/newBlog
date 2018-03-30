@@ -21,11 +21,11 @@ class ShareController extends Controller
   public function categories(){
     $categories = Category::select('id','name')->get();
     foreach ($categories as $key => $cat) {
-        // if($cat->news()){
-        //     $categories[$key]['count'] = $cat->news()->count();
-        // }else{
-            $categories[$key]['count'] = 0;
-        // }
+        if($cat->news()){
+            $cat->count = $cat->news()->count();
+        }else{
+            $cat->count = 0;
+        }
     }
     return $categories;
   }
