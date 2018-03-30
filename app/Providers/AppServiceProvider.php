@@ -3,7 +3,8 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-
+use Illuminate\Support\Facades\View;
+use App\Http\Controllers\LaravelController\PublicController\ShareController;
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -13,7 +14,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+      $obj = new ShareController();
+      // dd($obj->getInstagram()['data']);
+      $instagram = $obj->getInstagram()['data'];
+      $status = $obj->shareStatus();
+      View::share('instagram',$instagram);
+      View::share('status',$status);
     }
 
     /**

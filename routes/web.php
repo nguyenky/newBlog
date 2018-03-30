@@ -27,7 +27,9 @@ Route::get('/admin',function(){
 Route::group(['namespace'=>'LaravelController\PublicController'],function(){
 	Route::get('/upload','HomeController@getUpload');
 	Route::post('/upload','HomeController@upload')->name('upload');
-	
+
+  Route::get('/v2','HomeController@home');
+
 });
 
 

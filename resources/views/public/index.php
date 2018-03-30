@@ -11,7 +11,7 @@
 	<!-- ------------Defaulf-------------- -->
 	<!-- <link rel="stylesheet" href="resources/assets/public/css/bootstrap.min.css"> -->
 	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
-	
+
 	<link href="resources/assets/font-awesome/css/font-awesome.css" rel="stylesheet">
 	<link rel="stylesheet" href="resources/assets/public/css/owl.carousel.css">
 	<link rel="stylesheet" href="resources/assets/public/css/owl.theme.css">
@@ -330,12 +330,12 @@
 									<div class="text-center" ng-show="!searchNews.length && !loadingSearch"> Can not find any posts with name like "{{searchWord}}" !!!</div>
 									<div class="text-center" ng-show="loadingSearch"><i class="fa fa-spinner fa-spin" aria-hidden="true"></i></div>
 									<div style="border-top: 1px solid;"  ng-show="searchNews.length ">
-										<a class="pull-left" href="" ng-click="previus()" ng-show="hasPrevius">Previus</a> 
-										<a class="pull-right" href="" ng-click="loadMore()" ng-show="hasLoadMoreSearch">Load more posts</a> 
+										<a class="pull-left" href="" ng-click="previus()" ng-show="hasPrevius">Previus</a>
+										<a class="pull-right" href="" ng-click="loadMore()" ng-show="hasLoadMoreSearch">Load more posts</a>
 									</div>
 								</div>
 							</div>
-							
+
 						</div>
 					</aside>
 				</div>
@@ -443,8 +443,8 @@
 	<script src="resources/assets/public/angularjs/config-public.js"></script>
 	<script src="resources/assets/public/angularjs/service.js"></script>
 	<script src="resources/assets/public/angularjs/main.js"></script>
-	
-	
+
+
     <!-- main -->
     <!-- End main -->
 	<!---------- Defaulf ---------->
