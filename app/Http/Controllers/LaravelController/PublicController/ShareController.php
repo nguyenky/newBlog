@@ -20,13 +20,13 @@ class ShareController extends Controller
   }
   public function categories(){
     $categories = Category::select('id','name')->get();
-    foreach ($categories as $key => $cat) {
-        if($cat->news()){
-            $cat->count = $cat->news()->count();
-        }else{
-            $cat->count = 0;
-        }
-    }
+    // foreach ($categories as $key => $cat) {
+    //     if($cat->news()){
+    //         $cat->count = $cat->news()->count();
+    //     }else{
+    //         $cat->count = 0;
+    //     }
+    // }
     return $categories;
   }
 }

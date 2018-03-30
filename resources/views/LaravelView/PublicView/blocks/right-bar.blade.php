@@ -107,7 +107,7 @@
 										<li>
 											<a href="#">
 												<em>{{$category['name']}}</em>
-												<i>({{$category['count']}})</i>
+												<!-- <i>({{$category['count']}})</i> -->
 											</a>
 										</li>
 										@endforeach
