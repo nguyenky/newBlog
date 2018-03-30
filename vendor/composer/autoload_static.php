@@ -462,6 +462,8 @@ class ComposerStaticInit1354bb56908df177dfae637e33582b3d
         'App\\Http\\Controllers\\Auth\\ResetPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ResetPasswordController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
+        'App\\Http\\Controllers\\LaravelController\\PublicController\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/LaravelController/PublicController/HomeController.php',
+        'App\\Http\\Controllers\\LaravelController\\PublicController\\ShareController' => __DIR__ . '/../..' . '/app/Http/Controllers/LaravelController/PublicController/ShareController.php',
         'App\\Http\\Controllers\\UserController' => __DIR__ . '/../..' . '/app/Http/Controllers/UserController.php',
         'App\\Http\\Controllers\\demoCtrl' => __DIR__ . '/../..' . '/app/Http/Controllers/demoCtrl.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',

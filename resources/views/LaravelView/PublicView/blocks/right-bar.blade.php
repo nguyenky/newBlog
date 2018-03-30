@@ -103,48 +103,14 @@
 								<div class="tg-widget tg-category">
 									<h4><span>Blog Catagories</span></h4>
 									<ul class="blog-category">
+										@foreach($categories as $category)
 										<li>
 											<a href="#">
-												<em>Awesome Travelling</em>
-												<i>(598)</i>
+												<em>{{$category['name']}}</em>
+												<i>({{$category['count']}})</i>
 											</a>
 										</li>
-										<li>
-											<a href="#">
-												<em>Daily Life Routeen</em>
-												<i>(1058)</i>
-											</a>
-										</li>
-										<li>
-											<a href="#">
-												<em>Amazing Food</em>
-												<i>(42)</i>
-											</a>
-										</li>
-										<li>
-											<a href="#">
-												<em>Fashion</em>
-												<i>(158)</i>
-											</a>
-										</li>
-										<li>
-											<a href="#">
-												<em>Lifestyle</em>
-												<i>(4058)</i>
-											</a>
-										</li>
-										<li>
-											<a href="#">
-												<em>Politics</em>
-												<i>(958)</i>
-											</a>
-										</li>
-										<li>
-											<a href="#">
-												<em>Miscellenious</em>
-												<i>(9852)</i>
-											</a>
-										</li>
+										@endforeach
 									</ul>
 								</div>
 							</div>

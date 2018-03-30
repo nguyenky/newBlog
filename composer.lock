@@ -34,7 +34,8 @@
                     "src"
                 ],
                 "files": [
-                    "src/Helpers.php"
+                    "src/Helpers.php",
+                    "app/Helpers/helpers.php"
                 ]
             },
             "notification-url": "https://packagist.org/downloads/",

@@ -15,11 +15,12 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
       $obj = new ShareController();
-      // dd($obj->getInstagram()['data']);
       $instagram = $obj->getInstagram()['data'];
       $status = $obj->shareStatus();
+      $categories = $obj->categories();
       View::share('instagram',$instagram);
       View::share('status',$status);
+      View::share('categories',$categories);
     }
 
     /**
