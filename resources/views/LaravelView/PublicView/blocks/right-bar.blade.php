@@ -103,14 +103,7 @@
 								<div class="tg-widget tg-category">
 									<h4><span>Blog Catagories</span></h4>
 									<ul class="blog-category">
-										@foreach($categories as $category)
-										<li>
-											<a href="#">
-												<em>{{$category['name']}}</em>
-												<!-- <i>({{$category['count']}})</i> -->
-											</a>
-										</li>
-										@endforeach
+										
 									</ul>
 								</div>
 							</div>

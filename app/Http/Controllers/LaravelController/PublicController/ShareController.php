@@ -18,8 +18,8 @@ class ShareController extends Controller
     $status = Post::orderBy('id','DESC')->select('id','caption')->limit(1)->first();
     return $status;
   }
-  public function categories(){
-    $categories = Category::select('id','name')->get();
+  // public function categories(){
+    // $categories = Category::select('id','name')->get();
     // foreach ($categories as $key => $cat) {
     //     if($cat->news()){
     //         $cat->count = $cat->news()->count();
@@ -27,6 +27,6 @@ class ShareController extends Controller
     //         $cat->count = 0;
     //     }
     // }
-    return $categories;
+    // return $categories;
   }
 }
