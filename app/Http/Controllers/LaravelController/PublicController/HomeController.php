@@ -8,6 +8,7 @@ use Validator;
 use RemoteImageUploader\Factory;
 use App\Repositories\PostRepository;
 use App\Models\Category;
+use App\Models\Cat;
 class HomeController extends Controller
 {
     // public function getUpload(){
@@ -64,7 +65,7 @@ class HomeController extends Controller
     }
     public function home(){
       $posts = $this->postRepository->getPostPublic();
-      $categories = Category::orderBy('id','DESC')->select('id','name')->get();
+      $categories = Cat::orderBy('id','DESC')->select('id','name')->get();
       // dd($posts);
 
 
