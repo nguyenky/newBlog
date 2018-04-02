@@ -18,10 +18,10 @@ class AppServiceProvider extends ServiceProvider
       // dd($obj->getInstagram()['data']);
       $instagram = $obj->getInstagram()['data'];
       $status = $obj->shareStatus();
-      $categories = $obj->categories();
+      // $categories = $obj->categories();
       View::share('instagram',$instagram);
       View::share('status',$status);
-      View::share('categories',$categories);
+      // View::share('categories',$categories);
     }
 
     /**

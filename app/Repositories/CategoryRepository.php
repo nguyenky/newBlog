@@ -32,7 +32,7 @@ class CategoryRepository extends BaseRepository
             // if(!empty($hasCats)){
             //     // $categories[$key]['hasCats'] = $category->hasCategories;
             // }
-            
+
         }
 
         return $categories;
@@ -42,7 +42,7 @@ class CategoryRepository extends BaseRepository
             $hasCats =  $item->hasCategories;
             if($hasCats){
                 $recursion= $this->recursion($hasCats);
-            }    
+            }
         }
         return $items;
     }
@@ -54,17 +54,17 @@ class CategoryRepository extends BaseRepository
         // $recursion = $this->recursion($categories);
         return $categories;
     }
-    public function getCategory(){
-        $categories = Category::select('id','name')->get();
-        foreach ($categories as $key => $cat) {
-            if($cat->news()){
-                $categories[$key]['count'] = $cat->news()->count();
-            }else{
-                $categories[$key]['count'] = 0;
-            }
-        }
-        // dd($categories->toArray());
-        return $categories;
-    }
+    // public function getCategory(){
+    //     $categories = Category::select('id','name')->get();
+    //     foreach ($categories as $key => $cat) {
+    //         if($cat->news()){
+    //             $categories[$key]['count'] = $cat->news()->count();
+    //         }else{
+    //             $categories[$key]['count'] = 0;
+    //         }
+    //     }
+    //     // dd($categories->toArray());
+    //     return $categories;
+    // }
 
 }
