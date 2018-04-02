@@ -19,7 +19,8 @@ class ShareController extends Controller
     return $status;
   }
   public function categories(){
-    $categories = Category::orderBy('id','DESC')->select('id','name')->get();
+    $categories = Category::orderBy('id','DESC')->select('id','name')->with('news')->get();
+    // dd($categories->toArray());
     // dd($categories);
     return $categories;
   }

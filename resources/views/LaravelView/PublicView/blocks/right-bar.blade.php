@@ -107,7 +107,7 @@
 										<li>
 											<a href="#">
 												<em>{{$cat->name}}</em>
-												<i></i>
+												<i>{{count($cat->news)}}</i>
 											</a>
 										</li>
 										@endforeach
