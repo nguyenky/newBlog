@@ -5,6 +5,7 @@ namespace App\Http\Controllers\LaravelController\PublicController;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Post;
+use App\Models\Category;
 class ShareController extends Controller
 {
   public function getInstagram(){
@@ -16,5 +17,10 @@ class ShareController extends Controller
   public function shareStatus(){
     $status = Post::orderBy('id','DESC')->select('id','caption')->limit(1)->first();
     return $status;
+  }
+  public function categories(){
+    $categories = Category::orderBy('id','DESC')->select('id','name')->get();
+    // dd($categories);
+    return $categories;
   }
 }
