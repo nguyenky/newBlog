@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Post;
 use App\Models\Category;
+use App\Models\Profile;
 class ShareController extends Controller
 {
   public function getInstagram(){
@@ -20,8 +21,10 @@ class ShareController extends Controller
   }
   public function categories(){
     $categories = Category::orderBy('id','DESC')->select('id','name')->with('news')->get();
-    // dd($categories->toArray());
-    // dd($categories);
     return $categories;
+  }
+  public function profile(){
+    $profile = Profile::find(1);
+    return $profile;
   }
 }

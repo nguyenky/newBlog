@@ -95,10 +95,13 @@ class NewsRepository extends BaseRepository
                 $arrayCat = $new->toArray();
                 array_push($arrayNews,$arrayCat);
             }
-            
+
         }
         return $arrayNews;
         // dd($array);
         // dd($news->toArray());
+    }
+    public function getNewsHome(){
+      
     }
 }

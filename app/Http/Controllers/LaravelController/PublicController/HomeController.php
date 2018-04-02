@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Validator;
 use RemoteImageUploader\Factory;
 use App\Repositories\PostRepository;
+use App\Repositories\NewsRepository;
 use App\Models\Category;
 use App\Models\Cat;
 class HomeController extends Controller
@@ -58,20 +59,21 @@ class HomeController extends Controller
     //----------------------------------------------------------------------------
 
     private $postRepository;
+    private $newsRepository;
 
-    public function __construct(PostRepository $postRepo)
+    public function __construct(PostRepository $postRepo,NewsRepository $newsRepo)
     {
         $this->postRepository = $postRepo;
+        $this->newsRepository = $newsRepo;
     }
     public function home(){
       $posts = $this->postRepository->getPostPublic();
       $categories = Category::orderBy('id','DESC')->select('id','name')->get();
-      // dd($posts);
-
+      // $news = $this->newsRepository->getNewsPublic();
+      // dd($news->toArray());
 
       return view('LaravelView.PublicView.home',[
         'posts'     =>$posts,
-        // 'categories'=>$categories
       ]);
     }
 

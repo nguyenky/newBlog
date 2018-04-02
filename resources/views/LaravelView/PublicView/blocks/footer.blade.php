@@ -6,7 +6,7 @@
         <div id="instagram-gallery" class="instagram-gallery">
           @foreach($instagram as $key=>$in)
             <!-- <a href="">{{$key}}</a> -->
-            @if($key >8 && $key < 16 )
+            @if($key >12 && $key < 20 )
             <div class="item"><a href="#"><img src="{{$in['images']['thumbnail']['url']}}" alt="image description"></a></div>
             @endif
           @endforeach

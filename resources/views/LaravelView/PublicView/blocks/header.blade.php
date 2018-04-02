@@ -8,8 +8,8 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>BootStrap HTML5 CSS3 Theme</title>
-	<link rel="apple-touch-icon" href="apple-touch-icon.png">
+	<title>Yes ! For me !!!</title>
+	<link rel="icon" href="/resources/assets/icon-logo.jpg"/>
 	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
 
 	<link href="resources/assets/font-awesome/css/font-awesome.css" rel="stylesheet">
