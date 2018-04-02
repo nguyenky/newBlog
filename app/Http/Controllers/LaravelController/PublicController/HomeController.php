@@ -71,7 +71,7 @@ class HomeController extends Controller
 
       return view('LaravelView.PublicView.home',[
         'posts'     =>$posts,
-        'categories'=>$categories
+        // 'categories'=>$categories
       ]);
     }
 

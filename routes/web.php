@@ -34,16 +34,51 @@ Route::group(['namespace'=>'LaravelController\PublicController'],function(){
 
 
 Route::get('/update',function(){
-	$news_old = News::all();
+	$news = News::where('category_id',3)->get();
 	// News::truncate();
-	foreach ($news_old as $key => $value) {
-		News::create($value);
+  // dd($news);
+	foreach ($news as $key => $value) {
+		// News::create($value);
+    $value->update(['category_id'=>21]);
+    $value->save();
 	}
-	$post = News::all();
-	return [
-                'status' => true,
-                'data' => $post,
-            ];
+  $news4 = News::where('category_id',4)->get();
+	// News::truncate();
+  // dd($news);
+	foreach ($news4 as $key => $value) {
+		// News::create($value);
+    $value->update(['category_id'=>31]);
+    $value->save();
+	}
+  $news5 = News::where('category_id',5)->get();
+	// News::truncate();
+  // dd($news);
+	foreach ($news5 as $key => $value) {
+		// News::create($value);
+    $value->update(['category_id'=>41]);
+    $value->save();
+	}
+  $news6 = News::where('category_id',6)->get();
+	// News::truncate();
+  // dd($news);
+	foreach ($news6 as $key => $value) {
+		// News::create($value);
+    $value->update(['category_id'=>51]);
+    $value->save();
+	}
+  $news7 = News::where('category_id',7)->get();
+	// News::truncate();
+  // dd($news);
+	foreach ($news7 as $key => $value) {
+		// News::create($value);
+    $value->update(['category_id'=>61]);
+    $value->save();
+	}
+	// $post = News::all();
+	// return [
+  //               'status' => true,
+  //               'data' => $post,
+  //           ];
 	// $news = News::all();
 	// foreach ($news as $key => $value) {
 	// 	$value->update(['picture'=>url('storage/app/public/default-new.png')]);
