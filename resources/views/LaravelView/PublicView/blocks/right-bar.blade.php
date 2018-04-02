@@ -103,7 +103,14 @@
 								<div class="tg-widget tg-category">
 									<h4><span>Blog Catagories</span></h4>
 									<ul class="blog-category">
-										
+										@foreach($categories as $cat)
+										<li>
+											<a href="#">
+												<em>{{$cat->name}}</em>
+												<i></i>
+											</a>
+										</li>
+										@endforeach
 
 									</ul>
 								</div>

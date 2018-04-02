@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Validator;
 use RemoteImageUploader\Factory;
 use App\Repositories\PostRepository;
+use App\Models\Category;
 class HomeController extends Controller
 {
     // public function getUpload(){
@@ -63,11 +64,13 @@ class HomeController extends Controller
     }
     public function home(){
       $posts = $this->postRepository->getPostPublic();
+      $categories = Category::orderBy('id','DESC')->select('id','name')->get();
       // dd($posts);
 
 
       return view('LaravelView.PublicView.home',[
-        'posts'=>$posts,
+        'posts'     =>$posts,
+        'categories'=>$categories
       ]);
     }
 
