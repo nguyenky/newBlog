@@ -65,7 +65,7 @@ class HomeController extends Controller
     }
     public function home(){
       $posts = $this->postRepository->getPostPublic();
-      $categories = Cat::orderBy('id','DESC')->select('id','name')->get();
+      $categories = Category::orderBy('id','DESC')->select('id','name')->get();
       // dd($posts);
 
 

@@ -15,10 +15,10 @@ class CategoryTableSeeder extends Seeder
     {
        // factory(App\Models\Category::class, 10)->create();
     	$faker = Factory::create();
-    	Cat::truncate();
+    	Category::truncate();
     	$cateLists = ['Life and survive','Chilhood','Trip and Experience','History','Video','Music','HistoryCollected'];
     	foreach ($cateLists as $key => $value) {
-    		$cat = Cat::create([
+    		$cat = Category::create([
     				'name'=> $value,
     			]);
     	}
