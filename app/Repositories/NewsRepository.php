@@ -102,6 +102,10 @@ class NewsRepository extends BaseRepository
         // dd($news->toArray());
     }
     public function getNewsHome(){
-      
+        $categories = Category::select('id','name')->where('id','<=',61)->get();
+        foreach ($categories as $key => $value) {
+            $categories[$key]->new = $value->getLatest()->toArray();
+        }
+        return $categories->toArray();
     }
 }

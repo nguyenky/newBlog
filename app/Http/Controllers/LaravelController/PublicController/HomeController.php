@@ -10,6 +10,8 @@ use App\Repositories\PostRepository;
 use App\Repositories\NewsRepository;
 use App\Models\Category;
 use App\Models\Cat;
+use App\Models\News;
+use Illuminate\Support\Facades\DB;
 class HomeController extends Controller
 {
     // public function getUpload(){
@@ -68,12 +70,12 @@ class HomeController extends Controller
     }
     public function home(){
       $posts = $this->postRepository->getPostPublic();
-      $categories = Category::orderBy('id','DESC')->select('id','name')->get();
-      // $news = $this->newsRepository->getNewsPublic();
-      // dd($news->toArray());
+
+      $news = $this->newsRepository->getNewsHome();
 
       return view('LaravelView.PublicView.home',[
         'posts'     =>$posts,
+        'news'      =>$news
       ]);
     }
 
