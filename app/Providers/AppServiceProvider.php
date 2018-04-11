@@ -20,10 +20,12 @@ class AppServiceProvider extends ServiceProvider
       $status = $obj->shareStatus();
       $categories = $obj->categories();
       $profile = $obj->profile();
+      $latests = $obj->latests();
       View::share('instagram',$instagram);
       View::share('status',$status);
       View::share('categories',$categories);
       View::share('profile',$profile);
+      View::share('latests',$latests);
     }
 
     /**

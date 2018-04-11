@@ -248,3 +248,6 @@
 		</div>
 	</div>
 @endsection
+@section('angularjs')
+	<script src="resources/assets/public/angularjs_v2/controller/home-ctrl.js"></script>
+@endsection

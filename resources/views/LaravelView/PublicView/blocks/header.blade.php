@@ -20,7 +20,7 @@
 	<link rel="stylesheet" href="resources/assets/public/css/responsive.css">
 	<script src="resources/assets/public/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
 </head>
-<body>
+<body ng-app="app" ng-controller="mainCtrl">
 	<!--[if lt IE 8]>
 		<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 	<![endif]-->
@@ -40,27 +40,23 @@
 				<div class="container">
 					<div class="new-slides pull-left col-lg-4 col-md-5 col-sm-6 col-xs-6">
 						<div id="news-slider">
+							@foreach($latests as $new)
 							<div class="item">
-								<p>The Latest New For Your New Post</p>
+								<p>{{$new->name}}</p>
 							</div>
-							<div class="item">
-								<p>The Latest New For Your New Post</p>
-							</div>
-							<div class="item">
-								<p>The Latest New For Your New Post</p>
-							</div>
+							@endforeach
 						</div>
 					</div>
-					<div class="search-social pull-right">
+					<div class="search-social pull-right text-center">
+						<!-- <div class="avatar-user" ng-show="loginStatus">
+							<div class="name-user">
+								<a href=""></a>
+							</div>
+							<img  width="40" height="40" ng-show='loginStatus'>
+						</div> -->
 						<ul class="social-icon">
-							<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-							<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-							<li><a href="#"><i class="fa fa-instagram"></i></a></li>
-							<li><a href="#"><i class="fa fa-pinterest-p"></i></a></li>
-							<li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-							<li><a href="#"><i class="fa fa-tumblr"></i></a></li>
+							<li ><a href=""><i class="fa fa-facebook"></i></a></li>
 						</ul>
-						<a href="#" class="btn-search fa fa-search show_hide"></a>
 					</div>
 				</div>
 			</div>
@@ -94,48 +90,17 @@
 					</div>
 					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 						<ul class="nav navbar-nav">
-							<li class="active">
-								<a href="index.html">Home</a>
-								<ul class="dropdown-menu">
-									<li><a href="index.html">Home</a></li>
-									<li class="active"><a href="index-slider.html">Home slider</a></li>
-									<li><a href="index-masonry.html">Home Masnory</a></li>
-									<li><a href="index-three-columns.html">Home Three Columns</a></li>
-									<li><a href="single.html">Single</a></li>
-									<li><a href="index-fixnav.html">Sticky Nav</a></li>
-								</ul>
-							</li>
-							<li><a href="aboutus.html">about us</a></li>
-							<li><a href="contactus.html">Contact</a></li>
 							<li>
-								<a href="#">Post Type</a>
-								<ul class="dropdown-menu">
-									<li><a href="simple-post.html">Post</a></li>
-									<li><a href="gallery-post.html">Gallery Poast</a></li>
-									<li><a href="slider-post.html">Slider Post</a></li>
-									<li><a href="video-post.html">Video Post</a></li>
-									<li><a href="audio-post.html">Audio Post</a></li>
-									<li><a href="img-blockquote-post.html">image Blockquote post</a></li>
-									<li><a href="blockquote-post.html">Blockquote post</a></li>
-									<li><a href="text-post.html">text post</a></li>
-								</ul>
+								<a href="/">Home</a>
 							</li>
-							<li><a href="#">LifeStyle</a></li>
-							<li><a href="#">Style &amp; Beauty</a></li>
-							<li><a href="#">Home &amp; Living</a></li>
-							<li><a href="#">everyday life &amp; inspirations</a></li>
-							<li><a href="#">Travel</a></li>
-							<li class="dropdown">
-								<a href="#">Dropdown</a>
-								<ul class="dropdown-menu">
-									<li><a href="#">LifeStyle</a></li>
-									<li><a href="#">Style &amp; Beauty</a></li>
-									<li><a href="#">Home &amp; Living</a></li>
-									<li><a href="#">everyday life &amp; inspirations</a></li>
-									<li><a href="#">Travel</a></li>
-									<li><a href="#">Contact</a></li>
-								</ul>
-							</li>
+							<li><a href="/life">LifeStyle</a></li>
+							<li><a href="/trip">Trip</a></li>
+							<li><a href="/audio">Just Relax</a></li>
+							<li><a href="/playlists">Playlists</a></li>
+							<li><a href="/video">Videos</a></li>
+							<li><a href="/history">Yes ! I write !</a></li>
+							<li><a href="/historycollected">History in my eye</a></li>
+							<li><a href="/images">Images</a></li>
 						</ul>
 					</div>
 				</div>

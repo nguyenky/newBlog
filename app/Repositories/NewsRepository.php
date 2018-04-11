@@ -108,4 +108,9 @@ class NewsRepository extends BaseRepository
         }
         return $categories->toArray();
     }
+    public function getNewsSite($id){
+        $news = News::orderBy('id','DESC')->where('category_id',$id)->with('comments')->paginate(1);
+
+        return $news;
+    }
 }

@@ -78,5 +78,15 @@ class HomeController extends Controller
         'news'      =>$news
       ]);
     }
+    public function life(){
+        
+        $items = $this->newsRepository->getNewsSite(1);
+        // dd($items);
+        
+        
+        return view('LaravelView.PublicView.sites.life',[
+            'items' => $items,
+          ]);
+    }
 
 }

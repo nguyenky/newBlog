@@ -5,6 +5,7 @@ namespace App\Http\Controllers\LaravelController\PublicController;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Post;
+use App\Models\News;
 use App\Models\Category;
 use App\Models\Profile;
 class ShareController extends Controller
@@ -26,5 +27,8 @@ class ShareController extends Controller
   public function profile(){
     $profile = Profile::find(1);
     return $profile;
+  }
+  public function latests(){
+    return News::orderBy('id','DESC')->limit(5)->get();
   }
 }

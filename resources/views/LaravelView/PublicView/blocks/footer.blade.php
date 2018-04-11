@@ -76,6 +76,7 @@
 <script src="resources/assets/admin/js/bootstrap/jquery.js"></script>
 
   <!-- Bootstrap Core JavaScript -->
+<script src="resources/assets/storage/angular/angular.js"></script>
 <script src="resources/assets/admin/js/bootstrap/bootstrap.min.js"></script>
 <!---------- Defaulf ---------->
 <script src="resources/assets/public/js/owl.carousel.js"></script>
@@ -83,6 +84,8 @@
 <script src="resources/assets/public/js/isotop.js"></script>
 <script src="resources/assets/public/js/theia-sticky-sidebar.js"></script>
 <script src="resources/assets/public/js/main.js"></script>
+<script src="resources/assets/public/angularjs_v2/main.js"></script>
 <!-- ------------End defaulf---------- -->
+@yield('angularjs')
 </body>
 </html>
