@@ -71,21 +71,21 @@ class HomeController extends Controller
     public function home(){
       $posts = $this->postRepository->getPostPublic();
 
-      $news = $this->newsRepository->getNewsHome();
+      // $news = $this->newsRepository->getNewsHome();
 
       return view('LaravelView.PublicView.home',[
         'posts'     =>$posts,
-        'news'      =>$news
+        // 'news'      =>$news
       ]);
     }
     public function life(){
         
-        $items = $this->newsRepository->getNewsSite(1);
+        // $items = $this->newsRepository->getNewsSite(1);
         // dd($items);
         
         
         return view('LaravelView.PublicView.sites.life',[
-            'items' => $items,
+            // 'items' => $items,
           ]);
     }
 
