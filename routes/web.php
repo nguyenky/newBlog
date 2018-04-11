@@ -16,9 +16,10 @@
 // Route::get('/', function () {
 //     return view('public.index');
 // });
-Route::get('/admin',function(){
-	return view('admin.index');
-});
+
+// Route::get('/admin',function(){
+// 	return view('admin.index');
+// });
 // Route::get('/upload',function(){
 // 	// return view('public.index');
 // 	dd('ssf');
@@ -27,8 +28,8 @@ Route::get('/admin',function(){
 Route::group(['namespace'=>'LaravelController\PublicController'],function(){
 	Route::get('/upload','HomeController@getUpload');
 	Route::post('/upload','HomeController@upload')->name('upload');
+  	Route::get('/','HomeController@home');
 
-  Route::get('/','HomeController@home');
 
 });
 
