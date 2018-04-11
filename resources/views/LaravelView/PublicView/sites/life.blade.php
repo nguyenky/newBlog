@@ -24,7 +24,7 @@
 					<div class="description" style="height: 100px;">
 						{{$item->preview}}
 					</div>
-					<a href="" ng-click="redirec(post)" class="tg-btn-countinuereading">countinue reading</a>
+					<a href="" class="tg-btn-countinuereading">countinue reading</a>
 					<div class="tg-post-foot">
 						<div class="post-meta pull-left">
 							<span class="tg-post-author">Post By : <a href="">Ng Ký Lê</a></span>

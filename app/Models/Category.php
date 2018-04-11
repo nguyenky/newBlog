@@ -13,7 +13,7 @@ class Category extends Model
    }
    
     public function getLatest(){
-      $newLatest = News::select('id','name','picture','preview','likes','created_at','detail')->with('comments')->where('category_id',$this->id)->latest()->first();
+      $newLatest = News::select('id','name','picture','preview','likes','created_at','detail')->where('category_id',$this->id)->latest()->first();
 
       return $newLatest;
     }

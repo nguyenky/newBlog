@@ -10,7 +10,7 @@
 				<div class="tg-img-hover">
 					<div class="holder">
 						<a href=""><i class="fa fa-heart" aria-hidden="true" style="color: #f3eeee;" >&nbsp&nbsp{{$news[0]['new']['likes'] ? $news[0]['new']['likes'] : '1'}}&nbsp&nbsp</i></a>&nbsp&nbsp
-						<a href=""><i class="fa fa-comment" aria-hidden="true" style="color:#f3eeee; margin-left: 20px;">&nbsp&nbsp{{count($news[0]['new']['comments'])}}&nbsp&nbsp</i></a>
+						<a href=""><i class="fa fa-comment" aria-hidden="true" style="color:#f3eeee; margin-left: 20px;">&nbsp&nbsp0&nbsp&nbsp</i></a>
 					</div>
 				</div>
 			</figure>
@@ -75,7 +75,7 @@
 				<div class="tg-img-hover">
 					<div class="holder">
 						<a href=""><i class="fa fa-heart" aria-hidden="true" style="color: #f3eeee;" >&nbsp&nbsp{{$news[1]['new']['likes'] ? $news[1]['new']['likes'] : '1'}}&nbsp&nbsp</i></a>&nbsp&nbsp
-						<a href=""><i class="fa fa-comment" aria-hidden="true" style="color:#f3eeee; margin-left: 20px;">&nbsp&nbsp{{count($news[1]['new']['comments'])}}&nbsp&nbsp</i></a>
+						<a href=""><i class="fa fa-comment" aria-hidden="true" style="color:#f3eeee; margin-left: 20px;">&nbsp&nbsp0&nbsp&nbsp</i></a>
 					</div>
 				</div>
 			</figure>
@@ -111,7 +111,7 @@
 				<div class="tg-img-hover">
 					<div class="holder">
 						<a href=""><i class="fa fa-heart" aria-hidden="true" style="color: #f3eeee;" >&nbsp&nbsp{{$news[2]['new']['likes'] ? $news[2]['new']['likes'] : '1'}}&nbsp&nbsp</i></a>&nbsp&nbsp
-						<a href=""><i class="fa fa-comment" aria-hidden="true" style="color:#f3eeee; margin-left: 20px;">&nbsp&nbsp{{count($news[2]['new']['comments'])}}&nbsp&nbsp</i></a>
+						<a href=""><i class="fa fa-comment" aria-hidden="true" style="color:#f3eeee; margin-left: 20px;">&nbsp&nbsp0&nbsp&nbsp</i></a>
 					</div>
 				</div>
 			</figure>
@@ -176,7 +176,7 @@
 				<div class="tg-img-hover">
 					<div class="holder">
 						<a href=""><i class="fa fa-heart" aria-hidden="true" style="color: #f3eeee;" >&nbsp&nbsp{{$news[3]['new']['likes'] ? $news[6]['new']['likes'] : '1'}}&nbsp&nbsp</i></a>&nbsp&nbsp
-						<a href=""><i class="fa fa-comment" aria-hidden="true" style="color:#f3eeee; margin-left: 20px;">&nbsp&nbsp{{count($news[2]['new']['comments'])}}&nbsp&nbsp</i></a>
+						<a href=""><i class="fa fa-comment" aria-hidden="true" style="color:#f3eeee; margin-left: 20px;">&nbsp&nbsp0&nbsp&nbsp</i></a>
 					</div>
 				</div>
 			</figure>
@@ -212,7 +212,7 @@
 				<div class="tg-img-hover">
 					<div class="holder">
 						<a href=""><i class="fa fa-heart" aria-hidden="true" style="color: #f3eeee;" >&nbsp&nbsp{{$news[6]['new']['likes'] ? $news[6]['new']['likes'] : '1'}}&nbsp&nbsp</i></a>&nbsp&nbsp
-						<a href=""><i class="fa fa-comment" aria-hidden="true" style="color:#f3eeee; margin-left: 20px;">&nbsp&nbsp{{count($news[6]['new']['comments'])}}&nbsp&nbsp</i></a>
+						<a href=""><i class="fa fa-comment" aria-hidden="true" style="color:#f3eeee; margin-left: 20px;">&nbsp&nbsp0&nbsp&nbsp</i></a>
 					</div>
 				</div>
 			</figure>
