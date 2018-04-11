@@ -9,7 +9,7 @@
 					<div class="tg-img-hover">
 						<div class="holder">
 							<a href=""><i class="fa fa-heart" aria-hidden="true" style="color: #f3eeee;" >&nbsp&nbsp{{$item->likes ? $item->likes : '1'}}&nbsp&nbsp</i></a>&nbsp&nbsp
-							<a href=""><i class="fa fa-comment" aria-hidden="true" style="color:#f3eeee; margin-left: 20px;">&nbsp&nbsp{{count($item->comments)}}&nbsp&nbsp</i></a>
+							<a href=""><i class="fa fa-comment" aria-hidden="true" style="color:#f3eeee; margin-left: 20px;">&nbsp&nbsp0&nbsp&nbsp</i></a>
 						</div>
 					</div>
 				</figure>
@@ -30,7 +30,7 @@
 							<span class="tg-post-author">Post By : <a href="">Ng Ký Lê</a></span>
 						</div>
 						<div class="post-meta pull-right">
-							<span class="tg-post-author"><a href="">{{count($item->comments)}} comments</a></span>
+							<span class="tg-post-author"><a href="">0 comments</a></span>
 						</div>
 					</div>
 				</div>
