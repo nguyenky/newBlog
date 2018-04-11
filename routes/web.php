@@ -13,9 +13,9 @@
 // use Intervention\Image\Image;
  use Intervention\Image\Facades\Image;
  use App\Models\News;
-Route::get('/', function () {
-    return view('public.index');
-});
+// Route::get('/', function () {
+//     return view('public.index');
+// });
 Route::get('/admin',function(){
 	return view('admin.index');
 });
@@ -28,7 +28,7 @@ Route::group(['namespace'=>'LaravelController\PublicController'],function(){
 	Route::get('/upload','HomeController@getUpload');
 	Route::post('/upload','HomeController@upload')->name('upload');
 
-  Route::get('/v2','HomeController@home');
+  Route::get('/','HomeController@home');
 
 });
 
